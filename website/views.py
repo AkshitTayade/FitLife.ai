@@ -68,9 +68,11 @@ def login_next(request):
         status = hotp.verify(user_otp, generated_otp_counter)
 
         if status == True:
+            # messages.success(request, "Successfully Logged In")
             return redirect('index')
 
         else:
+            messages.warning(request, "Invalid OTP! Please try again")
             return redirect('login_next')
         
     return render(request,'login-next.html')
