@@ -49,6 +49,7 @@ button:focus {
 
 ::-webkit-scrollbar {
   width: 7px;
+  background: #151419;
 }
 
 

@@ -106,7 +106,7 @@ a {
     font-weight: normal;
 }
 .login-wrapper .form-control::placeholder {
-    color: #b0adad;
+    color:#C4C4C4;
 }
 .login-wrapper .form-control:focus {
     color: #212529;
@@ -121,7 +121,6 @@ a {
     background-color: #0057FF;
     border-radius: 10px;
     font-size: 20px;
-    /* line-height: 23px; */
     color: #FFFFFF;
     margin-top: 20px;
     margin-bottom: 14px;
@@ -143,10 +142,11 @@ a {
     border-radius: 10px;
     width: 60px;
     border-radius: 4px;
+    color:#212529 ;
+    text-align: center;
 }
 
 .otp .form-control:focus {
-    color: #C4C4C4;
     background-color: #fff;
     border-color: #0057FF;
     outline: 0;
