@@ -5,6 +5,8 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.conf import settings
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.core.mail import EmailMultiAlternatives
 import pyotp
 import random
 import json
@@ -35,13 +37,12 @@ def login(request):
         with open("otp_creds.json", "w") as outfile:
             outfile.write(json_object)
 
-        send_mail(
-            'OTP',
-            f'Here is your OTP: {otp}.',
-            'akshitspam1@gmail.com',
-            [user_email_id],
-            fail_silently=False,
-        )
+        
+        msg_html = render_to_string('otp-email.html', {"otp": otp})
+
+        email = EmailMultiAlternatives(f'Fitlife.ai Account - {otp} is your OTP for secure access', '', settings.EMAIL_HOST_USER, [user_email_id])
+        email.attach_alternative(msg_html, "text/html")
+        email.send()
 
         return redirect('login_next')
 
