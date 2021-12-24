@@ -70,8 +70,8 @@ def login_next(request):
 
         if status == True:
             # messages.success(request, "Successfully Logged In")
-            return HttpResponse('<h1>Successfully Logged In</h1>')
-            # return redirect('index')
+            # return HttpResponse('<h1>Successfully Logged In</h1>')
+            return redirect('dashboard')
 
         else:
             messages.warning(request, "Invalid OTP! Please try again")
@@ -79,3 +79,5 @@ def login_next(request):
         
     return render(request,'login-next.html')
 
+def dashboard(request):
+    return render(request,'dashboard.html')
