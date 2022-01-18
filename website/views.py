@@ -10,8 +10,10 @@ from django.core.mail import EmailMultiAlternatives
 import pyotp
 import random
 import json
+from django.urls import reverse
+import datetime
 
-hotp = pyotp.HOTP('base32secret3232', digits=4)
+hotp = pyotp.TOTP('base32secret3232', digits=4)
 
 def index(request):
     return render(request,'index.html')
@@ -22,21 +24,7 @@ def login(request):
         user_email_id = request.POST['user_email']
 
         # stats for geenrating OTP
-        hotp_counter_id = random.randint(0, 10000)
-        otp = hotp.at(hotp_counter_id)
-        
-        dictionary ={
-            "otp_counter_id" : hotp_counter_id,
-            "otp" : otp,
-        }
-  
-        # Serializing json 
-        json_object = json.dumps(dictionary, indent = 4)
-        
-        # Writing to sample.json
-        with open("otp_creds.json", "w") as outfile:
-            outfile.write(json_object)
-
+        otp = hotp.now()
         
         msg_html = render_to_string('otp-email.html', {"otp": otp})
 
@@ -44,7 +32,9 @@ def login(request):
         email.attach_alternative(msg_html, "text/html")
         email.send()
 
-        return redirect('login_next')
+        return render(request,'login-next.html',{"user_email_id": user_email_id})
+
+        #return redirect('login_next', user_email_id = user_email_id)
 
     return render(request,'login.html')
 
@@ -57,16 +47,7 @@ def login_next(request):
 
         user_otp = otp1 + otp2 + otp3 + otp4
         
-        # Opening JSON file
-        f = open('otp_creds.json',)
-        
-        # returns JSON object as
-        # a dictionary
-        data = json.load(f)
-
-        generated_otp_counter = data['otp_counter_id']
-
-        status = hotp.verify(user_otp, generated_otp_counter)
+        status = hotp.verify(str(user_otp))
 
         if status == True:
             # messages.success(request, "Successfully Logged In")
