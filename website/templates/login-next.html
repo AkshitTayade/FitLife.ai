@@ -43,7 +43,7 @@
                 <div class="login-wrapper my-auto">
                     <h1 class="login-title">Lorem ipsum dolor sit amet, consectetur adwe.</h1>
                     <h2>Enter the OTP</h2>
-                    <p>We’ve sent a four-digit confirmation code to <b>{{ user_email_id }}</b>. Enter it below to confirm your email address .</p>
+                    <p>We’ve sent a four-digit confirmation code to {{user_email_id}}. Enter it below to confirm your email address .</p>
                     <form action="{% url 'login_next' %}" method="POST">
                         {% csrf_token %}
                         <div class="d-flex flex-row otp mb-4 mt-4">
@@ -53,7 +53,8 @@
                             <input name='otp_4' type="text" class="form-control"  maxlength="1" />
                         </div>
                         <div id="divCounter"></div>
-                        <p class="login-wrapper-footer-text">Didn't receive OTP ? <a href="" style="color: #0057FF;"> Resend </a></p>
+                         
+                        <p class="login-wrapper-footer-text">Didn't receive OTP ? <a href="{% url 'resend_for_login' %}" style="color: #0057FF;"> Resend </a></p>
                         <button type="submit" class="btn btn-block login-btn">Confirm</button>
                     </form>
                 </div>
