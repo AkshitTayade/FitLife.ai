@@ -52,9 +52,8 @@
                             <input name='otp_3' type="text" class="form-control"  maxlength="1" />
                             <input name='otp_4' type="text" class="form-control"  maxlength="1" />
                         </div>
-                        <div id="divCounter"></div>
-                         
-                        <p class="login-wrapper-footer-text">Didn't receive OTP ? <a href="{% url 'resend_for_login' %}" style="color: #0057FF;"> Resend </a></p>
+                        
+                        <p class="login-wrapper-footer-text">Didn't receive OTP ? <a id="divCounter_content" href="{% url 'resend_for_login' %}" style="color: #0057FF;"> Resend </a></p>
                         <button type="submit" class="btn btn-block login-btn">Confirm</button>
                     </form>
                 </div>
