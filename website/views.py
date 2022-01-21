@@ -23,6 +23,10 @@ def login(request):
 
         user_email_id = request.POST['user_email']
 
+        file = open('saving_mail_ids.txt', 'w')
+        file.write(user_email_id)
+        file.close()
+
         # stats for geenrating OTP
         otp = hotp.now()
         
@@ -32,7 +36,7 @@ def login(request):
         email.attach_alternative(msg_html, "text/html")
         email.send()
 
-        return render(request,'login-next.html',{"user_email_id": user_email_id})
+        return render(request,'login-next.html', {"user_email_id": user_email_id})
 
         #return redirect('login_next', user_email_id = user_email_id)
 
@@ -59,6 +63,25 @@ def login_next(request):
             return redirect('login_next')
         
     return render(request,'login-next.html')
+
+def resend_for_login(request):
+
+    file = open("saving_mail_ids.txt").read()
+    #print(file) 
+    
+    #stats for geenrating OTP
+    otp = hotp.now()
+
+    msg_html = render_to_string('otp-email.html', {"otp": otp})
+
+    email = EmailMultiAlternatives(f'Fitlife.ai Account - {otp} is your OTP for secure access', '', settings.EMAIL_HOST_USER, [file])
+    email.attach_alternative(msg_html, "text/html")
+    email.send()
+
+    return render(request,'login-next.html', {"user_email_id": file})
+
+   
+
 
 def dashboard(request):
     return render(request,'dashboard.html')
