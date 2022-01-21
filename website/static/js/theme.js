@@ -55,7 +55,7 @@
 //var hoursleft = 0;
 var minutesleft = 0; //give minutes you wish
 var secondsleft = 32; // give seconds you wish
-var finishedtext = '<a>Resend</a>';
+var finishedtext = document.getElementById('divCounter_content').innerHTML;
 var end1
 if(localStorage.getItem("end1")) {
 end1 = new Date(localStorage.getItem("end1"));
@@ -87,11 +87,11 @@ if(now >= end1) {
    // localStorage.setItem("end", null);
      localStorage.removeItem("end1");
      localStorage.clear();
-    document.getElementById('divCounter').innerHTML = finishedtext;
+    document.getElementById('divCounter_content').innerHTML = finishedtext;
 } else {
     var value = mins + ":" + sec;
     localStorage.setItem("end1", end1);
-    document.getElementById('divCounter').innerHTML = value;
+    document.getElementById('divCounter_content').innerHTML = value;
 }
 }
 var interval = setInterval(counter, 1000);
