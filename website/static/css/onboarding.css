@@ -1,0 +1,538 @@
+
+/*=================== fonts ====================*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Rubik:wght@500&display=swap');
+ul,li,ol {
+	margin: 0px;
+	padding: 0px ;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  height: 100%;
+}
+html, body {width: auto!important; overflow-x: hidden!important} 
+body {
+  height: 100% ;
+  letter-spacing: 0.5px;
+  color: #6F6C7B;
+  scroll-behavior: smooth;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	text-decoration: none;
+  outline: none;
+}
+
+
+.btn:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: #151419;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #77728A;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0057FF;
+}
+
+/**************** Progress Bar Common ******************/
+
+.arrow-signs{
+  margin-bottom:60px;
+}
+.arrow-signs i{
+  color: #18181B;
+  font-size: 30px;
+}
+.arrow-signs .progress{
+  width: 75%;
+  margin-left: 30px;
+  background: #F1F3F4;
+  border-radius: 60px;
+}
+.arrow-signs .progress .progress-bar{
+  background: #0057FF !important;
+  border-radius: 60px;
+
+}
+/**************** Gender Page ******************/
+#gender h1{
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 28px;
+  color: #242831;
+  font-family: 'Rubik', sans-serif;
+}
+#gender h2{
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 8px;
+  font-family: 'Inter', sans-serif;
+}
+#gender img{
+  height: 120px;
+  margin-bottom: 10px;
+}
+.gender-form .row{
+  margin-bottom: 150px;
+}
+
+#gender .card{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: none;
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin-bottom: 26px;
+}
+#gender .card:hover{
+  cursor: pointer;
+}
+#gender .card-body{
+  padding: 30px 50px;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+#gender .form-check{
+  margin-left: 0px;
+  padding-left: 0px;
+}
+#gender .form-check-input{
+  display: none;
+}
+#gender .form-check label{
+  width: 100%;
+}
+#gender .form-check-input:checked + .card{
+  background: #0057FF !important;
+  color: white;
+}
+
+/**************** Continue Button Common ******************/
+.continue{
+  background: #C7C5CC;
+  border-radius: 14px;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 12px 120px;
+  margin-top: 70px;
+  font-family: 'Inter', sans-serif;
+}
+.continue:hover{
+  background: #0057FF;
+  color: #FFFFFF;
+}
+/**************** Focus Area Page ******************/
+#focus-area h1{
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 28px;
+  color: #242831;
+  font-family: 'Rubik', sans-serif;
+}
+#focus-area img{
+ width: 120%;
+
+}
+
+#focus-area .card{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: none;
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+#focus-area .card:hover{
+  cursor: pointer;
+}
+#focus-area .card-body{
+  padding: 16px 0px;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 0px;
+  text-align: left;
+  padding-left: 16px;
+  font-family: 'Inter', sans-serif;
+  
+}
+#focus-area .form-check{
+  margin-left: 0px;
+  padding-left: 0px;
+  margin-top: 12px;
+}
+#focus-area .form-check-input{
+  display: none;
+}
+#focus-area .form-check label{
+  width: 100%;
+}
+#focus-area .form-check-input:checked + .card{
+  background: #0057FF !important;
+  color: white;
+}
+/**************** Personal Details ******************/
+.details .row{
+  margin-bottom: 100px;
+}
+.details .col-8{
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.details .form-control {
+  background: #F6F6F6 !important;
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 10px;
+  margin-top: 5px;
+}
+.details .form-select{
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 10px;
+  margin-top: 5px;
+  color: #C7C5CC;
+  background-color: #F6F6F6;
+  font-family: 'Inter', sans-serif;
+   
+}
+
+select:focus{
+  box-shadow: none !important;
+}
+
+input:focus{
+  box-shadow: none !important;
+}
+.details label{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: #242831;
+  margin-bottom: 16px;
+  font-family: 'Rubik', sans-serif;
+}
+.details ::placeholder{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #C7C5CC;
+  font-family: 'Inter', sans-serif;
+}
+.details h4{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #6F6C7B;
+  margin-left: 10px;
+  margin-top: 30px;
+  font-family: 'Inter', sans-serif;
+}
+#weight-details .details .row{
+  margin-bottom: 90px;
+}
+/**************** Main Goal Page ******************/
+#main-goal h1{
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 28px;
+  color: #242831;
+  font-family: 'Rubik', sans-serif;
+}
+#main-goal p{
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  color: #6F6C7B;
+  font-family: 'Inter', sans-serif;
+}
+
+#main-goal .card{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: none;
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin-bottom: 26px;
+}
+#main-goal .card:hover{
+  cursor: pointer;
+}
+#main-goal .card-body{
+  padding: 16px 0px;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 0px;
+  text-align: left;
+  padding-left: 16px;
+  font-family: 'Inter', sans-serif;
+  
+}
+#main-goal img{
+  margin-right: 12px;
+}
+#main-goal .form-check{
+  margin-left: 0px;
+  padding-left: 0px;
+}
+#main-goal .form-check-input{
+  display: none;
+}
+#main-goal .form-check label{
+  width: 100%;
+}
+#main-goal .form-check-input:checked + .card{
+  background: #0057FF !important;
+  color: white;
+}
+/**************** Active Area Page  ******************/
+#active-area h1{
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 28px;
+  color: #242831;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+}
+#active-area p{
+  margin-bottom: 0px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #6F6C7B;
+  font-family: 'Inter', sans-serif;
+}
+
+.active-area-title{
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  color: #393939;
+  font-family: 'Inter', sans-serif;
+}
+
+.active-status-progress {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+}
+
+.active-status-progress-btn {
+  transition-property: all;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  position: relative;
+  padding-top: 20px;
+  color: rgba(108, 117, 125, 0.7);
+  text-indent: -9999px;
+  border: none;
+  background-color: transparent;
+  outline: none !important;
+  cursor: pointer;
+}
+@media (min-width: 500px) {
+  .active-status-progress-btn {
+    text-indent: 0;
+  }
+}
+.active-status-progress-btn:before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  content: "";
+  transform: translateX(-50%);
+  transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background-color: #fff;
+  box-sizing: border-box;
+  z-index: 3;
+}
+.active-status-progress-btn:after {
+  position: absolute;
+  top: 5px;
+  left: calc(-50% - 13px / 2);
+  transition-property: all;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  display: block;
+  width: 100%;
+  height: 6px;
+  content: "";
+  background-color: currentColor;
+  z-index: 1;
+}
+.active-status-progress-btn:first-child:after {
+  display: none;
+}
+.active-status-progress-btn.js-active {
+  color: #0057FF;
+}
+.active-status-progress-btn.js-active:before {
+  transform: translateX(-50%) scale(1.2);
+  background-color: currentColor;
+}
+
+.active-status-form {
+  position: relative;
+}
+
+.active-status-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.active-status-panel.js-active {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+#active-area img{
+  height: 200px;
+}
+#active-area  .form-check{
+  margin-left: 0px;
+  padding-left: 0px;
+}
+#active-area .form-check-input{
+  display: none;
+}
+#active-area  .form-check label{
+  width: 100%;
+}
+#active-area .status1:hover,
+#active-area .status2:hover,
+#active-area .status3:hover,
+#active-area .status4:hover{
+  cursor: pointer;
+  
+}
+
+#active-area .image1{
+  margin-top:-290px;
+  margin-left: 520px;
+}
+#active-area .image2,
+#active-area .image3,
+#active-area .image4{
+  margin-top:-270px;
+  margin-left:540px;
+}
+#active-area  .status1{
+  width: 33%;
+  margin-top:90px;
+  margin-left: 30px;
+}
+#active-area .status2{
+  margin-top:70px;
+  margin-left:300px;
+  width: 52%;
+}
+#active-area .status3{
+  margin-top:70px;
+  margin-left:550px;
+  width: 43%;
+}
+#active-area .status4{
+  margin-top:70px;
+  margin-left:900px;
+  width:37%;
+}
+@media (max-width:768px){
+  .arrow-signs {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .arrow-signs i {
+    font-size: 26px;
+  }
+	#gender h1 {
+		font-size: 22px;
+  }
+  #gender .gender-form{
+    margin-top: 0px;
+  }
+  .gender-form input[type="radio"] + label {
+    margin-top: 10px;
+  }
+  .gender-form .row {
+    margin-bottom: 0px;
+  }
+  .continue{
+    padding: 12px 50px;
+    margin-top: 20px;
+  }
+  .details label {
+    font-size: 20px;
+  }
+  .details .form-control{
+    width: 90% !important;
+  }
+  .details .form-select{
+    width: 90% !important;
+  }
+  #weight-details .details .form-control {
+    width: 50% !important;
+  }
+  #focus-area h1{
+    font-size: 24px;
+  }
+  #main-goal h1{
+    font-size: 24px;
+  }
+  #active-area h1 {
+    font-size: 22px;
+  }
+  #active-area .image1,
+  #active-area .image2,
+  #active-area .image3,
+  #active-area .image4
+  {
+    margin-left: 70px !important;
+  }
+  #active-area .status1{
+    width:auto !important;
+  }
+  #active-area .status2,
+  #active-area .status3,
+  #active-area .status4{
+    margin-left:30px;
+    width:auto;
+  }
+  
+  
+}
+
+

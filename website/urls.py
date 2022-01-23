@@ -9,5 +9,13 @@ urlpatterns = [
     path('login_next', views.login_next, name = 'login_next'), 
     path('/resent', views.resend_for_login, name = 'resend_for_login'), 
     path('dashboard', views.dashboard, name = 'dashboard'),
+    path('gender', views.gender, name = 'gender'),
+    path('focus_area_female', views.focus_area_female, name = 'focus_area_female'),
+    path('focus_area_male', views.focus_area_male, name = 'focus_area_male'),
+    path('personal_details', views.personal_details, name = 'personal_details'),
+    path('body_details', views.body_details, name = 'body_details'),
+    path('active_status_female', views.active_status_female, name = 'active_status_female'),
+    path('active_status_male', views.active_status_male, name = 'active_status_male'),
+    path('main_goal', views.main_goal, name = 'main_goal'),
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

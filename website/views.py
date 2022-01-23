@@ -81,7 +81,55 @@ def resend_for_login(request):
     return render(request,'login-next.html', {"user_email_id": file})
 
    
-
-
 def dashboard(request):
     return render(request,'dashboard.html')
+
+def gender(request):
+    # if request.method == 'POST':
+    #     gender_1 = request.POST['genderm']
+    #     gender_2 = request.POST['genderf']
+    #     print(gender_1,gender_2)
+        
+    #     redirect('index')
+
+    # if gender = Male:
+    # redirect to focus_area_male  and active_status_male
+    # else:
+    # redirect to focus_area_female and active_status_female
+
+    return render(request,'gender.html')
+
+def focus_area_female(request):
+    return render(request,'focus-area-female.html')
+
+def focus_area_male(request):
+    return render(request,'focus-area-male.html')
+
+def personal_details(request):
+    if request.method == 'POST':
+        user_name = request.POST['name']
+        user_age = request.POST['age']
+        user_blood_group = request.POST['bloodgroup']
+        
+    return render(request,'personal-details.html')
+
+def body_details(request):
+    if request.method == 'POST':
+        user_height = request.POST['height']
+        user_current_weight = request.POST['current-weight']
+        user_targeted_weight = request.POST['targeted-weight']
+        print(user_height,user_current_weight,user_targeted_weight)
+
+    return render(request,'body-details.html')
+
+def active_status_female(request):
+    return render(request,'active-status-female.html')
+
+def active_status_male(request):
+    return render(request,'active-status-male.html')
+
+def main_goal(request):
+    return render(request,'main-goal.html')
+
+
+
