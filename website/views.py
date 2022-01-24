@@ -80,22 +80,42 @@ def resend_for_login(request):
 
     return render(request,'login-next.html', {"user_email_id": file})
 
-   
+
+# if user already exists:
+# redirect to dashboard
+# else:
+# redirect to onboarding process : gender.html
+# if user selects previous buttons update the database
+
+# if gender = Male:
+# redirect to focus_area_male  and active_status_male and dashboard_male
+# else:
+# redirect to focus_area_female and active_status_female and dashboard_female
+
+
+# for previous button in HTML Template 
+# Personal Details : if Male then focus_area_male 
+#                    else focus_area_female
+
+# Main Goal : if Male then active_status_male
+#             else active_status_female
+
+
 def dashboard(request):
     return render(request,'dashboard.html')
 
 def gender(request):
-    # if request.method == 'POST':
-    #     gender_1 = request.POST['genderm']
-    #     gender_2 = request.POST['genderf']
-    #     print(gender_1,gender_2)
+    if request.method == 'POST':
+        try:
+            gender_1 = request.POST['genderm'] 
+            return redirect('focus_area_male')
         
-    #     redirect('index')
+        except:
+            gender_2 = request.POST['genderf']
+            return redirect('focus_area_female')
 
-    # if gender = Male:
-    # redirect to focus_area_male  and active_status_male
-    # else:
-    # redirect to focus_area_female and active_status_female
+        
+        return redirect('personal_details')
 
     return render(request,'gender.html')
 
@@ -110,6 +130,9 @@ def personal_details(request):
         user_name = request.POST['name']
         user_age = request.POST['age']
         user_blood_group = request.POST['bloodgroup']
+        print(user_name,user_age,user_blood_group)
+
+        return redirect('body_details')
         
     return render(request,'personal-details.html')
 
@@ -119,6 +142,8 @@ def body_details(request):
         user_current_weight = request.POST['current-weight']
         user_targeted_weight = request.POST['targeted-weight']
         print(user_height,user_current_weight,user_targeted_weight)
+
+
 
     return render(request,'body-details.html')
 
