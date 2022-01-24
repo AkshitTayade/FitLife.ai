@@ -104,9 +104,21 @@ def resend_for_login(request):
 def dashboard(request):
     return render(request,'dashboard.html')
 
+# stroing all the info about their selected choices in json
+
+
+
 def gender(request):
     if request.method == 'POST':
         gender = request.POST['gender']
+
+        # updating the onboarding json file
+        onboard_file = open('website/onboarding_stat.json', 'r+')
+        onboard_data = json.load(onboard_file)
+        onboard_data.update({"gender": gender})
+        onboard_file.seek(0)
+        json.dump(onboard_data, onboard_file)
+        onboard_file.close()
 
         if gender == 'male':
             return redirect ('focus_area_male')
@@ -120,6 +132,14 @@ def focus_area_female(request):
     if request.method == 'POST':
         focus_area_female = request.POST['focus_area_female']
 
+        # updating the onboarding json file
+        onboard_file = open('website/onboarding_stat.json', 'r+')
+        onboard_data = json.load(onboard_file)
+        onboard_data.update({"focus_area": focus_area_female})
+        onboard_file.seek(0)
+        json.dump(onboard_data, onboard_file)
+        onboard_file.close()
+
         if focus_area_female == 'Arms' or 'Belly' or 'Butt' or 'Legs' or 'FullBody':
             return redirect('personal_details')
 
@@ -131,6 +151,15 @@ def focus_area_female(request):
 def focus_area_male(request):
     if request.method == 'POST':
         focus_area_male = request.POST['focus_area_male']
+
+        # updating the onboarding json file
+        onboard_file = open('website/onboarding_stat.json', 'r+')
+        onboard_data = json.load(onboard_file)
+        onboard_data.update({"focus_area": focus_area_male})
+        onboard_file.seek(0)
+        json.dump(onboard_data, onboard_file)
+        onboard_file.close()
+
 
         if focus_area_male == 'Arms' or 'Belly' or 'Butt' or 'Legs' or 'FullBody':
             return redirect('personal_details')
@@ -145,7 +174,17 @@ def personal_details(request):
         user_name = request.POST['name'].title()
         user_age = request.POST['age']
         user_blood_group = request.POST['bloodgroup']
-        print(user_name,user_age,user_blood_group)
+        #print(user_name,user_age,user_blood_group)
+
+        # updating the onboarding json file
+        onboard_file = open('website/onboarding_stat.json', 'r+')
+        onboard_data = json.load(onboard_file)
+        onboard_data.update({   "user_name": user_name,
+                                "user_age": user_age,
+                                "user_blood_group": user_blood_group})
+        onboard_file.seek(0)
+        json.dump(onboard_data, onboard_file)
+        onboard_file.close()
 
         return render(request,'body-details.html',{"user_name": user_name})
         
@@ -158,17 +197,39 @@ def body_details(request):
         user_targeted_weight = request.POST['targeted-weight']
         print(user_height,user_current_weight,user_targeted_weight)
 
+        # updating the onboarding json file
+        onboard_file = open('website/onboarding_stat.json', 'r+')
+        onboard_data = json.load(onboard_file)
+        onboard_data.update({   "user_height": user_height,
+                                "user_current_weight": user_current_weight,
+                                "user_targeted_weight": user_targeted_weight})
+        onboard_file.seek(0)
+        json.dump(onboard_data, onboard_file)
+        onboard_file.close()
+
         #if male redirect to active_status_male
+        if onboard_data['gender'] == 'male':
+            return redirect('active_status_male')
         #else redirect to active_status_female
-        
+
+        else:
+            return render(request, 'active-status-female.html', {'user_name': onboard_data['user_name']})
 
     return render(request,'body-details.html')
 
 def active_status_female(request):
     if request.method == 'POST':
-        active_status_female = request.POST['active_status_female']
+        active_status = request.POST['active_status_female']
 
-        if active_status_female == 'option1' or 'option2' or 'option3' or 'option4':
+        # updating the onboarding json file
+        onboard_file = open('website/onboarding_stat.json', 'r+')
+        onboard_data = json.load(onboard_file)
+        onboard_data.update({"active_status": active_status})
+        onboard_file.seek(0)
+        json.dump(onboard_data, onboard_file)
+        onboard_file.close()
+
+        if active_status == 'Sedentary' or 'Lightly active' or 'Moderately active' or 'Vigorously active':
             return redirect('main_goal') 
 
         else:
@@ -178,9 +239,17 @@ def active_status_female(request):
 
 def active_status_male(request):
     if request.method == 'POST':
-        active_status_male = request.POST['active_status_male']
+        active_status = request.POST['active_status_male']
 
-        if active_status_male == 'option1' or 'option2' or 'option3' or 'option4':
+        # updating the onboarding json file
+        onboard_file = open('website/onboarding_stat.json', 'r+')
+        onboard_data = json.load(onboard_file)
+        onboard_data.update({"active_status": active_status})
+        onboard_file.seek(0)
+        json.dump(onboard_data, onboard_file)
+        onboard_file.close()
+
+        if active_status == 'option1' or 'option2' or 'option3' or 'option4':
             return redirect('main_goal') 
 
         else:
@@ -191,6 +260,14 @@ def active_status_male(request):
 def main_goal(request):
     if request.method == 'POST':
         main_goal = request.POST['main_goal']
+
+        # updating the onboarding json file
+        onboard_file = open('website/onboarding_stat.json', 'r+')
+        onboard_data = json.load(onboard_file)
+        onboard_data.update({"main_goal": main_goal})
+        onboard_file.seek(0)
+        json.dump(onboard_data, onboard_file)
+        onboard_file.close()
 
         if main_goal == 'EatHealthier' or 'LoseWeight' or 'GainStrength' or 'GetToned' or 'BuildStamina':
             return redirect('dashboard')

@@ -28,7 +28,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-12 col-md-12 d-flex flex-column align-items-center justify-content-center">
-                    <h1 style="margin-bottom:280px;">How active are you, Pushti?</h1>
+                    <h1 style="margin-bottom:280px;">How active are you, {{ user_name }}?</h1>
                     <div class="container">
                         <div class="multisteps-form">
                             <!--progress bar-->
@@ -52,9 +52,9 @@
                                     <form class="active-status-form" action="{% url 'active_status_female' %}" method="POST">
                                         {% csrf_token %}
                                         <div class="form-check">
-                                            <label class="form-check-label" for="option1">
+                                            <label class="form-check-label" for="Sedentary">
                                                 <input class="form-check-input" type="radio" name="active_status_female"
-                                                id="option1" value="option1">
+                                                id="Sedentary" value="Sedentary">
                                                 <div class="active-status-panel js-active">
                                                     <div class="image1">
                                                         <img src="{% static 'img/onboarding-images/active-status/option1f.png'%}">
@@ -68,9 +68,9 @@
                                         </div>
 
                                         <div class="form-check">
-                                            <label class="form-check-label" for="option2">
+                                            <label class="form-check-label" for="Lightly active">
                                                 <input class="form-check-input" type="radio" name="active_status_female"
-                                                id="option2" value="option2">
+                                                id="Lightly active" value="Lightly active">
                                                 <div class="active-status-panel">
                                                     <div class="image2">
                                                         <img src="{% static 'img/onboarding-images/active-status/option2f.png'%}">
@@ -84,9 +84,9 @@
                                         </div>
 
                                         <div class="form-check">
-                                            <label class="form-check-label" for="option3">
+                                            <label class="form-check-label" for="Moderately active">
                                                 <input class="form-check-input" type="radio" name="active_status_female"
-                                                id="option3" value="option3">
+                                                id="Moderately active" value="Moderately active">
                                                 <div class="active-status-panel">
                                                     <div class="image3">
                                                         <img src="{% static 'img/onboarding-images/active-status/option3f.png'%}">
@@ -100,9 +100,9 @@
                                         </div>
 
                                         <div class="form-check">
-                                            <label class="form-check-label" for="option4">
+                                            <label class="form-check-label" for="Vigorously active">
                                                 <input class="form-check-input" type="radio" name="active_status_female"
-                                                id="option4" value="option4">
+                                                id="Vigorously active" value="Vigorously active">
                                                 <div class="active-status-panel">
                                                     <div class="image4">
                                                         <img src="{% static 'img/onboarding-images/active-status/option4f.png'%}">
