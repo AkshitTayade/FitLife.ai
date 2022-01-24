@@ -31,14 +31,14 @@
                <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
                   <h1>What’s your focus area?</h1>
                   <!---- Focus Area Form ----->
-                  <form action="" class="focus-area-form" method="POST">
+                  <form action="{% url 'focus_area_male' %}" class="focus-area-form" method="POST">
                      {% csrf_token %}
                      <div class="row">
                         <div class="col-lg-6 mt-5">
                             <!---- Arms ----->
                            <div class="form-check">
                               <label class="form-check-label" for="arms" style="margin-left:21px;margin-top: 35px;">
-                                 <input class="form-check-input" type="radio" id="arms" name="focus-area"
+                                 <input class="form-check-input" type="radio" id="arms" name="focus_area_male"
                                     value="Arms"required />
                                  <div class="card">
                                     <div class="card-body">Arms</div>
@@ -48,7 +48,7 @@
                            <!---- Belly ----->
                            <div class="form-check">
                               <label class="form-check-label" for="belly" style="margin-left:21px;margin-top:22px;">
-                                 <input class="form-check-input" type="radio" name="focus-area" id="belly" value="Belly"
+                                 <input class="form-check-input" type="radio" name="focus_area_male" id="belly" value="Belly"
                                     required />
                                  <div class="card">
                                     <div class="card-body">Belly
@@ -59,7 +59,7 @@
                            <!---- Butt ----->
                            <div class="form-check">
                               <label class="form-check-label" for="butt" style="margin-left:21px;margin-top:16px;">
-                                 <input class="form-check-input" type="radio" name="focus-area" id="butt" value="Butt"
+                                 <input class="form-check-input" type="radio" name="focus_area_male" id="butt" value="Butt"
                                     required />
                                  <div class="card">
                                     <div class="card-body">Butt</div>
@@ -69,7 +69,7 @@
                            <!---- Legs ----->
                            <div class="form-check">
                               <label class="form-check-label" for="legs" style="margin-left:21px;margin-top:15px;">
-                                 <input class="form-check-input" type="radio" name="focus-area" id="legs" value="Legs"
+                                 <input class="form-check-input" type="radio" name="focus_area_male" id="legs" value="Legs"
                                     required />
                                  <div class="card">
                                     <div class="card-body">Legs</div>
@@ -79,7 +79,7 @@
                            <!---- Full Body ----->
                            <div class="form-check">
                               <label class="form-check-label" for="fullbody" style="margin-left:21px;margin-top:15px;">
-                                 <input class="form-check-input" type="radio" name="focus-area" value="Full Body"
+                                 <input class="form-check-input" type="radio" name="focus_area_male" value="Full Body"
                                     id="fullbody" required />
                                  <div class="card">
                                     <div class="card-body">Full Body</div>

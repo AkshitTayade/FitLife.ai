@@ -106,33 +106,48 @@ def dashboard(request):
 
 def gender(request):
     if request.method == 'POST':
-        try:
-            gender_1 = request.POST['genderm'] 
-            return redirect('focus_area_male')
-        
-        except:
-            gender_2 = request.POST['genderf']
-            return redirect('focus_area_female')
+        gender = request.POST['gender']
 
-        
-        return redirect('personal_details')
+        if gender == 'male':
+            return redirect ('focus_area_male')
+
+        else:
+            return redirect('focus_area_female')
 
     return render(request,'gender.html')
 
 def focus_area_female(request):
+    if request.method == 'POST':
+        focus_area_female = request.POST['focus_area_female']
+
+        if focus_area_female == 'Arms' or 'Belly' or 'Butt' or 'Legs' or 'FullBody':
+            return redirect('personal_details')
+
+        else:
+            return redirect('focus_area_female')
+
     return render(request,'focus-area-female.html')
 
 def focus_area_male(request):
+    if request.method == 'POST':
+        focus_area_male = request.POST['focus_area_male']
+
+        if focus_area_male == 'Arms' or 'Belly' or 'Butt' or 'Legs' or 'FullBody':
+            return redirect('personal_details')
+
+        else:
+            return redirect('focus_area_male')
+
     return render(request,'focus-area-male.html')
 
 def personal_details(request):
     if request.method == 'POST':
-        user_name = request.POST['name']
+        user_name = request.POST['name'].title()
         user_age = request.POST['age']
         user_blood_group = request.POST['bloodgroup']
         print(user_name,user_age,user_blood_group)
 
-        return redirect('body_details')
+        return render(request,'body-details.html',{"user_name": user_name})
         
     return render(request,'personal-details.html')
 
@@ -143,17 +158,42 @@ def body_details(request):
         user_targeted_weight = request.POST['targeted-weight']
         print(user_height,user_current_weight,user_targeted_weight)
 
-
-
     return render(request,'body-details.html')
 
 def active_status_female(request):
+    if request.method == 'POST':
+        active_status_female = request.POST['active_status_female']
+
+        if active_status_female == 'option1' or 'option2' or 'option3' or 'option4':
+            return redirect('main_goal') 
+
+        else:
+            return redirect('active_status_female')    
+    
     return render(request,'active-status-female.html')
 
 def active_status_male(request):
+    if request.method == 'POST':
+        active_status_male = request.POST['active_status_male']
+
+        if active_status_male == 'option1' or 'option2' or 'option3' or 'option4':
+            return redirect('main_goal') 
+
+        else:
+            return redirect('active_status_male')     
+    
     return render(request,'active-status-male.html')
 
 def main_goal(request):
+    if request.method == 'POST':
+        main_goal = request.POST['main_goal']
+
+        if main_goal == 'EatHealthier' or 'LoseWeight' or 'GainStrength' or 'GetToned' or 'BuildStamina':
+            return redirect('dashboard')
+        
+        else:
+            return redirect('main_goal') 
+
     return render(request,'main-goal.html')
 
 
