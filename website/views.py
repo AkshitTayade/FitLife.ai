@@ -158,6 +158,10 @@ def body_details(request):
         user_targeted_weight = request.POST['targeted-weight']
         print(user_height,user_current_weight,user_targeted_weight)
 
+        #if male redirect to active_status_male
+        #else redirect to active_status_female
+        
+
     return render(request,'body-details.html')
 
 def active_status_female(request):
