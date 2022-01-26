@@ -38,8 +38,6 @@ def login(request):
 
         return render(request,'login-next.html', {"user_email_id": user_email_id})
 
-        #return redirect('login_next', user_email_id = user_email_id)
-
     return render(request,'login.html')
 
 def login_next(request):
@@ -172,16 +170,17 @@ def focus_area_male(request):
 def personal_details(request):
     if request.method == 'POST':
         user_name = request.POST['name'].title()
+        user_email = request.POST['email']
         user_age = request.POST['age']
         user_blood_group = request.POST['bloodgroup']
-        #print(user_name,user_age,user_blood_group)
 
         # updating the onboarding json file
         onboard_file = open('website/onboarding_stat.json', 'r+')
         onboard_data = json.load(onboard_file)
         onboard_data.update({   "user_name": user_name,
+                                "user_email": user_email,
                                 "user_age": user_age,
-                                "user_blood_group": user_blood_group})
+                                "user_blood_group": user_blood_group,})
         onboard_file.seek(0)
         json.dump(onboard_data, onboard_file)
         onboard_file.close()
