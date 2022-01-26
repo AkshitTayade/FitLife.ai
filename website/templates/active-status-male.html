@@ -28,33 +28,29 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-12 col-md-12 d-flex flex-column align-items-center justify-content-center">
-                    <h1 style="margin-bottom:280px;">How active are you, Akshit?</h1>
+                    <h1 style="margin-bottom:280px;">How active are you, {{ user_name }} ?</h1>
                     <div class="container">
                         <div class="multisteps-form">
                             <!--progress bar-->
                             <div class="row">
                                 <div class="col-12 col-lg-12 ml-auto mr-auto mb-4">
                                     <div class="active-status-progress">
-                                        <button class="active-status-progress-btn js-active" type="button"
-                                            title="User Info"></button>
-                                        <button class="active-status-progress-btn" type="button"
-                                            title="Address"></button>
-                                        <button class="active-status-progress-btn" type="button"
-                                            title="Order Info"></button>
-                                        <button class="active-status-progress-btn" type="button"
-                                            title="Comments"></button>
+                                        <button class="active-status-progress-btn js-active" type="button"></button>
+                                        <button class="active-status-progress-btn" type="button"></button>
+                                        <button class="active-status-progress-btn" type="button"></button>
+                                        <button class="active-status-progress-btn" type="button"></button>
                                     </div>
                                 </div>
                             </div>
                             <!--form panels-->
                             <div class="row">
                                 <div class="col-12 col-lg-12">
-                                    <form class="active-status-form" action="{% url 'active_status_male' %}" method="POST"> 
+                                    <form class="active-status-form" action="{% url 'active_status_male' %}" method="POST">
                                         {% csrf_token %}
                                         <div class="form-check">
-                                            <label class="form-check-label" for="option1">
+                                            <label class="form-check-label" for="Sedentary">
                                                 <input class="form-check-input" type="radio" name="active_status_male"
-                                                id="option1" value="option1">
+                                                id="Sedentary" value="Sedentary">
                                                 <div class="active-status-panel js-active">
                                                     <div class="image1">
                                                         <img src="{% static 'img/onboarding-images/active-status/option1m.png'%}">
@@ -68,9 +64,9 @@
                                         </div>
 
                                         <div class="form-check">
-                                            <label class="form-check-label" for="option2">
+                                            <label class="form-check-label" for="Lightly active">
                                                 <input class="form-check-input" type="radio" name="active_status_male"
-                                                id="option2" value="option2">
+                                                id="Lightly active" value="Lightly active">
                                                 <div class="active-status-panel">
                                                     <div class="image2">
                                                         <img src="{% static 'img/onboarding-images/active-status/option2m.png'%}">
@@ -84,9 +80,9 @@
                                         </div>
 
                                         <div class="form-check">
-                                            <label class="form-check-label" for="option3">
+                                            <label class="form-check-label" for="Moderately active">
                                                 <input class="form-check-input" type="radio" name="active_status_male"
-                                                id="option3" value="option3">
+                                                id="Moderately active" value="Moderately active">
                                                 <div class="active-status-panel">
                                                     <div class="image3">
                                                         <img src="{% static 'img/onboarding-images/active-status/option3m.png'%}">
@@ -100,9 +96,9 @@
                                         </div>
 
                                         <div class="form-check">
-                                            <label class="form-check-label" for="option4">
+                                            <label class="form-check-label" for="Vigorously active">
                                                 <input class="form-check-input" type="radio" name="active_status_male"
-                                                id="option4" value="option4">
+                                                id="Vigorously active" value="Vigorously active">
                                                 <div class="active-status-panel">
                                                     <div class="image4">
                                                         <img src="{% static 'img/onboarding-images/active-status/option4m.png'%}">

@@ -209,7 +209,7 @@ def body_details(request):
 
         #if male redirect to active_status_male
         if onboard_data['gender'] == 'male':
-            return redirect('active_status_male')
+            return render(request, 'active-status-male.html', {'user_name': onboard_data['user_name']})
         #else redirect to active_status_female
 
         else:
@@ -237,6 +237,7 @@ def active_status_female(request):
     
     return render(request,'active-status-female.html')
 
+
 def active_status_male(request):
     if request.method == 'POST':
         active_status = request.POST['active_status_male']
@@ -249,11 +250,11 @@ def active_status_male(request):
         json.dump(onboard_data, onboard_file)
         onboard_file.close()
 
-        if active_status == 'option1' or 'option2' or 'option3' or 'option4':
+        if active_status == 'Sedentary' or 'Lightly active' or 'Moderately active' or 'Vigorously active':
             return redirect('main_goal') 
 
         else:
-            return redirect('active_status_male')     
+            return redirect('active_status_male')    
     
     return render(request,'active-status-male.html')
 
