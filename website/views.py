@@ -13,6 +13,8 @@ import json
 from django.urls import reverse
 import datetime
 
+from website.models import User_Info
+
 hotp = pyotp.TOTP('base32secret3232', digits=4)
 
 def index(request):
@@ -270,6 +272,27 @@ def main_goal(request):
         onboard_file.close()
 
         if main_goal == 'EatHealthier' or 'LoseWeight' or 'GainStrength' or 'GetToned' or 'BuildStamina':
+            
+            # adding the details to the database
+            new_user_entry = User_Info(user_gender = onboard_data['gender'],
+                                        user_focus_area = onboard_data['focus_area'],
+                                        user_name = onboard_data['user_name'],
+                                        user_email = onboard_data['user_email'],
+                                        user_age = onboard_data['user_age'],
+                                        user_blood_group = onboard_data['user_blood_group'],
+                                        user_height = onboard_data['user_height'],
+                                        user_weight = onboard_data['user_current_weight'],
+                                        user_activity_level = onboard_data['active_status'])
+
+            new_user_entry.save()
+
+            onboard_file = open('website/onboarding_stat.json', 'w')
+            json.dump({}, onboard_file)
+            onboard_file.close()
+            
+            # user main goal not there in database
+            # user targeted weight not there in database
+
             return redirect('dashboard')
         
         else:
