@@ -15,7 +15,7 @@ class User_Info(models.Model):
     user_email = models.CharField(max_length=100,blank=False,null=False)
     user_age = models.IntegerField(default=0)
     user_blood_group = models.CharField(max_length=50,blank=False,null=False)
-    user_height = models.IntegerField(default=0)
+    user_height = models.FloatField(default=0)
     user_weight = models.IntegerField(default=0)
     user_activity_level = models.CharField(max_length=100,blank=False,null=False)
 

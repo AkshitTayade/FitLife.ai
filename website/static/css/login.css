@@ -26,8 +26,11 @@ a {
     height: 42px;
     margin-right: 12px;
 }
-.brand-wrapper .image{
-    margin-top: 50px;
+.image{
+    background: url('../img/login.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 .login-section-wrapper {
     padding: 40px;
