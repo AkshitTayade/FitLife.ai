@@ -8,6 +8,7 @@ urlpatterns = [
     path('login', views.login, name = 'login'),
     path('login_next', views.login_next, name = 'login_next'), 
     path('resent', views.resend_for_login, name = 'resend_for_login'), 
+    path('logout', views.logout_user, name = 'logout_user'), 
     path('dashboard', views.dashboard, name = 'dashboard'),
     path('gender', views.gender, name = 'gender'),
     path('focus_area_female', views.focus_area_female, name = 'focus_area_female'),

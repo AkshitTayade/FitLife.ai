@@ -81,6 +81,15 @@
           <span>Schedule</span>
         </a>
       </li>
+      {% if request.session.user_mail_id != False %}
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'logout_user' %}">
+          <i class="far fa-calendar-check"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+      {% else %}
+      {% endif %}
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -88,7 +97,7 @@
   <main id="main" class="main">
      
     <div class="pagetitle">
-      <h1>Hey {{user_name}} ! It’s time to #GETUPGO</h1>
+      <h1>Hey {{ user_data.user_name }} ! It’s time to #GETUPGO</h1>
     </div><!--End Page Title -->
 
     <section class="section dashboard">

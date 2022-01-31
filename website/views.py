@@ -1,4 +1,5 @@
 from os import stat
+from cv2 import RQDecomp3x3
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponse
@@ -12,12 +13,13 @@ import json
 from django.urls import reverse
 from .models import User_Info
 import datetime
-
+from django.contrib.auth import authenticate, login, logout
 from website.models import User_Info
 
 hotp = pyotp.TOTP('base32secret3232', digits=4)
 
 def index(request):
+
     return render(request,'index.html')
 
 def login(request):
@@ -65,6 +67,14 @@ def login_next(request):
         status = hotp.verify(str(user_otp))
 
         if status == True:
+            file = open('saving_mail_ids.txt').read()
+            request.session['user_mail_id'] =  file
+            request.session.modified = True
+
+            user_data = User_Info.objects.filter(user_email=file).first()
+
+            print(request.session['user_mail_id'])
+            
             return redirect('dashboard')
 
         else:
@@ -89,31 +99,29 @@ def resend_for_login(request):
 
     return render(request,'login-next.html', {"user_email_id": file})
 
+def logout_user(request):
+    
+    request.session['user_mail_id'] = False
+    request.session.modified = True
 
-# if user already exists:
-# redirect to dashboard
-# else:
-# redirect to onboarding process : gender.html
-# if user selects previous buttons update the database
+    print(request.session['user_mail_id'])
 
-# if gender = Male:
-# redirect to focus_area_male  and active_status_male and dashboard_male
-# else:
-# redirect to focus_area_female and active_status_female and dashboard_female
+    file = open('saving_mail_ids.txt', 'w')
+    file.write("")
+    file.close()
 
+    return redirect('index')
 
-# for previous button in HTML Template 
-# Personal Details : if Male then focus_area_male 
-#                    else focus_area_female
-
-# Main Goal : if Male then active_status_male
-#             else active_status_female
 
 
 def dashboard(request):
-    return render(request,'dashboard.html')
 
-# stroing all the info about their selected choices in json
+    if request.session['user_mail_id'] == False:
+        return redirect('index')
+
+    else:
+        user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+        return render(request,'dashboard.html',{'user_data': user_data})
 
 
 
@@ -303,8 +311,7 @@ def main_goal(request):
             # user main goal not there in database
             # user targeted weight not there in database
 
-           
-            return render(request,'dashboard.html',{'user_name': onboard_data['user_name']})
+            return redirect('login')
         
         else:
             return redirect('main_goal') 
