@@ -319,4 +319,7 @@ def main_goal(request):
     return render(request,'main-goal.html')
 
 
+def dashboard_male(request):
+
+    return render(request,'dashboard-male.html')
 
