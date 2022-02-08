@@ -16,7 +16,7 @@ import datetime
 from django.contrib.auth import authenticate, login, logout
 from website.models import User_Info
 
-hotp = pyotp.TOTP('base32secret3232', digits=4)
+hotp = pyotp.HOTP('base32secret3232', digits=4)
 
 def index(request):
 
@@ -38,7 +38,15 @@ def login(request):
             file.close()
 
             # stats for geenrating OTP
-            otp = hotp.now()
+            counter_HOTP = random.randint(0, 1000)
+            otp = hotp.at(counter_HOTP)
+
+            file = open('website/otp_generation.json', 'r+')
+            data = json.load(file)
+            data.update({"counter": counter_HOTP, "otp": otp})
+            file.seek(0)
+            json.dump(data, file)
+            file.close()
             
             msg_html = render_to_string('otp-email.html', {"otp": otp})
 
@@ -64,8 +72,13 @@ def login_next(request):
 
         user_otp = otp1 + otp2 + otp3 + otp4
         
-        status = hotp.verify(str(user_otp))
+        file = open('website/otp_generation.json', 'r+')
+        data = json.load(file)
 
+        status = hotp.verify(str(user_otp), data['counter'])
+
+        file.close()
+        
         if status == True:
             file = open('saving_mail_ids.txt').read()
             request.session['user_mail_id'] =  file
@@ -79,6 +92,7 @@ def login_next(request):
 
         else:
             messages.error(request, "Invalid OTP! Please try again")
+            
             return redirect('login_next')
         
     return render(request,'login-next.html')
@@ -89,7 +103,16 @@ def resend_for_login(request):
     #print(file) 
     
     #stats for geenrating OTP
-    otp = hotp.now()
+    # stats for geenrating OTP
+    counter_HOTP = random.randint(0, 1000)
+    otp = hotp.at(counter_HOTP)
+
+    file = open('website/otp_generation.json', 'r+')
+    data = json.load(file)
+    data.update({"counter": counter_HOTP, "otp": otp})
+    file.seek(0)
+    json.dump(data, file)
+    file.close()
 
     msg_html = render_to_string('otp-email.html', {"otp": otp})
 
@@ -112,8 +135,6 @@ def logout_user(request):
 
     return redirect('index')
 
-
-
 def dashboard(request):
 
     if request.session['user_mail_id'] == False:
@@ -122,7 +143,6 @@ def dashboard(request):
     else:
         user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
         return render(request,'dashboard.html',{'user_data': user_data})
-
 
 
 def gender(request):
@@ -256,7 +276,6 @@ def active_status_female(request):
     
     return render(request,'active-status-female.html')
 
-
 def active_status_male(request):
     if request.method == 'POST':
         active_status = request.POST['active_status_male']
@@ -317,9 +336,3 @@ def main_goal(request):
             return redirect('main_goal') 
 
     return render(request,'main-goal.html')
-
-
-def dashboard_male(request):
-
-    return render(request,'dashboard-male.html')
-

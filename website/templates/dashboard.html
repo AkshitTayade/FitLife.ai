@@ -100,167 +100,322 @@
       <h1>Hey {{ user_data.user_name }} ! It’s time to #GETUPGO</h1>
     </div><!--End Page Title -->
 
-    <section class="section dashboard">
-
-      <h2 class="title-heading">Exercises for you</h2>
-      <div class="container exercise-recommendations">
-        <div class="row">
-          <div class="col-xl-3 col-md-6 col-lg-3">
-            <div class="card">
-              <img class="img-fluid" src="{% static 'img/dashboard/exercise-f1.png' %}" alt="">
-              <div class="card-body">
-                <h5 class="card-title">Basic squats</h5>
-                <div class="d-flex info">
-                  <h5>20 cals</h5>
-                  <h5 class="ms-2">•</h5>
-                  <h5 class="ms-2">12 mins</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 col-lg-3">
-            <div class="card">
-              <img class="img-fluid" src="{% static 'img/dashboard/exercise-f2.png' %}" alt="">
-              <div class="card-body">
-                <h5 class="card-title">Abdominal Crunches</h5>
-                <div class="d-flex info">
-                  <h5>50 cals</h5>
-                  <h5 class="ms-2">•</h5>
-                  <h5 class="ms-2">10 mins</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 col-lg-3">
-            <div class="card">
-              <img class="img-fluid" src="{% static 'img/dashboard/exercise-f3.png' %}" alt="">
-              <div class="card-body">
-                <h5 class="card-title">Cobra Stretch</h5>
-                <div class="d-flex info">
-                  <h5>20 cals</h5>
-                  <h5 class="ms-2">•</h5>
-                  <h5 class="ms-2">5 mins</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 col-lg-3">
-            <div class="card">
-              <img class="img-fluid" src="{% static 'img/dashboard/exercise-f4.png' %}" alt="">
-              <div class="card-body">
-                <h5 class="card-title">Basic squats</h5>
-                <div class="d-flex info">
-                  <h5>20 cals</h5>
-                  <h5 class="ms-2">•</h5>
-                  <h5 class="ms-2">10 mins</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h2 class="title-heading">Workout challenges</h2>
-      <div class="container workout-challenges">
-        <div class="row">
-          <div class="col-xl-3 col-md-6 col-lg-3">
-            <div class="workout-item">
-              <div class="item-img">
-                <img src="{% static 'img/dashboard/workout1.png' %}" class="img-fluid">
-                <div class="item-title">
-                  <span>Calorie crush</span>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6 col-lg-3">
-            <div class="workout-item">
-              <div class="item-img">
-                <img src="{% static 'img/dashboard/workout2.png' %}" class="img-fluid">
-                <div class="item-title">
-                  <span>Belly burner</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6 col-lg-3">
-            <div class="workout-item">
-              <div class="item-img">
-                <img src="{% static 'img/dashboard/workout3.png' %}" class="img-fluid">
-                <div class="item-title">
-                  <span>Beach body</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6 col-lg-3">
-            <div class="workout-item">
-              <div class="item-img">
-                <img src="{% static 'img/dashboard/workout4.png' %}" class="img-fluid">
-                <div class="item-title">
-                  <span>Abs on fire</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h2 class="title-heading">Workouts by intensity</h2>
-      <div class="container workout-intensity">
-        <div class="row">
-          <div class="col-xl-4 col-md-6 col-lg-4">
-            <div class="workout-item">
-              <div class="item-img">
-                <img src="{% static 'img/dashboard/wi-f1.png' %}" class="img-fluid">
-                <div class="item-title d-flex align-items-start flex-column">
-                  <div class="p-1 workout-type">Beginner</div>
-                  <div class="p-1 mt-5 workout-button">
-                    <a href="" class="btn">See More</a>
+    {% if user_data.user_gender == 'female' %}
+      <section class="section dashboard">
+        <h2 class="title-heading">Exercises for you</h2>
+        <div class="container exercise-recommendations">
+          <div class="row">
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="card">
+                <img class="img-fluid" src="{% static 'img/dashboard/exercise-f1.png' %}" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Basic squats</h5>
+                  <div class="d-flex info">
+                    <h5>20 cals</h5>
+                    <h5 class="ms-2">•</h5>
+                    <h5 class="ms-2">12 mins</h5>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-xl-4 col-md-6 col-lg-4">
-            <div class="workout-item">
-              <div class="item-img">
-                <img src="{% static 'img/dashboard/wi-f2.png' %}" class="img-fluid">
-                <div class="item-title d-flex align-items-start flex-column">
-                  <div class="p-1 workout-type">Intermediate</div>
-                  <div class="p-1 mt-5 workout-button">
-                    <a href="" class="btn">See More</a>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="card">
+                <img class="img-fluid" src="{% static 'img/dashboard/exercise-f2.png' %}" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Abdominal Crunches</h5>
+                  <div class="d-flex info">
+                    <h5>50 cals</h5>
+                    <h5 class="ms-2">•</h5>
+                    <h5 class="ms-2">10 mins</h5>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-xl-4 col-md-6 col-lg-4">
-            <div class="workout-item">
-              <div class="item-img">
-                <img src="{% static 'img/dashboard/wi-f3.png' %}" class="img-fluid">
-                <div class="item-title d-flex align-items-start flex-column">
-                  <div class="p-1 workout-type">Advance</div>
-                  <div class="p-1 mt-5 workout-button">
-                    <a href="" class="btn">See More</a>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="card">
+                <img class="img-fluid" src="{% static 'img/dashboard/exercise-f3.png' %}" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Cobra Stretch</h5>
+                  <div class="d-flex info">
+                    <h5>20 cals</h5>
+                    <h5 class="ms-2">•</h5>
+                    <h5 class="ms-2">5 mins</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="card">
+                <img class="img-fluid" src="{% static 'img/dashboard/exercise-f4.png' %}" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Basic squats</h5>
+                  <div class="d-flex info">
+                    <h5>20 cals</h5>
+                    <h5 class="ms-2">•</h5>
+                    <h5 class="ms-2">10 mins</h5>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
+        <h2 class="title-heading">Workout challenges</h2>
+        <div class="container workout-challenges">
+          <div class="row">
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/workout1.png' %}" class="img-fluid">
+                  <div class="item-title">
+                    <span>Calorie crush</span>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/workout2.png' %}" class="img-fluid">
+                  <div class="item-title">
+                    <span>Belly burner</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/workout3.png' %}" class="img-fluid">
+                  <div class="item-title">
+                    <span>Beach body</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/workout4.png' %}" class="img-fluid">
+                  <div class="item-title">
+                    <span>Abs on fire</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <h2 class="title-heading">Workouts by intensity</h2>
+        <div class="container workout-intensity">
+          <div class="row">
+            <div class="col-xl-4 col-md-6 col-lg-4">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/wi-f1.png' %}" class="img-fluid">
+                  <div class="item-title d-flex align-items-start flex-column">
+                    <div class="p-1 workout-type">Beginner</div>
+                    <div class="p-1 mt-5 workout-button">
+                      <a href="" class="btn">See More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    </section>
+            <div class="col-xl-4 col-md-6 col-lg-4">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/wi-f2.png' %}" class="img-fluid">
+                  <div class="item-title d-flex align-items-start flex-column">
+                    <div class="p-1 workout-type">Intermediate</div>
+                    <div class="p-1 mt-5 workout-button">
+                      <a href="" class="btn">See More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            <div class="col-xl-4 col-md-6 col-lg-4">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/wi-f3.png' %}" class="img-fluid">
+                  <div class="item-title d-flex align-items-start flex-column">
+                    <div class="p-1 workout-type">Advance</div>
+                    <div class="p-1 mt-5 workout-button">
+                      <a href="" class="btn">See More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% else %}
+      <section class="section dashboard">
+
+        <h2 class="title-heading">Exercises for you</h2>
+        <div class="container exercise-recommendations">
+          <div class="row">
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="card">
+                <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Basic squats</h5>
+                  <div class="d-flex info">
+                    <h5>20 cals</h5>
+                    <h5 class="ms-2">•</h5>
+                    <h5 class="ms-2">12 mins</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="card">
+                <img class="img-fluid" src="{% static 'img/dashboard/exercise-m2.png' %}" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Abdominal Crunches</h5>
+                  <div class="d-flex info">
+                    <h5>50 cals</h5>
+                    <h5 class="ms-2">•</h5>
+                    <h5 class="ms-2">10 mins</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="card">
+                <img class="img-fluid" src="{% static 'img/dashboard/exercise-m3.png' %}" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Cobra Stretch</h5>
+                  <div class="d-flex info">
+                    <h5>20 cals</h5>
+                    <h5 class="ms-2">•</h5>
+                    <h5 class="ms-2">5 mins</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="card">
+                <img class="img-fluid" src="{% static 'img/dashboard/exercise-m4.png' %}" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Basic squats</h5>
+                  <div class="d-flex info">
+                    <h5>20 cals</h5>
+                    <h5 class="ms-2">•</h5>
+                    <h5 class="ms-2">10 mins</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="title-heading">Workout challenges</h2>
+        <div class="container workout-challenges">
+          <div class="row">
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/workout1.png' %}" class="img-fluid">
+                  <div class="item-title">
+                    <span>Calorie crush</span>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/workout2.png' %}" class="img-fluid">
+                  <div class="item-title">
+                    <span>Belly burner</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/workout3.png' %}" class="img-fluid">
+                  <div class="item-title">
+                    <span>Beach body</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/workout4.png' %}" class="img-fluid">
+                  <div class="item-title">
+                    <span>Abs on fire</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="title-heading">Workouts by intensity</h2>
+        <div class="container workout-intensity">
+          <div class="row">
+            <div class="col-xl-4 col-md-6 col-lg-4">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/wi-m1.png' %}" class="img-fluid">
+                  <div class="item-title d-flex align-items-start flex-column">
+                    <div class="p-1 workout-type">Beginner</div>
+                    <div class="p-1 mt-5 workout-button">
+                      <a href="" class="btn">See More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 col-lg-4">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/wi-m2.png' %}" class="img-fluid">
+                  <div class="item-title d-flex align-items-start flex-column">
+                    <div class="p-1 workout-type">Intermediate</div>
+                    <div class="p-1 mt-5 workout-button">
+                      <a href="" class="btn">See More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 col-lg-4">
+              <div class="workout-item">
+                <div class="item-img">
+                  <img src="{% static 'img/dashboard/wi-m3.png' %}" class="img-fluid">
+                  <div class="item-title d-flex align-items-start flex-column">
+                    <div class="p-1 workout-type">Advance</div>
+                    <div class="p-1 mt-5 workout-button">
+                      <a href="" class="btn">See More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

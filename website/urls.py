@@ -10,7 +10,6 @@ urlpatterns = [
     path('resent', views.resend_for_login, name = 'resend_for_login'), 
     path('logout', views.logout_user, name = 'logout_user'), 
     path('dashboard', views.dashboard, name = 'dashboard'),
-     path('dashboard_male', views.dashboard_male, name = 'dashboard_male'),
     path('gender', views.gender, name = 'gender'),
     path('focus_area_female', views.focus_area_female, name = 'focus_area_female'),
     path('focus_area_male', views.focus_area_male, name = 'focus_area_male'),
