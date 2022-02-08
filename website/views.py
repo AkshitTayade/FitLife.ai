@@ -336,3 +336,6 @@ def main_goal(request):
             return redirect('main_goal') 
 
     return render(request,'main-goal.html')
+
+def exercise1(request):
+    return render(request,'exercises/exercise1.html')

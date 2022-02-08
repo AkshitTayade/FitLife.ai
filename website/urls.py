@@ -18,5 +18,6 @@ urlpatterns = [
     path('active_status_female', views.active_status_female, name = 'active_status_female'),
     path('active_status_male', views.active_status_male, name = 'active_status_male'),
     path('main_goal', views.main_goal, name = 'main_goal'),
+    path('exercise1', views.exercise1, name = 'exercise1'),
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
