@@ -9,5 +9,11 @@ class User_InfoAdmin(admin.ModelAdmin):
     list_per_page = 20
     search_fields = ('user_name', 'user_email' ,)
 
+class User_Exercise_InfoAdmin(admin.ModelAdmin):
+    list_display = ('user_name','exercise_name' ,'exercise_total_duration','exercise_calorie_burnt')
+    list_per_page = 20
+    search_fields = ('exercise_name' ,)
+
 admin.site.register(models.User_Info,User_InfoAdmin)
+admin.site.register(models.User_Exercise_Info,User_Exercise_InfoAdmin)
     

@@ -21,3 +21,20 @@ class User_Info(models.Model):
 
     def __str__(self):
         return self.user_email
+
+
+class User_Exercise_Info(models.Model):
+    user_id = models.AutoField
+    user_name = models.CharField(max_length=500,blank=False,null=False)
+    exercise_name = models.CharField(max_length=500,blank=False,null=False)
+    exercise_playlist = models.IntegerField(default=0)
+    exercise_count = models.IntegerField(default=0)
+    exercise_duration = models.FloatField(default=0)
+    exercise_total_duration = models.FloatField(default=0)
+    exercise_calorie_burnt = models.FloatField(default=0)
+    exercise_weight_loss = models.FloatField(default=0)
+    current_time = models.DateTimeField(blank=False,null=False)
+
+    def __str__(self):
+        return self.user_name
+
