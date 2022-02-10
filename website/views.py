@@ -15,6 +15,10 @@ from .models import User_Info
 import datetime
 from django.contrib.auth import authenticate, login, logout
 from website.models import User_Info
+import cv2 
+from django.http.response import StreamingHttpResponse
+import time
+from .camera import VideoCamera
 
 hotp = pyotp.HOTP('base32secret3232', digits=4)
 
@@ -137,14 +141,10 @@ def logout_user(request):
 
 def dashboard(request):
 
-    if request.session['user_mail_id'] == False:
-        return redirect('index')
+    user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+    return render(request,'dashboard.html',{'user_data': user_data})
 
-    else:
-        user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
-        return render(request,'dashboard.html',{'user_data': user_data})
-
-
+            
 def gender(request):
     if request.method == 'POST':
         gender = request.POST['gender']
@@ -337,5 +337,50 @@ def main_goal(request):
 
     return render(request,'main-goal.html')
 
-def exercise1(request):
-    return render(request,'exercises/exercise1.html')
+def which_exercise(request, exercise_name):
+
+    if exercise_name == 'squats':
+        return render(request,'exercises/exercise_squats.html')
+
+    elif exercise_name == 'jumping jack':
+        return render(request,'exercises/exercise_jumping_jack.html')
+
+    elif exercise_name == 'adbominal crunches':
+        return render(request,'exercises/exercise_abdominal_crunches.html')
+
+    elif exercise_name == 'knee pushup':
+        return render(request,'exercises/exercise_knee_pushup.html')
+
+    elif exercise_name == 'side arm raises':
+        return render(request,'exercises/exercise_side_arm_raises.html')
+
+    elif exercise_name == 'backward lunges':
+        return render(request,'exercises/exercise_backward_lunges.html')
+
+    else:
+        return render(request,'exercises/exercise_cobra_stretch.html')
+
+def gen(camera):
+    
+    while True:
+        frame = camera.get_frame()
+   
+        ret, frame = cv2.imencode('.jpg', frame)
+        
+        yield (b'--frame\r\n'
+                b'Content-Type: image/jpeg\r\n\r\n' + frame.tobytes() + b'\r\n\r\n')
+
+def video_feed(request, exercise_name):
+    print(exercise_name)
+
+    time.sleep(1)
+
+    return StreamingHttpResponse(gen(VideoCamera(exercise_name)),
+                    content_type='multipart/x-mixed-replace; boundary=frame')
+
+def start_exercise(request):
+    
+    i = "squats"
+    
+    return render(request, 'exercises/exercise.html', {"ex_name": i})
+

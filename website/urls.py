@@ -18,6 +18,8 @@ urlpatterns = [
     path('active_status_female', views.active_status_female, name = 'active_status_female'),
     path('active_status_male', views.active_status_male, name = 'active_status_male'),
     path('main_goal', views.main_goal, name = 'main_goal'),
-    path('exercise1', views.exercise1, name = 'exercise1'),
+    path('exercise/<str:exercise_name>', views.which_exercise, name = 'which_exercise'),
+    path('video_feed/<str:exercise_name>', views.video_feed, name='video_feed'),
+     path('start_exercise', views.start_exercise, name='start_exercise'),
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

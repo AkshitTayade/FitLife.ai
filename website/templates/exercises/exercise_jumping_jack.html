@@ -27,7 +27,7 @@
                     <div class="col-xl-4 ms-5">
                         <div class="exercise-widget">
                             <div class="exercise-title">
-                                <h3>Barbell Squats</h3>
+                                <h3>Jumping Jacks</h3>
                             </div>
                             <div class="exercise-content">
                                 <div class="row">
@@ -72,7 +72,10 @@
                                 </div>
                             </div>
                             <div class="text-center mt-4">
-                                <a href="end.html" class="btn get-started">Start Workout</a>
+                                <!-- href="{% url 'start_exercise' %}" -->
+                                <audio id="testAudio" hidden src="{% static '../static/instruction.mp3' %}" type="audio/mpeg"></audio>
+                                <!-- <a href="{% url 'start_exercise' %}" class="btn get-started">Start Workout</a> -->
+                                <button id="playAudio" class="btn get-started">Start Workout</button>
                             </div>
                         </div>
                     </div>
@@ -117,6 +120,25 @@
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="fa fa-angle-double-up"></i></a>
+
+
+    <!--This function is to play audio first, then wait for 3sec and start the exercise-->
+    <script type="text/javascript">
+    document.getElementById("playAudio").addEventListener("click", function(){
+        
+        var audio = document.getElementById('testAudio');
+    
+        audio.play();
+        
+        function redirectHandler() {
+            setTimeout(function(){
+                window.location = "{% url 'start_exercise' %}";
+            }, 2000);
+        }
+    
+        audio.addEventListener('ended', redirectHandler, false);
+    });
+    </script>  
 
     <!-- Vendor JS Files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
