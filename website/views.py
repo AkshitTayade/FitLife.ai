@@ -340,25 +340,25 @@ def main_goal(request):
 def which_exercise(request, exercise_name):
 
     if exercise_name == 'squats':
-        return render(request,'exercises/exercise_squats.html')
+        return render(request,'exercises/exercise_squats.html', {"ex_name": exercise_name})
 
     elif exercise_name == 'jumping jack':
-        return render(request,'exercises/exercise_jumping_jack.html')
+        return render(request,'exercises/exercise_jumping_jack.html', {"ex_name": exercise_name})
 
     elif exercise_name == 'adbominal crunches':
-        return render(request,'exercises/exercise_abdominal_crunches.html')
+        return render(request,'exercises/exercise_abdominal_crunches.html', {"ex_name": exercise_name})
 
     elif exercise_name == 'knee pushup':
-        return render(request,'exercises/exercise_knee_pushup.html')
+        return render(request,'exercises/exercise_knee_pushup.html', {"ex_name": exercise_name})
 
     elif exercise_name == 'side arm raises':
-        return render(request,'exercises/exercise_side_arm_raises.html')
+        return render(request,'exercises/exercise_side_arm_raises.html', {"ex_name": exercise_name})
 
     elif exercise_name == 'backward lunges':
-        return render(request,'exercises/exercise_backward_lunges.html')
+        return render(request,'exercises/exercise_backward_lunges.html', {"ex_name": exercise_name})
 
     else:
-        return render(request,'exercises/exercise_cobra_stretch.html')
+        return render(request,'exercises/exercise_cobra_stretch.html', {"ex_name": exercise_name})
 
 def gen(camera):
     
@@ -371,16 +371,14 @@ def gen(camera):
                 b'Content-Type: image/jpeg\r\n\r\n' + frame.tobytes() + b'\r\n\r\n')
 
 def video_feed(request, exercise_name):
-    print(exercise_name)
+    #print(exercise_name)
 
     time.sleep(1)
 
     return StreamingHttpResponse(gen(VideoCamera(exercise_name)),
                     content_type='multipart/x-mixed-replace; boundary=frame')
 
-def start_exercise(request):
+def start_exercise(request, exercise_name):
     
-    i = "squats"
-    
-    return render(request, 'exercises/exercise.html', {"ex_name": i})
+    return render(request, 'exercises/exercise.html', {"ex_name": exercise_name})
 

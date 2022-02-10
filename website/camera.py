@@ -23,6 +23,24 @@ class VideoCamera(object):
             if self.exercise_name == 'squats':
                 frame = posedetector.Squat_Exercise(frame)
 
+            elif self.exercise_name == 'jumping jack':
+                frame = posedetector.Jumping_Jack(frame)
+
+            elif self.exercise_name == 'adbominal crunches':
+                frame = posedetector.Adbominal_crunches(frame)
+
+            elif self.exercise_name == 'knee pushup':
+                frame = posedetector.Knee_pushup(frame)
+
+            elif self.exercise_name == 'side arm raises':
+                frame = posedetector.Side_arm_raises(frame)
+
+            elif self.exercise_name == 'backward lunges':
+                frame = posedetector.Backward_Lunges(frame)
+
+            elif self.exercise_name == 'cobra stretch':
+                frame = posedetector.Cobra_Stretch(frame)
+
             return (frame)
 
         except:

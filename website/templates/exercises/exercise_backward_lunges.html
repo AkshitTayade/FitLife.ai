@@ -72,9 +72,9 @@
                                 </div>
                             </div>
                             <div class="text-center mt-4">
-                                <!-- href="{% url 'start_exercise' %}" -->
+                               
                                 <audio id="testAudio" hidden src="{% static '../static/instruction.mp3' %}" type="audio/mpeg"></audio>
-                                <!-- <a href="{% url 'start_exercise' %}" class="btn get-started">Start Workout</a> -->
+                               
                                 <button id="playAudio" class="btn get-started">Start Workout</button>
                             </div>
                         </div>
@@ -123,6 +123,7 @@
 
 
     <!--This function is to play audio first, then wait for 3sec and start the exercise-->
+    {% with name=ex_name %}   
     <script type="text/javascript">
     document.getElementById("playAudio").addEventListener("click", function(){
         
@@ -132,13 +133,14 @@
         
         function redirectHandler() {
             setTimeout(function(){
-                window.location = "{% url 'start_exercise' %}";
+                window.location = "{% url 'start_exercise' exercise_name=name %}";
             }, 2000);
         }
     
         audio.addEventListener('ended', redirectHandler, false);
     });
-    </script>  
+    </script>
+    {% endwith %}  
 
     <!-- Vendor JS Files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
