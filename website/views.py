@@ -382,3 +382,5 @@ def start_exercise(request, exercise_name):
     
     return render(request, 'exercises/exercise.html', {"ex_name": exercise_name})
 
+def end_workout(request):
+    return render(request,'exercises/end-workout.html')

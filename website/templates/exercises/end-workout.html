@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="icon" href="{% static 'img/logo.png'%}" type="image/png">
+    <title>FitLife.ai</title>
+    <!-- Vendor CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+</head>
+<body>
+    <main id="main-exercise">
+        <div class="top-bar d-flex">
+            <a href="{% url 'dashboard' %}"><i class="fa-solid fa-arrow-left"></i></a>
+            <h2>Name of the Workout Done</h2>
+        </div>
+        <section id="end-workout" class="end-workout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 headings">
+                        <div class="title d-flex justify-content-center">
+                            <img src="{% static 'img/exercises/party-popper.png' %}">
+                            <h2>Well done! You completed the workout.</h2>
+                        </div>
+                        <p>Here’s how you performed</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-5" >
+                <div class="row px-5 g-5 mx-5 justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <img src="{% static 'img/exercises/calorie-burnt.png' %}">
+                            </div>
+                            <h4>Calories burnt</h4>
+                            <h1>23 cal</h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <img src="{% static 'img/exercises/time-taken.png' %}">
+                            </div>
+                            <h4>Time taken</h4>
+                            <h1>2:00 mins</h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <img src="{% static 'img/exercises/reps-completed.png' %}">
+                            </div>
+                            <h4>Reps completed</h4>
+                            <h1>3 Reps</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="" class="btn btn-restart">Restart Exercise </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fa fa-angle-double-up"></i></a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
