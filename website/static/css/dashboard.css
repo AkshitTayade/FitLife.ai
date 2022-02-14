@@ -1,5 +1,6 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Livvic:wght@500&family=Rubik:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&&family=Livvic:wght@500&family=Rubik:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -17,10 +18,9 @@ a {
 }
 
 a:hover {
-  color: #717ff5;
+  color: none;
   text-decoration: none;
 }
-
 
 /*--------------------------------------------------------------
 # Main
@@ -366,14 +366,29 @@ a:hover {
 /*--------------------------------------------------------------
 # On Focus Section
 --------------------------------------------------------------*/
+.top-bar{
+  background: #18181B;
+  box-shadow: 0px 4px 12px rgba(171, 165, 193, 0.2);
+  padding: 30px 40px;
+}
+.top-bar i{
+  color: #FFFFFF;
+  font-size: 24px;
+  margin-top: 2px;
+}
+.top-bar h2{
+  font-size: 24px;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  margin: auto;
+}
 .onfocus {
   padding: 0;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 .onfocus .video-play {
-  min-height: 500px;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)), url("../img/exercises/squat.png") center center;
-  background-size: cover;
+  min-height: 558px;
   border-radius: 20px;
 }
 
@@ -400,7 +415,7 @@ a:hover {
   animation-timing-function: steps;
   opacity: 1;
   border-radius: 50%;
-  border: 5px solid rgba(0, 87, 255, 0.55);
+  border: 1px solid rgba(0, 87, 255, 0.55);
   top: -15%;
   left: -15%;
   background: rgba(198, 16, 0, 0);
@@ -470,15 +485,12 @@ a:hover {
 .exercise-widget{
   position: relative;
   display: block;
-  background: #0F0E14;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 15px 40px 0px rgb(0 0 0 / 8%);
+  background: #18181B;
+  border-radius: 10px 10px 0px 0px;
 }
 .exercise-widget .exercise-title {
   position: relative;
   display: block;
-  margin-bottom: 23px;
 }
 .exercise-widget .exercise-title h3 {
   font-size: 24px;
@@ -486,63 +498,91 @@ a:hover {
   font-weight: 600;
   font-family: 'Rubik', sans-serif;
   color: #fff;
+  margin-bottom: 0px;
+  padding: 20px;
 }
-.exercise-widget .exercise-content .info{
+.exercise-content {
+  padding: 20px;
+  background: #3B3B42;
+  border-radius: 0px 0px 10px 10px;
+}
+.exercise-content .info{
   margin-bottom: 16px;
   display: flex;
 }
-.exercise-widget .exercise-content .info img{
-  width: 28px;
-  height: 25px;
+.exercise-content .info img{
+  height: 30px;
 }
-.exercise-widget .exercise-content .info i{
-  color: #0057FF;
-  font-size: 27px;
-}
-.exercise-widget .exercise-content .info h5{
-  margin-left: 20px;
+
+.exercise-content .info h5{
+  margin-left: 15px;
+  margin-top: 5px;
   font-size: 18px;
   color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+
 }
-.exercise-widget .exercise-content .body-focus{
+.exercise-content h3{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  font-family: 'Inter', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+}
+.exercise-content .body-focus{
   height: 120px;
-  float: right;
-  margin-top: -10px;
 }
-.exercise-widget .exercise-content .exercise-type h4{
+.exercise-content figcaption{
+  font-family: 'Inter', sans-serif;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: 12px;
+}
+.exercise-content .exercise-type h4{
   font-size: 20px;
   margin: 10px 0px;
   font-family: 'Rubik', sans-serif;
   color: #fff;
 }
-.exercise-widget .exercise-content .exercise-type img{
-  margin-top: 10px;
-  height: 50px;
-  margin-right: 10px;
+.exercise-content .exercise-type h6{
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  background: rgba(255, 255, 255, 0.17);
+  border-radius: 8px;
+  padding: 13px 25px;
+  font-weight: 400;
 }
-.exercise-widget .exercise-content .exercise-levels{
+.exercise-content .exercise-levels{
   margin-top: 16px;
   margin-bottom: 20px;
 }
-.exercise-widget .exercise-content .exercise-levels h4{
+.exercise-content .exercise-levels h4{
   font-size: 20px;
   margin-bottom: 15px;
   font-family: 'Inter', sans-serif;
   color: #fff;
 }
-.exercise-widget .exercise-content .exercise-levels .progress{
-  background-color:#dae6ff !important;
+.exercise-content .exercise-levels .progress{
+  background: #5C5C62;
+  border-radius: 16px;
 }
-.exercise-widget .exercise-content .exercise-levels .progress .progress-bar{ 
-  background-color: #0057FF;
+.exercise-content .exercise-levels .progress .progress-bar{ 
+  background: #75A1FF;
+border-radius: 16px;
 }
-.exercise-widget .exercise-content .exercise-type h6{
+
+.exercise-content .exercise-type h6{
   font-size: 16px;
   margin: 10px 0px;
   font-family: 'Inter', sans-serif;
   color: #fff;
 }
-.exercise-widget .get-started {
+.get-started {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -553,7 +593,11 @@ a:hover {
   transition: 0.5s;
   color: #fff;
   background: #0057FF;
+  border-radius: 10px;
   border-color: #0057FF;
+}
+.get-started:hover {
+  color: #fff;
 }
 .instructions h2{
   font-size: 30px;
@@ -562,42 +606,76 @@ a:hover {
   font-family: 'Rubik', sans-serif;
 }
 .instructions ol li{
-  margin: 10px 0px;
+  margin: 8px 0px;
   font-family: 'Inter', sans-serif;
-  color: #717171;
-  font-size: 20px;
-line-height: 30px;
-font-weight: 400;
+  color: #393939;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: justify;
   
 }
 .tips .alert{
-  border-bottom: 3px solid #0057FF;
-  background-color: rgba(0, 87, 255, 0.12);;
+  background: rgba(0, 87, 255, 0.12);
   border-radius: 10px;
-  width: 67%;
 }
 .tips .tips-title{
   display: flex;
-
-}
-.tips .tips-title i{
-  color:#0057FF;
-  font-size: 27px;
+  border-bottom: 2px solid #B2C2E0;
 }
 
 .tips .tips-title h5{
-  margin-left: 16px;
+  margin-left: 10px;
+  margin-top: 5px;
   font-size: 21px;
-  color: #3e4450;
+  color: #393939;
+  font-weight: bold;
+  margin-bottom: 14px;
   font-family: 'Inter', sans-serif;
 }
 .tips p{
-  font-size: 18px;
-  color: #3e4450;
+  font-size: 17px;
+  color: #393939;
   margin-bottom: 0px;
+  font-weight: 300 !important;
   font-family: 'Inter', sans-serif;
+  margin-top: 14px;
 }
-
+.onfocus .modal-header{
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+.onfocus .modal-content{
+  background: #FFFFFF;
+  box-shadow: 0px 4px 12px rgba(171, 165, 193, 0.2);
+  border-radius: 16px;
+}
+.onfocus .modal-body {
+  padding: 0px 24px;
+}
+.onfocus .modal-body h5{
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  color: #18181B;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.onfocus .modal-body i{
+  color: #0057FF;
+  font-size: 24px;
+}
+.onfocus .modal-body h6{
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: left;
+  margin-left: 20px;
+}
+.onfocus .modal-footer{
+  border-top: none;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/

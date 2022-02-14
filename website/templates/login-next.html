@@ -39,14 +39,12 @@
                     <p>We’ve sent a four-digit confirmation code to {{user_email_id}}. Enter it below to confirm your email address .</p>
                     <form action="{% url 'login_next' %}" method="POST">
                         {% csrf_token %}
-                        <div class="d-flex flex-row otp mb-4 mt-4">
+                        <div class="d-flex flex-row otp mb-0 mt-4">
                             <input name='otp_1' type="text" class="form-control" autofocus="" maxlength="1" />
                             <input name='otp_2' type="text" class="form-control"  maxlength="1"/>
                             <input name='otp_3' type="text" class="form-control"  maxlength="1" />
                             <input name='otp_4' type="text" class="form-control"  maxlength="1" />
                         </div>
-                        
-                        <p class="login-wrapper-footer-text">Didn't receive OTP ? <a href="{% url 'resend_for_login' %}" style="color: #0057FF;"> Resend </a></p>
                         <button type="submit" class="btn btn-block login-btn">Confirm</button>
                     </form>
                 </div>
