@@ -1,9 +1,18 @@
+# Beginner Playlist count
+# Squats = 12
+# Lunges = 14
+# Jumping jacks 10
+# crunhes = 8
+# pushup = 12
+# arm raise = 15
+
 import mediapipe as mp
 import cv2
 import numpy as np
 import datetime
-
+import json
 from tblib import Frame
+import time
 
 class poseDetector():
 
@@ -13,6 +22,10 @@ class poseDetector():
         self.mp_pose = mp.solutions.pose
         self.posture = self.mp_pose.Pose(min_detection_confidence=0.5)
 
+        # overall time
+        self.j = 0
+        self.i = 1
+
         # for squats
         self.dir = 0
         self.count = 0
@@ -20,6 +33,10 @@ class poseDetector():
         # for jumping jack
         self.dir_jj = 0
         self.count_jj = 0
+
+        # for crunches
+        self.count_ac = 0
+        self.dir_ac = 0
 
         # for knee pushup
         self.dir_kp = 0
@@ -39,6 +56,8 @@ class poseDetector():
         self.mins = 0
         self.sec = 0
         self.period = '00:00'
+
+        self.file = open('website/exercise_timing.json', 'r+')
 
     # just finding and drawing the landmarks
     def findPose(self, frame, draw=True):
@@ -167,7 +186,7 @@ class poseDetector():
         euclidian_dist_upper = int(((x_left_3 - x_right_4)**2 + (y_left_3 - y_right_4)**2)**0.5)
         #print(euclidian_dist_upper)
 
-        per = np.interp(euclidian_dist_bottom, (40, 200), (0, 100))
+        per = np.interp(euclidian_dist_bottom, (40, 175), (0, 100))
         #print(euclidian_dist_bottom, per)
         
         if per == 100:
@@ -179,8 +198,37 @@ class poseDetector():
             if self.dir_jj == 1:
                 self.count_jj += 0.5
                 self.dir_jj == 0
-    
-        cv2.putText(frame, f"Count = {int(self.count_jj/2)}", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+
+        if self.i == 1:
+            if self.count_jj <= 0.5:
+                self.earlier = datetime.datetime.now()
+                #earlier_lt.append(earlier)
+                print("Start = ",self.earlier)
+                self.i += 1
+        
+        if self.i == 2:
+            if int(self.count_jj/4) == 10:
+               
+                now = datetime.datetime.now()
+                    
+                diff = now - self.earlier
+
+                print("Diff = ", diff.total_seconds())
+
+                data = json.load(self.file)
+                data.update({"Total_seconds": diff.total_seconds(), 
+                            "Timestamp": time.strftime('%H:%M:%S', time.gmtime(int(diff.total_seconds()))),
+                            "Total_Reps": 10})
+                self.file.seek(0)
+                json.dump(data, self.file)
+                self.file.close()
+
+                self.i += 1
+                
+        if int(self.count_jj/4) >= 10:
+            cv2.putText(frame, f"Completed", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+        else:
+            cv2.putText(frame, f"Count = {int(self.count_jj/4)}/10", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
 
         cv2.line(frame, (x_left_1, y_left_1), (x_right_2, y_right_2), (0, 255, 0), 3)
         cv2.line(frame, (x_left_3, y_left_3), (x_right_4, y_right_4), (0, 255, 0), 3)
@@ -240,17 +288,43 @@ class poseDetector():
         
         if left_knee_angle < 100:
             if per == 100:
-                if dir == 0:
-                    count += 0.5
-                    dir = 1
+                if self.dir_ac == 0:
+                    self.count_ac += 0.5
+                    self.dir_ac = 1
 
             if per == 0:
-                if dir == 1:
-                    count += 0.5
-                    dir = 0
+                if self.dir_ac == 1:
+                    self.count_ac += 0.5
+                    self.dir_ac = 0
 
-        if count <=3:
-            cv2.putText(frame, f"Count = {int(count)}/3", (900, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+        if self.i == 1:
+            if self.count_ac <= 0.5:
+                self.earlier = datetime.datetime.now()
+                #earlier_lt.append(earlier)
+                print("Start = ",self.earlier)
+                self.i += 1
+        
+        if self.i == 2:
+            if int(self.count_ac) == 8:
+               
+                now = datetime.datetime.now()
+                    
+                diff = now - self.earlier
+
+                print("Diff = ", diff.total_seconds())
+
+                data = json.load(self.file)
+                data.update({"Total_seconds": diff.total_seconds(), 
+                            "Timestamp": time.strftime('%H:%M:%S', time.gmtime(int(diff.total_seconds()))),
+                            "Total_Reps": 8})
+                self.file.seek(0)
+                json.dump(data, self.file)
+                self.file.close()
+
+                self.i += 1
+
+        if int(self.count_ac) <=8:
+            cv2.putText(frame, f"Count = {int(self.count_ac)}/8", (900, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
         else:
             cv2.putText(frame, "Completed", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
         
@@ -309,12 +383,41 @@ class poseDetector():
                     self.count_kp += 0.5
                     self.dir_kp = 0
         
-        cv2.putText(frame, f"Count = {int(self.count_kp)}", (500, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+        if self.i == 1:
+            if self.count_kp <= 0.5:
+                self.earlier = datetime.datetime.now()
+                #earlier_lt.append(earlier)
+                print("Start = ",self.earlier)
+                self.i += 1
+        
+        if self.i == 2:
+            if int(self.count_kp) == 12:
+               
+                now = datetime.datetime.now()
+                    
+                diff = now - self.earlier
+
+                print("Diff = ", diff.total_seconds())
+
+                data = json.load(self.file)
+                data.update({"Total_seconds": diff.total_seconds(), 
+                            "Timestamp": time.strftime('%H:%M:%S', time.gmtime(int(diff.total_seconds()))),
+                            "Total_Reps": 12})
+                self.file.seek(0)
+                json.dump(data, self.file)
+                self.file.close()
+
+                self.i += 1
+
+        if int(self.count_kp) <= 12:
+            cv2.putText(frame, f"Count = {int(self.count_kp)}/12", (500, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+        else:
+            cv2.putText(frame, f"Completed", (500, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
         
         return(frame)
 
     def Side_arm_raises(self, frame):
-        
+    
         positions = self.findPosition(frame)
 
         left_shoulder = self.findAngle(frame, 13, 11, 23, True)
@@ -387,12 +490,41 @@ class poseDetector():
 
             cv2.line(frame, (x_left_3, y_left_3), (x_right_4, y_right_4), (0, 255, 0), 2)
 
-        cv2.putText(frame, f"Count = {int(self.count_sar)}", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 2)
+        if self.i == 1:
+            if self.count_sar <= 0.5:
+                self.earlier = datetime.datetime.now()
+                #earlier_lt.append(earlier)
+                print("Start = ",self.earlier)
+                self.i += 1
+        
+        if self.i == 2:
+            if int(self.count_sar) == 15:
+               
+                now = datetime.datetime.now()
+                    
+                diff = now - self.earlier
+
+                print("Diff = ", diff.total_seconds())
+
+                data = json.load(self.file)
+                data.update({"Total_seconds": diff.total_seconds(), 
+                            "Timestamp": time.strftime('%H:%M:%S', time.gmtime(int(diff.total_seconds()))),
+                            "Total_Reps": 15})
+                self.file.seek(0)
+                json.dump(data, self.file)
+                self.file.close()
+
+                self.i += 1
+
+        if int(self.count_sar) <= 15:
+            cv2.putText(frame, f"Count = {int(self.count_sar)}/15", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 2)
+        else:
+            cv2.putText(frame, f"Completed", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 2)
 
         return(frame)
 
     def Backward_Lunges(self, frame):
-
+        
         positions = self.findPosition(frame)
 
         # left-knee
@@ -446,36 +578,40 @@ class poseDetector():
                 self.r_count_bl += 0.5
                 self.r_dir_bl = 0
 
-        # if i==1:
-        #     if l_count <= 0.5:
-        #         earlier = datetime.datetime.now()
-        #         #earlier_lt.append(earlier)
-        #         print(earlier)
-        #         i = i + 1
+        if self.i==1:
+            if self.l_count_bl <= 0.5:
+                earlier = datetime.datetime.now()
+                #earlier_lt.append(earlier)
+                print(earlier)
+                self.i = self.i + 1
         
-        # if i==2:
-        #     if int(int(int(l_count/2) + int(r_count/2))/2) == 4:
-        #         now = datetime.datetime.now()
-        #         #print(now)
+        if self.i==2:
+            if int(int(int(self.l_count_bl/2) + int(self.r_count_bl/2))/2) == 14:
+                now = datetime.datetime.now()
+                #print(now)
                 
-        #         diff = now - earlier
+                diff = now - earlier
 
-        #         #print(diff.total_seconds())
+                #print(diff.total_seconds())
 
-        #         file = open('exercises/exercise_timing.json', 'r+')
-        #         data = json.load(file)
-        #         data.update({"Total_seconds": diff.total_seconds(), "Timestamp": time.strftime('%H:%M:%S', time.gmtime(int(diff.total_seconds())))})
-        #         file.seek(0)
-        #         json.dump(data, file)
-        #         file.close()
+                data = json.load(self.file)
+                data.update({"Total_seconds": diff.total_seconds(), 
+                            "Timestamp": time.strftime('%H:%M:%S', time.gmtime(int(diff.total_seconds()))),
+                            "Total_Reps": 14})
+                self.file.seek(0)
+                json.dump(data, self.file)
+                self.file.close()
 
-        #         i = i + 1
+                self.i = self.i + 1
         
 
-        cv2.putText(frame, f"Total Reps = {int(int(int(self.l_count_bl/2) + int(self.r_count_bl/2))/2)}", (900, 100), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
-        cv2.putText(frame, f"Left = {int(self.l_count_bl/2)}", (900, 140), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
-        cv2.putText(frame, f"Right = {int(self.r_count_bl/2)}", (900, 180), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
-
+        if int(int(int(self.l_count_bl/2) + int(self.r_count_bl/2))/2) <= 14:
+            cv2.putText(frame, f"Total Reps = {int(int(int(self.l_count_bl/2) + int(self.r_count_bl/2))/2)}/14", (900, 100), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
+            cv2.putText(frame, f"Left = {int(self.l_count_bl/2)}", (900, 140), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
+            cv2.putText(frame, f"Right = {int(self.r_count_bl/2)}", (900, 180), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
+        else:
+            cv2.putText(frame, f"Completed", (900, 100), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
+       
         return(frame)
 
     def Cobra_Stretch(self, frame):
@@ -523,6 +659,18 @@ class poseDetector():
                     
                     else:
                         time_left = "0" + str(time_left)
+
+                    if self.i == 1:
+                        if time_left == 0:
+                            data = json.load(self.file)
+                            data.update({"Total_seconds": 10, 
+                                        "Timestamp": "00:00:10",
+                                        "Total_Reps": "30 sec"})
+                            self.file.seek(0)
+                            json.dump(data, self.file)
+                            self.file.close()
+
+                            self.i += 1
 
                     font = cv2.FONT_HERSHEY_SIMPLEX
 

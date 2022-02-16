@@ -88,6 +88,7 @@
   <script src="{% static '../static/js/main.js' %}"></script>
 
   <!--This function is to play audio first, then wait for 1sec and end the exercise-->
+  {% with name=ex_name %}   
   <script type="text/javascript">
     document.getElementById("playAudio").addEventListener("click", function(){
         var audio = document.getElementById('testAudio');
@@ -96,13 +97,14 @@
         
         function redirectHandler() {
             setTimeout(function(){
-                window.location = "{% url 'index' %}";
+                window.location = "{% url 'end_workout' exercise_name=name %}";
             }, 500);
         }
     
         audio.addEventListener('ended', redirectHandler, false);
     });
   </script>  
+  {% endwith %}
 
 </body>
 

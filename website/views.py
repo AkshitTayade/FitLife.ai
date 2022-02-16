@@ -19,6 +19,7 @@ import cv2
 from django.http.response import StreamingHttpResponse
 import time
 from .camera import VideoCamera
+from .cal_calories_burned import CalorieBurned
 
 hotp = pyotp.HOTP('base32secret3232', digits=4)
 
@@ -89,6 +90,8 @@ def login_next(request):
             request.session.modified = True
 
             user_data = User_Info.objects.filter(user_email=file).first()
+
+            #request.session['user_weight'] = user_data.user_weight
 
             print(request.session['user_mail_id'])
             
@@ -382,5 +385,19 @@ def start_exercise(request, exercise_name):
     
     return render(request, 'exercises/exercise.html', {"ex_name": exercise_name})
 
-def end_workout(request):
-    return render(request,'exercises/end-workout.html')
+def end_workout(request, exercise_name):
+
+    file = open('website/exercise_timing.json', 'r+')
+    data = json.load(file)
+
+    user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+
+    calories, weight_loss = CalorieBurned(data['Total_seconds'], exercise_name, user_data.user_weight).calculate()
+
+    return render(request,'exercises/end-workout.html',{"ex_name": exercise_name, 
+                                                        "duration": data['Timestamp'][3:],
+                                                        "reps": data['Total_Reps'],
+                                                        "cal_burned": calories})
+
+
+
