@@ -266,22 +266,6 @@
 
             <div class="col-xl-3 col-md-6 col-lg-3">
               <div class="card">
-                <a href="{% url 'which_exercise' exercise_name='squats' %}">
-                  <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title">Squats</h5>
-                    <div class="d-flex info">
-                      <h5>20 cals</h5>
-                      <h5 class="ms-2">•</h5>
-                      <h5 class="ms-2">12 mins</h5>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-            
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="card">
                 <a href="{% url 'which_exercise' exercise_name='jumping jack' %}">
                   <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
                   <div class="card-body">
@@ -344,7 +328,21 @@
               </div>
             </div>
 
-           
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="card">
+                <a href="{% url 'which_exercise' exercise_name='squat' %}">
+                  <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
+                  <div class="card-body">
+                    <h5 class="card-title">Squats</h5>
+                    <div class="d-flex info">
+                      <h5>20 cals</h5>
+                      <h5 class="ms-2">•</h5>
+                      <h5 class="ms-2">12 mins</h5>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
 
             <div class="col-xl-3 col-md-6 col-lg-3">
               <div class="card">

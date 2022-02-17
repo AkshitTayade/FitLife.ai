@@ -207,7 +207,7 @@ class poseDetector():
                 self.i += 1
         
         if self.i == 2:
-            if int(self.count_jj/4) == 10:
+            if int(self.count_jj/4) == 2:
                
                 now = datetime.datetime.now()
                     
@@ -498,7 +498,7 @@ class poseDetector():
                 self.i += 1
         
         if self.i == 2:
-            if int(self.count_sar) == 15:
+            if int(self.count_sar) == 2:
                
                 now = datetime.datetime.now()
                     

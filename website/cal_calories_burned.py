@@ -5,9 +5,9 @@
 class CalorieBurned():
     def __init__(self, total_seconds, exercise_name, user_weight):
         self.MET_value = {  "jumping jack": 8,
-                            "abdominal crunches": 2.8,
+                            "adbominal crunches": 2.8,
                             "knee pushup": 3.8,
-                            "side arm raise": 3,
+                            "side arm raises": 3,
                             "squat": 5,
                             "backward lunges": 3.8,
                             "cobra stretch": 2.3  }

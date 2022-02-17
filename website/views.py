@@ -23,6 +23,10 @@ from .cal_calories_burned import CalorieBurned
 
 hotp = pyotp.HOTP('base32secret3232', digits=4)
 
+beg_playlist_lt = [ 'jumping jack', 'adbominal crunches',
+                    'knee pushup', 'side arm raises',
+                    'squat', 'backward lunges', 'cobra stretch', 'completed']
+
 def index(request):
 
     return render(request,'index.html')
@@ -342,7 +346,7 @@ def main_goal(request):
 
 def which_exercise(request, exercise_name):
 
-    if exercise_name == 'squats':
+    if exercise_name == 'squat':
         return render(request,'exercises/exercise_squats.html', {"ex_name": exercise_name})
 
     elif exercise_name == 'jumping jack':
@@ -387,6 +391,9 @@ def start_exercise(request, exercise_name):
 
 def end_workout(request, exercise_name):
 
+    beg_playlist_lt.remove(exercise_name)
+    print(beg_playlist_lt)
+
     file = open('website/exercise_timing.json', 'r+')
     data = json.load(file)
 
@@ -397,7 +404,9 @@ def end_workout(request, exercise_name):
     return render(request,'exercises/end-workout.html',{"ex_name": exercise_name, 
                                                         "duration": data['Timestamp'][3:],
                                                         "reps": data['Total_Reps'],
-                                                        "cal_burned": calories})
+                                                        "cal_burned": calories,
+                                                        "len_playlist": len(beg_playlist_lt),
+                                                        "next_exercise": beg_playlist_lt})
 
 
 
