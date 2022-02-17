@@ -8,12 +8,9 @@
   <link rel="icon" href="{% static 'img/logo.png'%}" type="image/png">
   <title>FitLife.ai</title>
   <!-- Vendor CSS Files -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-
-
   <!-- Template Main CSS File -->
   <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
 </head>
@@ -22,28 +19,12 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="{% url 'index' %}" class="logo d-flex align-items-center">
-        <img src="{% static 'img/footer-logo.png'%}" alt="">
-        <span class="d-none d-lg-block">FitLife.ai</span>
-      </a>
+    <div>
       <i class="fas fa-bars toggle-sidebar-btn d-xl-none"></i>
     </div>
-
-    
-
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-        <li class="nav-item dropdown pe-3">
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="dropdown">
-            <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="Profile"
-              class="rounded-circle">
-            <span class="ps-2">{{ user_data.user_name }}</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
+    <div class="pagetitle m-auto d-flex align-items-center">
+      <h1>Hey {{ user_data.user_name }} ! It’s time to #GETUPGO</h1>
+    </div>
   </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
@@ -95,240 +76,170 @@
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
-     
-    <div class="pagetitle">
-      <h1>Hey {{ user_data.user_name }} ! It’s time to #GETUPGO</h1>
-    </div><!--End Page Title -->
-
     {% if user_data.user_gender == 'female' %}
-      <section class="section dashboard">
-        <h2 class="title-heading">Exercises for you</h2>
-        <div class="container exercise-recommendations">
-          <div class="row">
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="card">
-                <img class="img-fluid" src="{% static 'img/dashboard/exercise-f1.png' %}" alt="">
-                <div class="card-body">
-                  <h5 class="card-title">Basic squats</h5>
-                  <div class="d-flex info">
-                    <h5>20 cals</h5>
-                    <h5 class="ms-2">•</h5>
-                    <h5 class="ms-2">12 mins</h5>
+    <section class="dashboard">
+      <h2 class="title-heading">Exercises for you</h2>
+      <div class="container exercise-recommendations">
+        <div class="row">
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="card">
+              <img class="img-fluid" src="{% static 'img/dashboard/exercise-f1.png' %}" alt="">
+              <div class="card-body">
+                <h5 class="card-title">Basic squats</h5>
+                <div class="d-flex info">
+                  <h5>20 cals</h5>
+                  <h5 class="ms-2">•</h5>
+                  <h5 class="ms-2">12 mins</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="card">
+              <img class="img-fluid" src="{% static 'img/dashboard/exercise-f2.png' %}" alt="">
+              <div class="card-body">
+                <h5 class="card-title">Abdominal Crunches</h5>
+                <div class="d-flex info">
+                  <h5>50 cals</h5>
+                  <h5 class="ms-2">•</h5>
+                  <h5 class="ms-2">10 mins</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="card">
+              <img class="img-fluid" src="{% static 'img/dashboard/exercise-f3.png' %}" alt="">
+              <div class="card-body">
+                <h5 class="card-title">Cobra Stretch</h5>
+                <div class="d-flex info">
+                  <h5>20 cals</h5>
+                  <h5 class="ms-2">•</h5>
+                  <h5 class="ms-2">5 mins</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="card">
+              <img class="img-fluid" src="{% static 'img/dashboard/exercise-f4.png' %}" alt="">
+              <div class="card-body">
+                <h5 class="card-title">Basic squats</h5>
+                <div class="d-flex info">
+                  <h5>20 cals</h5>
+                  <h5 class="ms-2">•</h5>
+                  <h5 class="ms-2">10 mins</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="title-heading">Workout challenges</h2>
+      <div class="container workout-challenges">
+        <div class="row">
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/workout1.png' %}" class="img-fluid">
+                <div class="item-title">
+                  <span>Calorie crush</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/workout2.png' %}" class="img-fluid">
+                <div class="item-title">
+                  <span>Belly burner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/workout3.png' %}" class="img-fluid">
+                <div class="item-title">
+                  <span>Beach body</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/workout4.png' %}" class="img-fluid">
+                <div class="item-title">
+                  <span>Abs on fire</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="title-heading">Workouts by intensity</h2>
+      <div class="container workout-intensity">
+        <div class="row">
+          <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/wi-f1.png' %}" class="img-fluid">
+                <div class="item-title d-flex align-items-start flex-column">
+                  <div class="p-1 workout-type">Beginner</div>
+                  <div class="p-1 mt-5 workout-button">
+                    <a href="" class="btn">See More</a>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="card">
-                <img class="img-fluid" src="{% static 'img/dashboard/exercise-f2.png' %}" alt="">
-                <div class="card-body">
-                  <h5 class="card-title">Abdominal Crunches</h5>
-                  <div class="d-flex info">
-                    <h5>50 cals</h5>
-                    <h5 class="ms-2">•</h5>
-                    <h5 class="ms-2">10 mins</h5>
+          <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/wi-f2.png' %}" class="img-fluid">
+                <div class="item-title d-flex align-items-start flex-column">
+                  <div class="p-1 workout-type">Intermediate</div>
+                  <div class="p-1 mt-5 workout-button">
+                    <a href="" class="btn">See More</a>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="card">
-                <img class="img-fluid" src="{% static 'img/dashboard/exercise-f3.png' %}" alt="">
-                <div class="card-body">
-                  <h5 class="card-title">Cobra Stretch</h5>
-                  <div class="d-flex info">
-                    <h5>20 cals</h5>
-                    <h5 class="ms-2">•</h5>
-                    <h5 class="ms-2">5 mins</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="card">
-                <img class="img-fluid" src="{% static 'img/dashboard/exercise-f4.png' %}" alt="">
-                <div class="card-body">
-                  <h5 class="card-title">Basic squats</h5>
-                  <div class="d-flex info">
-                    <h5>20 cals</h5>
-                    <h5 class="ms-2">•</h5>
-                    <h5 class="ms-2">10 mins</h5>
+          <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/wi-f3.png' %}" class="img-fluid">
+                <div class="item-title d-flex align-items-start flex-column">
+                  <div class="p-1 workout-type">Advance</div>
+                  <div class="p-1 mt-5 workout-button">
+                    <a href="" class="btn">See More</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <h2 class="title-heading">Workout challenges</h2>
-        <div class="container workout-challenges">
-          <div class="row">
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/workout1.png' %}" class="img-fluid">
-                  <div class="item-title">
-                    <span>Calorie crush</span>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/workout2.png' %}" class="img-fluid">
-                  <div class="item-title">
-                    <span>Belly burner</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/workout3.png' %}" class="img-fluid">
-                  <div class="item-title">
-                    <span>Beach body</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/workout4.png' %}" class="img-fluid">
-                  <div class="item-title">
-                    <span>Abs on fire</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h2 class="title-heading">Workouts by intensity</h2>
-        <div class="container workout-intensity">
-          <div class="row">
-            <div class="col-xl-4 col-md-6 col-lg-4">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/wi-f1.png' %}" class="img-fluid">
-                  <div class="item-title d-flex align-items-start flex-column">
-                    <div class="p-1 workout-type">Beginner</div>
-                    <div class="p-1 mt-5 workout-button">
-                      <a href="" class="btn">See More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-md-6 col-lg-4">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/wi-f2.png' %}" class="img-fluid">
-                  <div class="item-title d-flex align-items-start flex-column">
-                    <div class="p-1 workout-type">Intermediate</div>
-                    <div class="p-1 mt-5 workout-button">
-                      <a href="" class="btn">See More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-md-6 col-lg-4">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/wi-f3.png' %}" class="img-fluid">
-                  <div class="item-title d-flex align-items-start flex-column">
-                    <div class="p-1 workout-type">Advance</div>
-                    <div class="p-1 mt-5 workout-button">
-                      <a href="" class="btn">See More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
     {% else %}
-      <section class="section dashboard">
-
-        <h2 class="title-heading">Exercises for you</h2>
-        <div class="container exercise-recommendations">
-          <div class="row">
-
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="card">
-                <a href="{% url 'which_exercise' exercise_name='jumping jack' %}">
-                  <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title">Jumping Jack</h5>
-                    <div class="d-flex info">
-                      <h5>20 cals</h5>
-                      <h5 class="ms-2">•</h5>
-                      <h5 class="ms-2">12 mins</h5>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-            
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="card">
-                <a href="{% url 'which_exercise' exercise_name='adbominal crunches' %}">
-                  <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title">Abdominal Crunches</h5>
-                    <div class="d-flex info">
-                      <h5>20 cals</h5>
-                      <h5 class="ms-2">•</h5>
-                      <h5 class="ms-2">12 mins</h5>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="card">
-                <a href="{% url 'which_exercise' exercise_name='knee pushup' %}">
-                  <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title">Knee Pushups</h5>
-                    <div class="d-flex info">
-                      <h5>20 cals</h5>
-                      <h5 class="ms-2">•</h5>
-                      <h5 class="ms-2">12 mins</h5>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="card">
-                <a href="{% url 'which_exercise' exercise_name='side arm raises' %}">
-                  <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title">Side Arm Raises</h5>
-                    <div class="d-flex info">
-                      <h5>20 cals</h5>
-                      <h5 class="ms-2">•</h5>
-                      <h5 class="ms-2">12 mins</h5>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6 col-lg-3">
+    <section class="dashboard mt-5">
+      <h2 class="title-heading">Exercises for you</h2>
+      <div class="container exercise-recommendations">
+        <div class="row" id="carousel-row">
+          <div class="col-12">
+            <div id="carousel" class="owl-carousel">
               <div class="card">
                 <a href="{% url 'which_exercise' exercise_name='squat' %}">
                   <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
@@ -342,9 +253,64 @@
                   </div>
                 </a>
               </div>
-            </div>
 
-            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="card">
+                <a href="{% url 'which_exercise' exercise_name='jumping jack' %}">
+                  <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
+                  <div class="card-body">
+                    <h5 class="card-title">Jumping Jack</h5>
+                    <div class="d-flex info">
+                      <h5>20 cals</h5>
+                      <h5 class="ms-2">•</h5>
+                      <h5 class="ms-2">12 mins</h5>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card">
+                <a href="{% url 'which_exercise' exercise_name='adbominal crunches' %}">
+                  <img class="img-fluid" src="{% static 'img/dashboard/exercise-m3.png' %}" alt="">
+                  <div class="card-body">
+                    <h5 class="card-title">Abdominal Crunches</h5>
+                    <div class="d-flex info">
+                      <h5>20 cals</h5>
+                      <h5 class="ms-2">•</h5>
+                      <h5 class="ms-2">12 mins</h5>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card">
+                <a href="{% url 'which_exercise' exercise_name='knee pushup' %}">
+                  <img class="img-fluid" src="{% static 'img/dashboard/exercise-m4.png' %}" alt="">
+                  <div class="card-body">
+                    <h5 class="card-title">Knee Pushups</h5>
+                    <div class="d-flex info">
+                      <h5>20 cals</h5>
+                      <h5 class="ms-2">•</h5>
+                      <h5 class="ms-2">12 mins</h5>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card">
+                <a href="{% url 'which_exercise' exercise_name='side arm raises' %}">
+                  <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
+                  <div class="card-body">
+                    <h5 class="card-title">Side Arm Raises</h5>
+                    <div class="d-flex info">
+                      <h5>20 cals</h5>
+                      <h5 class="ms-2">•</h5>
+                      <h5 class="ms-2">12 mins</h5>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
               <div class="card">
                 <a href="{% url 'which_exercise' exercise_name='backward lunges' %}">
                   <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
@@ -358,9 +324,8 @@
                   </div>
                 </a>
               </div>
-            </div>
 
-            <div class="col-xl-3 col-md-6 col-lg-3">
+
               <div class="card">
                 <a href="{% url 'which_exercise' exercise_name='cobra stretch' %}">
                   <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
@@ -374,104 +339,109 @@
                   </div>
                 </a>
               </div>
+
+
             </div>
           </div>
-        </div>
 
-        <h2 class="title-heading">Workout challenges</h2>
-        <div class="container workout-challenges">
-          <div class="row">
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/workout1.png' %}" class="img-fluid">
-                  <div class="item-title">
-                    <span>Calorie crush</span>
-                  </div>
-                  
+        </div>
+      </div>
+
+
+      <h2 class="title-heading">Workout challenges</h2>
+      <div class="container workout-challenges">
+        <div class="row">
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/workout1.png' %}" class="img-fluid">
+                <div class="item-title">
+                  <span>Calorie crush</span>
                 </div>
+
               </div>
             </div>
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/workout2.png' %}" class="img-fluid">
-                  <div class="item-title">
-                    <span>Belly burner</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/workout3.png' %}" class="img-fluid">
-                  <div class="item-title">
-                    <span>Beach body</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/workout4.png' %}" class="img-fluid">
-                  <div class="item-title">
-                    <span>Abs on fire</span>
-                  </div>
+          </div>
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/workout2.png' %}" class="img-fluid">
+                <div class="item-title">
+                  <span>Belly burner</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <h2 class="title-heading">Workouts by intensity</h2>
-        <div class="container workout-intensity">
-          <div class="row">
-            <div class="col-xl-4 col-md-6 col-lg-4">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/wi-m1.png' %}" class="img-fluid">
-                  <div class="item-title d-flex align-items-start flex-column">
-                    <div class="p-1 workout-type">Beginner</div>
-                    <div class="p-1 mt-5 workout-button">
-                      <a href="" class="btn">See More</a>
-                    </div>
-                  </div>
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/workout3.png' %}" class="img-fluid">
+                <div class="item-title">
+                  <span>Beach body</span>
                 </div>
               </div>
             </div>
-
-            <div class="col-xl-4 col-md-6 col-lg-4">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/wi-m2.png' %}" class="img-fluid">
-                  <div class="item-title d-flex align-items-start flex-column">
-                    <div class="p-1 workout-type">Intermediate</div>
-                    <div class="p-1 mt-5 workout-button">
-                      <a href="" class="btn">See More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-md-6 col-lg-4">
-              <div class="workout-item">
-                <div class="item-img">
-                  <img src="{% static 'img/dashboard/wi-m3.png' %}" class="img-fluid">
-                  <div class="item-title d-flex align-items-start flex-column">
-                    <div class="p-1 workout-type">Advance</div>
-                    <div class="p-1 mt-5 workout-button">
-                      <a href="" class="btn">See More</a>
-                    </div>
-                  </div>
+          </div>
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/workout4.png' %}" class="img-fluid">
+                <div class="item-title">
+                  <span>Abs on fire</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <h2 class="title-heading">Workouts by intensity</h2>
+      <div class="container workout-intensity">
+        <div class="row">
+          <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/wi-m1.png' %}" class="img-fluid">
+                <div class="item-title d-flex align-items-start flex-column">
+                  <div class="p-1 workout-type">Beginner</div>
+                  <div class="p-1 mt-5 workout-button">
+                    <a href="" class="btn">See More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/wi-m2.png' %}" class="img-fluid">
+                <div class="item-title d-flex align-items-start flex-column">
+                  <div class="p-1 workout-type">Intermediate</div>
+                  <div class="p-1 mt-5 workout-button">
+                    <a href="" class="btn">See More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="workout-item">
+              <div class="item-img">
+                <img src="{% static 'img/dashboard/wi-m3.png' %}" class="img-fluid">
+                <div class="item-title d-flex align-items-start flex-column">
+                  <div class="p-1 workout-type">Advance</div>
+                  <div class="p-1 mt-5 workout-button">
+                    <a href="" class="btn">See More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     {% endif %}
   </main><!-- End #main -->
 
@@ -482,13 +452,16 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fa fa-angle-double-up"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="fa fa-angle-double-up"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js'></script>
   <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/owl-carousel.js' %}"></script>
 
 </body>
 

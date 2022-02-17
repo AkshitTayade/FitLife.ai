@@ -30,21 +30,16 @@ a:hover {
   padding: 20px 30px;
   transition: all 0.3s;
 }
-@media (max-width: 1199px) {
-  #main {
-    padding: 20px;
-  }
-}
 
 /*--------------------------------------------------------------
 # Page Title
 --------------------------------------------------------------*/
 .pagetitle {
   margin-top:8px;
-  margin-bottom: 36px;
-  background: #F4F8FF;
+  /* margin-bottom: 36px; */
+  /* background: #F4F8FF; */
   border-radius: 0px 0px 8px 8px;
-  padding: 30px 0px;
+  padding: 10px 100px;
   text-align: center;
 }
 .pagetitle h1 {
@@ -86,32 +81,18 @@ a:hover {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-.logo {
-  line-height: 1;
-}
-@media (min-width: 1200px) {
-  .logo {
-    width: 280px;
-  }
-}
-.logo img {
-  max-height: 26px;
-  margin-right: 6px;
-}
-.logo span {
-  font-size: 26px;
-  font-weight: 700;
-  color: #393939;
-}
 
 .header {
   transition: all 0.5s;
   z-index: 997;
-  height: 60px;
+  height: 80px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  /* background-color: #fff; */
+  background: #F4F8FF;
   padding-left: 20px;
+  margin-left: 200px;
 }
+
 .header .toggle-sidebar-btn {
   /* font-size: 32px; */
   padding-left: 10px;
@@ -154,7 +135,7 @@ a:hover {
 --------------------------------------------------------------*/
 .sidebar {
   position: fixed;
-  top: 60px;
+  top: 0px;
   left: 0;
   bottom: 0;
   width: 200px;
@@ -167,11 +148,7 @@ a:hover {
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
   background-color: #0F0E14;
 }
-@media (max-width: 1199px) {
-  .sidebar {
-    left: -300px;
-  }
-}
+
 .sidebar::-webkit-scrollbar {
   width: 5px;
   height: 8px;
@@ -181,24 +158,6 @@ a:hover {
   background-color: #aab7cf;
 }
 
-@media (min-width: 1200px) {
-  #main, #footer {
-    margin-left: 200px;
-  }
-}
-@media (max-width: 1199px) {
-  .toggle-sidebar .sidebar {
-    left: 0;
-  }
-}
-@media (min-width: 1200px) {
-  .toggle-sidebar #main, .toggle-sidebar #footer {
-    margin-left: 0;
-  }
-  .toggle-sidebar .sidebar {
-    left: -300px;
-  }
-}
 
 .sidebar-nav {
   padding: 0;
@@ -293,13 +252,14 @@ a:hover {
   border: 0px;
   margin: 16px 0px;
   border-radius: 5px;
-  box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
 }
-
 .exercise-recommendations .card .card-title{
   color: #393939;
   font-size: 18px;
   font-family: 'Rubik', sans-serif;
+}
+.exercise-recommendations .card .card-body{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 24px;
 }
 .exercise-recommendations .card .card-body .info h5{
   color: #ABA5C1;
@@ -307,6 +267,42 @@ a:hover {
   font-size: 18px;
   line-height: 20px;
   font-family: 'Inter', sans-serif;
+}
+
+.owl{
+  margin-top: 10px;
+}
+
+
+.owl-nav button {
+ position: absolute;
+ top: 40%;
+ background-color: #343a40;
+ color: #fff;
+ margin: 0;
+ transition: all 0.3s ease-in-out;
+}
+.owl-nav button.owl-prev {
+ left: -30px;
+}
+.owl-nav button.owl-next {
+ right: -30px;
+}
+.owl-nav  button {
+  margin-top: -60px;
+  position: absolute;
+  top: 55%;
+  font-size: 40px !important;
+  color:  #0F0E14 !important;
+}
+.owl-lazy 
+{
+ height: 350px;
+ width: 100%;
+}
+
+.owl-dots {
+ display: none;
 }
 
 .workout-item{
@@ -352,16 +348,7 @@ a:hover {
   font-family: 'Rubik', sans-serif;
   padding: 8px 15px;
 }
-@media (max-width:1024px){
-  .workout-intensity .workout-button{
-    margin: 0px !important;
-  }
-}
-@media (max-width:768px){
-  .workout-intensity .workout-button{
-    margin: 0px !important;
-  }
-}
+
 
 /*--------------------------------------------------------------
 # On Focus Section
@@ -385,7 +372,7 @@ a:hover {
 }
 .onfocus {
   padding: 0;
-  margin-top: 50px;
+  margin-top: 140px;
 }
 .onfocus .video-play {
   min-height: 558px;
@@ -708,14 +695,7 @@ border-radius: 16px;
   background: #18181B;
   border-radius: 16px;
 }
-@media (max-width:768px){
-  .end-workout .row{
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-    padding-right: 0px !important;
-    padding-left: 0px !important;
-  }
-}
+
 .end-workout .icon-box .icon {
   margin: 0 auto;
   border-radius: 50%;
@@ -779,3 +759,79 @@ border-radius: 16px;
   color: #393939;
 }
 
+@media (max-width:768px){
+  .header{
+    margin-left:0px;
+  }
+  .sidebar{
+    top: 80px !important;
+  }
+  .pagetitle{
+    padding: 20px 0px;
+  }
+  .pagetitle h1{
+    font-size: 18px;
+  }
+  .onfocus .container-fluid{
+    padding-right: 24px !important;
+    padding-left: 24px !important;
+  }
+  .onfocus .col-xl-7,
+  .onfocus .col-xl-4{
+    margin-left: 0px !important;
+  }
+  .end-workout .row{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+  .workout-intensity .workout-button{
+    margin: 0px !important;
+  }
+  .exercise-content .info h5 {
+    font-size: 16px;
+  }
+
+}
+@media (max-width:1024px) {
+  .header{
+    margin-left:0px;
+  }
+  .sidebar{
+    top: 80px !important;
+  }
+  .workout-intensity .workout-button{
+    margin: 0px !important;
+  }
+  .onfocus .container-fluid{
+    padding-right: 24px !important;
+    padding-left: 24px !important;
+  }
+  .onfocus .col-xl-7,
+  .onfocus .col-xl-4{
+    margin-left: 0px !important;
+  }
+}
+@media (max-width: 1199px) {
+  #main {
+    padding: 20px;
+  }
+  .toggle-sidebar .sidebar {
+    left: 0;
+  }
+  .sidebar {
+    left: -300px;
+  }
+}
+@media (min-width: 1200px) {
+  .toggle-sidebar #main, .toggle-sidebar #footer {
+    margin-left: 0;
+  }
+  .toggle-sidebar .sidebar {
+    left: -300px;
+  }
+  #main, #footer {
+    margin-left: 200px;
+  }
+}

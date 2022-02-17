@@ -1,11 +1,11 @@
 {% extends 'exercises/base-exercise.html' %}
-{% block title%} Squats {% endblock %} 
+{% block title%} Squats {% endblock %}
 {% load static %}
 {% block content %}
 <section id="onfocus" class="onfocus">
     <div class="container-fluid px-5">
         <div class="row">
-            <div class="col-xl-7 ms-4 ">
+            <div class="col-xl-7 ms-4 order-2 order-lg-1">
                 <div class="video-play position-relative"
                     style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)), url(../../static/img/exercises/squat.png) center center; background-size: cover;">
                     <a href="https://www.youtube.com/watch?v=42bFodPahBU" class="glightbox play-btn"></a>
@@ -29,15 +29,14 @@
                 <div class="tips mt-4 mb-4">
                     <div class="alert" role="alert">
                         <div class="tips-title">
-                            <img src="{% static '/img/exercises/tips.png' %}" class="img-fluid"
-                                style="height: 32px;">
+                            <img src="{% static '/img/exercises/tips.png' %}" class="img-fluid" style="height: 32px;">
                             <h5>Tips for posture</h5>
                         </div>
                         <p>Keep your knees over your ankles and press your weight back into your heels.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 ms-5">
+            <div class="col-xl-4 ms-5 order-1 order-lg-2 mb-5">
                 <div class="exercise-widget">
                     <div class="exercise-title">
                         <h3>Barbell Squats</h3>
@@ -88,8 +87,8 @@
                             data-bs-target="#exampleModal">
                             Start Workout
                         </button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -104,15 +103,13 @@
                                             </h6>
                                         </div>
                                         <div class="d-flex mt-3">
-                                            <i class="fa-solid fa-up-down"
-                                                style="transform: rotate(40deg);"></i>
+                                            <i class="fa-solid fa-up-down" style="transform: rotate(40deg);"></i>
                                             <h6 style="margin-left: 30px;">Stand a few feets away from the
                                                 screen to see your full body</h6>
                                         </div>
                                     </div>
                                     <div class="modal-footer d-inline text-center">
-                                        <button type="button" id="playAudio"
-                                            class="btn get-started">Okay!</button>
+                                        <button type="button" id="playAudio" class="btn get-started">Okay!</button>
                                     </div>
                                 </div>
                             </div>
