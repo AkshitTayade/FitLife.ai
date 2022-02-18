@@ -15,7 +15,7 @@
 </head>
 <body>
     <main id="main-exercise">
-        <div class="top-bar d-flex">
+        <div class="top-bar d-flex fixed-top">
             <a href="{% url 'dashboard' %}"><i class="fa-solid fa-arrow-left"></i></a>
             <h2>{{ ex_name|title }}</h2>
         </div>
@@ -74,6 +74,29 @@
                     <a href="{% url 'which_exercise' exercise_name=next_exercise.0 %}" class="btn btn-restart">Next Exercise - {{ next_exercise.0 }} </a>
                 </div>
                 {% endif %}
+            </div>
+
+            <div class="container up_next_exercise">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="row card-body">
+                                <div class="col-lg-6">
+                                    <div class="image-exercise">
+                                        <img src="{% static 'img/exercises/jumping-jack.png' %}" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 my-auto">
+                                    <div class="exercise-info">
+                                        <h2>Up next </h2>
+                                        <h4>Beginner: Basic squats</h4>
+                                        <a href="" class="btn get-started mt-5">Start next <i class="fa-solid fa-chevron-right ms-2" style="font-size: 16px;"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

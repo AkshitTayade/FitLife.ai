@@ -382,7 +382,7 @@ a:hover {
 .onfocus .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(rgba(0, 87, 255, 0.55) 50%,#0057FF 52%);
+  background: radial-gradient(rgba(0, 87, 255, 0.55) 50%,#0057FF 90%);
   border-radius: 50%;
   display: block;
   position: absolute;
@@ -572,8 +572,7 @@ border-radius: 16px;
 .get-started {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
+  font-size: 20px;
   display: inline-block;
   padding: 8px 50px 10px 50px;
   border-radius: 4px;
@@ -664,7 +663,7 @@ border-radius: 16px;
   border-top: none;
 }
 .end-workout{
-  margin-top: 62px;
+  margin-top: 120px;
 }
 .end-workout .title img{
   height: 36px;
@@ -745,6 +744,28 @@ border-radius: 16px;
   color: #fff;
   background: #0057FF;
 }
+.up_next_exercise .card{
+  background: #E0EBFF;
+  border-radius: 10px;
+  border: none;
+  padding: 16px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.up_next_exercise .exercise-info h2{
+  font-size: 25px;
+  line-height: 28px;
+  color: #18181B;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+.up_next_exercise .exercise-info h4{
+  font-size: 22px;
+  line-height: 28px;
+  color: #393939;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
