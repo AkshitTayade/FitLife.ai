@@ -297,10 +297,12 @@
               <div class="card">
                 <a href="{% url 'which_exercise' exercise_name='jumping jack' %}">
                     <img class="img-fluid" src="{% static 'img/dashboard/exercise-m1.png' %}" alt="">
+                    {% if playlist.exercise_jj == 1 %}
                     <div class="done d-flex">
                       <i class="fa fa-check" aria-hidden="true"></i>
                       <h5>Done</h5>
                     </div>
+                    {% endif %}
                   <div class="card-body">
                     <h5 class="card-title">Jumping Jack</h5>
                     <div class="d-flex info">
@@ -315,10 +317,12 @@
               <div class="card">
                 <a href="{% url 'which_exercise' exercise_name='adbominal crunches' %}">
                   <img class="img-fluid" src="{% static 'img/dashboard/exercise-m2.png' %}" alt="">
+                  {% if playlist.exercise_ac == 1 %}
                   <div class="done d-flex">
                     <i class="fa fa-check" aria-hidden="true"></i>
                     <h5>Done</h5>
                   </div>
+                  {% endif %}
                   <div class="card-body">
                     <h5 class="card-title">Abdominal Crunches</h5>
                     <div class="d-flex info">
@@ -333,6 +337,12 @@
               <div class="card">
                 <a href="{% url 'which_exercise' exercise_name='knee pushup' %}">
                   <img class="img-fluid" src="{% static 'img/dashboard/exercise-m3.png' %}" alt="">
+                  {% if playlist.exercise_kp == 1 %}
+                  <div class="done d-flex">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <h5>Done</h5>
+                  </div>
+                  {% endif %}
                   <div class="card-body">
                     <h5 class="card-title">Knee Pushups</h5>
                     <div class="d-flex info">
@@ -347,6 +357,12 @@
               <div class="card">
                 <a href="{% url 'which_exercise' exercise_name='side arm raises' %}">
                   <img class="img-fluid" src="{% static 'img/dashboard/exercise-m4.png' %}" alt="">
+                  {% if playlist.exercise_sar == 1 %}
+                  <div class="done d-flex">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <h5>Done</h5>
+                  </div>
+                  {% endif %}
                   <div class="card-body">
                     <h5 class="card-title">Side Arm Raises</h5>
                     <div class="d-flex info">
@@ -361,6 +377,12 @@
               <div class="card">
                 <a href="{% url 'which_exercise' exercise_name='squat' %}">
                   <img class="img-fluid" src="{% static 'img/dashboard/exercise-m5.png' %}" alt="">
+                  {% if playlist.exercise_squats == 1 %}
+                  <div class="done d-flex">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <h5>Done</h5>
+                  </div>
+                  {% endif %}
                   <div class="card-body">
                     <h5 class="card-title">Squats</h5>
                     <div class="d-flex info">
@@ -377,6 +399,12 @@
               <div class="card">
                 <a href="{% url 'which_exercise' exercise_name='backward lunges' %}">
                   <img class="img-fluid" src="{% static 'img/dashboard/exercise-m6.png' %}" alt="">
+                  {% if playlist.exercise_bl == 1 %}
+                  <div class="done d-flex">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <h5>Done</h5>
+                  </div>
+                  {% endif %}
                   <div class="card-body">
                     <h5 class="card-title">Backward Lunges</h5>
                     <div class="d-flex info">
@@ -392,6 +420,12 @@
               <div class="card">
                 <a href="{% url 'which_exercise' exercise_name='cobra stretch' %}">
                   <img class="img-fluid" src="{% static 'img/dashboard/exercise-m7.png' %}" alt="">
+                  {% if playlist.exercise_cs == 1 %}
+                  <div class="done d-flex">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <h5>Done</h5>
+                  </div>
+                  {% endif %}
                   <div class="card-body">
                     <h5 class="card-title">Cobra Stretch</h5>
                     <div class="d-flex info">

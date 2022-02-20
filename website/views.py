@@ -144,8 +144,10 @@ def logout_user(request):
 
 def dashboard(request):
 
+    user_playlist = Playlist_Check.objects.filter(user_email=request.session['user_mail_id']).first()
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
-    return render(request,'dashboard.html',{'user_data': user_data})
+    
+    return render(request,'dashboard.html',{'user_data': user_data, 'playlist': user_playlist})
 
             
 def gender(request):
@@ -332,6 +334,8 @@ def main_goal(request):
             
             # user main goal not there in database
             # user targeted weight not there in database
+            playlist = Playlist_Check(user_email = request.session['user_mail_id'])
+            playlist.save()
 
             return redirect('login')
         
@@ -469,6 +473,3 @@ def end_workout(request, exercise_name):
                                                         "cal_burned": calories,
                                                         "len_next_ex": len(ex_left),
                                                         "next_exercise": ex_left})
-
-
-
