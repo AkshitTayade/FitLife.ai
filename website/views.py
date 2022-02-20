@@ -14,7 +14,7 @@ from django.urls import reverse
 from .models import User_Info
 import datetime
 from django.contrib.auth import authenticate, login, logout
-from website.models import User_Info
+from website.models import User_Info, Playlist_Check
 import cv2 
 from django.http.response import StreamingHttpResponse
 import time
@@ -22,10 +22,6 @@ from .camera import VideoCamera
 from .cal_calories_burned import CalorieBurned
 
 hotp = pyotp.HOTP('base32secret3232', digits=4)
-
-beg_playlist_lt = [ 'jumping jack', 'adbominal crunches',
-                    'knee pushup', 'side arm raises',
-                    'squat', 'backward lunges', 'cobra stretch', 'completed']
 
 def index(request):
 
@@ -389,10 +385,71 @@ def start_exercise(request, exercise_name):
     
     return render(request, 'exercises/exercise.html', {"ex_name": exercise_name})
 
+def update_Playlist(user_mail, exercise_name):
+    
+    try:
+        playlist = Playlist_Check.objects.get(user_email = user_mail)
+    except:
+        playlist = Playlist_Check(user_email = user_mail)
+
+    if exercise_name == 'squat':
+        playlist.exercise_squats = 1
+        playlist.save()
+
+    elif exercise_name == 'jumping jack':
+        playlist.exercise_jj = 1
+        playlist.save()
+
+    elif exercise_name == 'adbominal crunches':
+        playlist.exercise_ac=1
+        playlist.save()
+
+    elif exercise_name == 'knee pushup':
+        playlist.exercise_kp=1
+        playlist.save()
+    
+    elif exercise_name == 'side arm raises':
+        playlist.exercise_squats=1
+        playlist.save()
+
+    elif exercise_name == 'backward lunges':
+        playlist.exercise_bl=1
+        playlist.save()
+
+    else:
+        playlist.exercise_cs=1
+        playlist.save()
+
+    return(playlist)
+
 def end_workout(request, exercise_name):
 
-    beg_playlist_lt.remove(exercise_name)
-    print(beg_playlist_lt)
+    ex_left = []
+
+    playlist = update_Playlist(request.session['user_mail_id'], exercise_name)
+
+    if playlist.exercise_jj == 0:
+        ex_left.append('jumping jack')
+    
+    if playlist.exercise_ac == 0:
+        ex_left.append('adbominal crunches')
+    
+    if playlist.exercise_kp == 0:
+        ex_left.append('knee pushup')
+    
+    if playlist.exercise_sar == 0:
+        ex_left.append('side arm raises')
+    
+    if playlist.exercise_squats == 0:
+        ex_left.append('squat')
+    
+    if playlist.exercise_bl == 0:
+        ex_left.append('backward lunges')
+    
+    if playlist.exercise_cs == 0:
+        ex_left.append('cobra stretch')
+
+    print(ex_left)
 
     file = open('website/exercise_timing.json', 'r+')
     data = json.load(file)
@@ -401,12 +458,17 @@ def end_workout(request, exercise_name):
 
     calories, weight_loss = CalorieBurned(data['Total_seconds'], exercise_name, user_data.user_weight).calculate()
 
+    data.update({})
+    file.seek(0)
+    json.dump(data, file)
+    file.close()
+
     return render(request,'exercises/end-workout.html',{"ex_name": exercise_name, 
                                                         "duration": data['Timestamp'][3:],
                                                         "reps": data['Total_Reps'],
                                                         "cal_burned": calories,
-                                                        "len_playlist": len(beg_playlist_lt),
-                                                        "next_exercise": beg_playlist_lt})
+                                                        "len_next_ex": len(ex_left),
+                                                        "next_exercise": ex_left})
 
 
 

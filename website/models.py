@@ -38,3 +38,16 @@ class User_Exercise_Info(models.Model):
     def __str__(self):
         return self.user_name
 
+class Playlist_Check(models.Model):
+    user_id = models.AutoField
+    user_email = models.CharField(max_length=100,blank=False,null=False)
+    exercise_jj = models.IntegerField(default=0)
+    exercise_ac = models.IntegerField(default=0)
+    exercise_kp = models.IntegerField(default=0)
+    exercise_sar = models.IntegerField(default=0)
+    exercise_squats = models.IntegerField(default=0)
+    exercise_bl = models.IntegerField(default=0)
+    exercise_cs = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.user_email
