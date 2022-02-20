@@ -180,11 +180,11 @@ a:hover {
   margin: 10px 0 5px 15px;
 }
 .sidebar-nav .nav-link {
-  /* display: flex; */
   align-items: center;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-  color: #E5EEFF;
+  /* color: #E5EEFF; */
+  color: #ffffff;
   transition: 0.3;
   background: #6F6C7B;
   padding: 10px 15px;
@@ -192,17 +192,19 @@ a:hover {
   text-align: center;
 }
 .sidebar-nav .nav-link i {
-  font-size: 16px;
+  font-size: 20px;
   margin-right: 10px;
-  color: #E5EEFF;
+  color: #ffffff;
   width: 100%;
 }
 .sidebar-nav .nav-link.collapsed {
-  color: #E5EEFF;
+  /* color: #E5EEFF; */
+  color: #ffffff;
   background:  #0F0E14;
 }
 .sidebar-nav .nav-link.collapsed i {
-  color: #899bbd;
+  /* color: #899bbd; */
+  color: #ffffff;
 }
 .sidebar-nav .nav-link:hover {
   color: #4154f1;
@@ -259,13 +261,32 @@ a:hover {
   font-family: 'Rubik', sans-serif;
 }
 .exercise-recommendations .card .card-body{
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 24px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 16px;
 }
 .exercise-recommendations .card .card-body .info h5{
   color: #ABA5C1;
   font-weight: 500;
   font-size: 18px;
   line-height: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.done {
+  position: absolute;
+  left: 210px;
+  top: 10px;
+  border-radius: 8px;
+  padding:8px 12px;
+  background: #0043C5;
+  color: #fff;
+}
+.done i{
+  font-size: 18px;
+}
+.done h5{
+  margin-bottom: 0px;
+  font-weight: 500;
+  font-size: 16px;
+  margin-left: 5px;
   font-family: 'Inter', sans-serif;
 }
 
@@ -813,6 +834,9 @@ border-radius: 16px;
   .exercise-content .info h5 {
     font-size: 16px;
   }
+  .done {
+    left: 245px;
+  }
 
 }
 @media (max-width:1024px) {
@@ -832,6 +856,9 @@ border-radius: 16px;
   .onfocus .col-xl-7,
   .onfocus .col-xl-4{
     margin-left: 0px !important;
+  }
+  .done {
+    left: 125px;
   }
 }
 @media (max-width: 1199px) {
