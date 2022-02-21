@@ -10,7 +10,7 @@ class User_InfoAdmin(admin.ModelAdmin):
     search_fields = ('user_name', 'user_email' ,)
 
 class User_Exercise_InfoAdmin(admin.ModelAdmin):
-    list_display = ('user_name','exercise_name' ,'exercise_total_duration','exercise_calorie_burnt')
+    list_display = ('user_name','exercise_name' ,'exercise_duration','exercise_calorie_burnt')
     list_per_page = 20
     search_fields = ('exercise_name' ,)
 

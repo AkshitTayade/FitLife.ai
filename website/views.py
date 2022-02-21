@@ -20,6 +20,7 @@ from django.http.response import StreamingHttpResponse
 import time
 from .camera import VideoCamera
 from .cal_calories_burned import CalorieBurned
+from datetime import date
 
 hotp = pyotp.HOTP('base32secret3232', digits=4)
 
@@ -93,7 +94,22 @@ def login_next(request):
 
             #request.session['user_weight'] = user_data.user_weight
 
-            print(request.session['user_mail_id'])
+            #print(request.session['user_mail_id'])
+
+            # for refreshing the playlist model daily
+            today_date = date.today()
+
+            playlist = Playlist_Check.objects.get(user_email =  request.session['user_mail_id'])
+
+            if playlist.current_date < today_date:
+                # refresh the database
+                playlist.exercise_squats = 0
+                playlist.exercise_jj = 0
+                playlist.exercise_ac=0
+                playlist.exercise_kp=0
+                playlist.exercise_squats=0
+                playlist.exercise_bl=0
+                playlist.exercise_cs=0
             
             return redirect('dashboard')
 
@@ -144,10 +160,14 @@ def logout_user(request):
 
 def dashboard(request):
 
-    user_playlist = Playlist_Check.objects.filter(user_email=request.session['user_mail_id']).first()
-    user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
-    
-    return render(request,'dashboard.html',{'user_data': user_data, 'playlist': user_playlist})
+    if request.session['user_mail_id'] == False:
+        return redirect('index')
+
+    else:
+        user_playlist = Playlist_Check.objects.filter(user_email=request.session['user_mail_id']).first()
+        user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+        
+        return render(request,'dashboard.html',{'user_data': user_data, 'playlist': user_playlist})
 
             
 def gender(request):
@@ -334,9 +354,7 @@ def main_goal(request):
             
             # user main goal not there in database
             # user targeted weight not there in database
-            playlist = Playlist_Check(user_email = request.session['user_mail_id'])
-            playlist.save()
-
+            
             return redirect('login')
         
         else:
@@ -398,30 +416,37 @@ def update_Playlist(user_mail, exercise_name):
 
     if exercise_name == 'squat':
         playlist.exercise_squats = 1
+        playlist.current_date = date.today()
         playlist.save()
 
     elif exercise_name == 'jumping jack':
         playlist.exercise_jj = 1
+        playlist.current_date = date.today()
         playlist.save()
 
     elif exercise_name == 'adbominal crunches':
         playlist.exercise_ac=1
+        playlist.current_date = date.today()
         playlist.save()
 
     elif exercise_name == 'knee pushup':
         playlist.exercise_kp=1
+        playlist.current_date = date.today()
         playlist.save()
     
     elif exercise_name == 'side arm raises':
         playlist.exercise_squats=1
+        playlist.current_date = date.today()
         playlist.save()
 
     elif exercise_name == 'backward lunges':
         playlist.exercise_bl=1
+        playlist.current_date = date.today()
         playlist.save()
 
     else:
         playlist.exercise_cs=1
+        playlist.current_date = date.today()
         playlist.save()
 
     return(playlist)
@@ -429,6 +454,7 @@ def update_Playlist(user_mail, exercise_name):
 def end_workout(request, exercise_name):
 
     ex_left = []
+    file = open('website/exercise_timing.json', 'r+')
 
     playlist = update_Playlist(request.session['user_mail_id'], exercise_name)
 
@@ -455,7 +481,7 @@ def end_workout(request, exercise_name):
 
     print(ex_left)
 
-    file = open('website/exercise_timing.json', 'r+')
+    
     data = json.load(file)
 
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()

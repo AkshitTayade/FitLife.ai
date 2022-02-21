@@ -4,7 +4,9 @@
 
 
 from django.db import models
+from datetime import date
 
+from sqlalchemy import null
 # Create your models here.
 
 class User_Info(models.Model):
@@ -27,10 +29,8 @@ class User_Exercise_Info(models.Model):
     user_id = models.AutoField
     user_name = models.CharField(max_length=500,blank=False,null=False)
     exercise_name = models.CharField(max_length=500,blank=False,null=False)
-    exercise_playlist = models.IntegerField(default=0)
     exercise_count = models.IntegerField(default=0)
     exercise_duration = models.FloatField(default=0)
-    exercise_total_duration = models.FloatField(default=0)
     exercise_calorie_burnt = models.FloatField(default=0)
     exercise_weight_loss = models.FloatField(default=0)
     current_time = models.DateTimeField(blank=False,null=False)
@@ -48,6 +48,7 @@ class Playlist_Check(models.Model):
     exercise_squats = models.IntegerField(default=0)
     exercise_bl = models.IntegerField(default=0)
     exercise_cs = models.IntegerField(default=0)
+    current_date = models.DateField(blank=True, null=True)
 
     def __str__(self):
         return self.user_email
