@@ -7,20 +7,18 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
+from django.urls import reverse
+from .models import User_Info,User_Exercise_Info,Playlist_Check
+from django.contrib.auth import authenticate, login, logout
 import pyotp
 import random
 import json
-from django.urls import reverse
-from .models import User_Info
 import datetime
-from django.contrib.auth import authenticate, login, logout
-from website.models import User_Info, Playlist_Check
 import cv2 
 from django.http.response import StreamingHttpResponse
 import time
 from .camera import VideoCamera
 from .cal_calories_burned import CalorieBurned
-from datetime import date
 
 hotp = pyotp.HOTP('base32secret3232', digits=4)
 
@@ -97,19 +95,23 @@ def login_next(request):
             #print(request.session['user_mail_id'])
 
             # for refreshing the playlist model daily
-            today_date = date.today()
+            try:
+                today_date = date.today()
 
-            playlist = Playlist_Check.objects.get(user_email =  request.session['user_mail_id'])
+                playlist = Playlist_Check.objects.get(user_email =  request.session['user_mail_id'])
 
-            if playlist.current_date < today_date:
-                # refresh the database
-                playlist.exercise_squats = 0
-                playlist.exercise_jj = 0
-                playlist.exercise_ac=0
-                playlist.exercise_kp=0
-                playlist.exercise_squats=0
-                playlist.exercise_bl=0
-                playlist.exercise_cs=0
+                if playlist.current_date < today_date:
+                    # refresh the database
+                    playlist.exercise_squats = 0
+                    playlist.exercise_jj = 0
+                    playlist.exercise_ac=0
+                    playlist.exercise_kp=0
+                    playlist.exercise_squats=0
+                    playlist.exercise_bl=0
+                    playlist.exercise_cs=0
+            
+            except:
+                pass
             
             return redirect('dashboard')
 
@@ -120,30 +122,6 @@ def login_next(request):
         
     return render(request,'login-next.html')
 
-def resend_for_login(request):
-
-    file = open("saving_mail_ids.txt").read()
-    #print(file) 
-    
-    #stats for geenrating OTP
-    # stats for geenrating OTP
-    counter_HOTP = random.randint(0, 1000)
-    otp = hotp.at(counter_HOTP)
-
-    file = open('website/otp_generation.json', 'r+')
-    data = json.load(file)
-    data.update({"counter": counter_HOTP, "otp": otp})
-    file.seek(0)
-    json.dump(data, file)
-    file.close()
-
-    msg_html = render_to_string('otp-email.html', {"otp": otp})
-
-    email = EmailMultiAlternatives(f'Fitlife.ai Account - {otp} is your OTP for secure access', '', settings.EMAIL_HOST_USER, [file])
-    email.attach_alternative(msg_html, "text/html")
-    email.send()
-
-    return render(request,'login-next.html', {"user_email_id": file})
 
 def logout_user(request):
     
@@ -354,7 +332,7 @@ def main_goal(request):
             
             # user main goal not there in database
             # user targeted weight not there in database
-            
+            messages.info(request, "You have successfully registered ! Now enter your email id and login to the dashboard. ")
             return redirect('login')
         
         else:
@@ -416,37 +394,37 @@ def update_Playlist(user_mail, exercise_name):
 
     if exercise_name == 'squat':
         playlist.exercise_squats = 1
-        playlist.current_date = date.today()
+        playlist.current_date = datetime.date.today()
         playlist.save()
 
     elif exercise_name == 'jumping jack':
         playlist.exercise_jj = 1
-        playlist.current_date = date.today()
+        playlist.current_date = datetime.date.today()
         playlist.save()
 
     elif exercise_name == 'adbominal crunches':
         playlist.exercise_ac=1
-        playlist.current_date = date.today()
+        playlist.current_date = datetime.date.today()
         playlist.save()
 
     elif exercise_name == 'knee pushup':
         playlist.exercise_kp=1
-        playlist.current_date = date.today()
+        playlist.current_date = datetime.date.today()
         playlist.save()
     
     elif exercise_name == 'side arm raises':
         playlist.exercise_squats=1
-        playlist.current_date = date.today()
+        playlist.current_date = datetime.date.today()
         playlist.save()
 
     elif exercise_name == 'backward lunges':
         playlist.exercise_bl=1
-        playlist.current_date = date.today()
+        playlist.current_date = datetime.date.today()
         playlist.save()
 
     else:
         playlist.exercise_cs=1
-        playlist.current_date = date.today()
+        playlist.current_date = datetime.date.today()
         playlist.save()
 
     return(playlist)
@@ -487,6 +465,19 @@ def end_workout(request, exercise_name):
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 
     calories, weight_loss = CalorieBurned(data['Total_seconds'], exercise_name, user_data.user_weight).calculate()
+
+    
+
+    make_exercise_entry = User_Exercise_Info(user_name = user_data.user_name,
+                                            exercise_name = exercise_name,
+                                            exercise_count = data['Total_Reps'],
+                                            exercise_duration = data['Total_seconds'],
+                                            exercise_calorie_burnt = calories,
+                                            exercise_weight_loss = weight_loss,
+                                            current_time = datetime.datetime.now()
+                                            )
+    
+    make_exercise_entry.save()
 
     data.update({})
     file.seek(0)

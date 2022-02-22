@@ -52,3 +52,4 @@ class Playlist_Check(models.Model):
 
     def __str__(self):
         return self.user_email
+

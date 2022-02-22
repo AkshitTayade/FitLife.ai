@@ -33,7 +33,7 @@
             </div>
             <div class="container mt-5" >
                 <div class="row px-5 g-5 mx-5 justify-content-center">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-xl-4 col-md-4">
                         <div class="icon-box">
                             <div class="icon">
                                 <img src="{% static 'img/exercises/calorie-burnt.png' %}">
@@ -42,7 +42,7 @@
                             <h1>{{ cal_burned }} kcal</h1>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-xl-4 col-md-4">
                         <div class="icon-box">
                             <div class="icon">
                                 <img src="{% static 'img/exercises/time-taken.png' %}">
@@ -51,7 +51,7 @@
                             <h1>{{ duration }} mins</h1>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-xl-4 col-md-4">
                         <div class="icon-box">
                             <div class="icon">
                                 <img src="{% static 'img/exercises/reps-completed.png' %}">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center">
+                <div class="d-flex justify-content-center">
                     <a href="http://127.0.0.1:8000/start_exercise/{{ ex_name }}" class="btn btn-restart">Restart Exercise </a>
                     <a href="{% url 'dashboard' %}" class="btn btn-restart ms-5">Go to DashBoard</a>
                 </div>
@@ -74,12 +74,12 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="row card-body">
-                                <div class="col-lg-6">
+                                <div class="col-xl-6 col-md-6">
                                     <div class="image-exercise">
                                         <img src="{% static 'img/exercises/jumping-jack.png' %}" class="img-fluid">
                                     </div>
                                 </div>
-                                <div class="col-lg-6 my-auto">
+                                <div class="col-xl-6 col-md-6 my-auto">
                                     <div class="exercise-info">
                                         <h2>Up next </h2>
                                         <h4>Beginner: {{ next_exercise.0 }}</h4>

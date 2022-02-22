@@ -10,12 +10,12 @@ class User_InfoAdmin(admin.ModelAdmin):
     search_fields = ('user_name', 'user_email' ,)
 
 class User_Exercise_InfoAdmin(admin.ModelAdmin):
-    list_display = ('user_name','exercise_name' ,'exercise_duration','exercise_calorie_burnt')
+    list_display = ('user_name','exercise_name' ,'exercise_duration','exercise_calorie_burnt','exercise_weight_loss')
     list_per_page = 20
     search_fields = ('exercise_name' ,)
 
 class Playlist_Check_InfoAdmin(admin.ModelAdmin):
-    list_display = ('user_email','exercise_jj' ,'exercise_ac','exercise_kp', 'exercise_sar', 'exercise_squats', 'exercise_bl', 'exercise_cs')
+    list_display = ('user_email','current_date','exercise_jj' ,'exercise_ac','exercise_kp', 'exercise_sar', 'exercise_squats', 'exercise_bl', 'exercise_cs')
     list_per_page = 20
     search_fields = ('user_email' ,)
 
