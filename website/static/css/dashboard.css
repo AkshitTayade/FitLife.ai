@@ -24,7 +24,7 @@ a:hover {
 # Main
 --------------------------------------------------------------*/
 #main {
-  margin-top: 80px;
+  margin-top:  0px;
 }
 
 .dashboard{
@@ -246,7 +246,6 @@ a:hover {
   line-height: 24px;
   color: #393939;
   font-weight: bold;
-  margin: 20px 0px;
 }
 
 .exercise-recommendations .card {
@@ -594,7 +593,7 @@ border-radius: 16px;
   font-weight: 500;
   font-size: 18px;
   display: inline-block;
-  padding: 8px 50px 10px 50px;
+  padding: 8px 30px 10px 30px;
   border-radius: 4px;
   transition: 0.5s;
   color: #fff;
@@ -784,7 +783,98 @@ border-radius: 16px;
   font-family: 'Inter', sans-serif;
   font-weight: 300;
 }
+.beginner-playlist{
+  padding: 20px 30px;
+  margin-top: 90px;
+}
+.beginner-playlist .para{
+  color: #18181B;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 10px;
+}
+/* .beginner-playlist .flip-card{
 
+} */
+.card-flip {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  grid-template-areas: "frontAndBack";
+  transform-style: preserve-3d;
+  transition: all 0.7s ease;
+}
+
+.card-flip div {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.beginner-playlist .card.front{
+  border: 0px;
+  grid-area: frontAndBack;
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: rgba(171, 165, 193, 0.2) 0px 4px 20px 0px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.beginner-playlist .card.back {
+  grid-area: frontAndBack;
+  border: 0px;
+  transform: rotateY(180deg);
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: rgba(171, 165, 193, 0.2) 0px 4px 20px 0px;
+}
+
+.card-container:hover .card-flip {
+  transform: rotateY(180deg);
+}
+.beginner-playlist .image-exercise img{
+  border-radius: 10px;
+}
+.beginner-playlist .exercise-info{
+  margin-top: 20px;
+}
+.beginner-playlist .exercise-info h4{
+  font-size: 20px;
+  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #393939;
+}
+.beginner-playlist .exercise-info  p{
+  color: #6F6C7B;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: justify;
+  margin-top: 10px;
+}
+.beginner-playlist .info h5 {
+  color: #ABA5C1;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.beginner-playlist .exercise-type-1{
+  background: rgba(48, 231, 2, 0.2);
+  border-radius: 4px;
+  padding: 5px 16px;
+  width: 33%; 
+}
+.beginner-playlist .exercise-type-1 h5{
+  font-family: 'Inter', sans-serif;
+  color: #6F6C7B;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0px;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -854,7 +944,9 @@ border-radius: 16px;
   .up_next_exercise .exercise-info h2 {
     font-size: 18px;
   }
-
+  .beginner-playlist {
+    padding: 20px 0px;
+}
 
 }
 @media (max-width:991px) {

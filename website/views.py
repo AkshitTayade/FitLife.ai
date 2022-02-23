@@ -489,6 +489,12 @@ def end_workout(request, exercise_name):
                                                         "len_next_ex": len(ex_left),
                                                         "next_exercise": ex_left})
 
+def beginner_playlist(request):
+
+    user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+    
+    return render(request,'beginner.html', {'user_data': user_data})
+
 def profile(request):
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 

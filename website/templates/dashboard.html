@@ -5,7 +5,7 @@
 {% block content %}
 
 {% if user_data.user_gender == 'female' %}
-    <section class="dashboard">
+    <section class="dashboard" style="margin-top:80px;">
       <h2 class="title-heading">Exercises for you</h2>
       <div class="container exercise-recommendations">
         <div class="row" id="carousel-row">
@@ -120,7 +120,7 @@
         </div>
       </div>
 
-      <h2 class="title-heading">Workout challenges</h2>
+      <h2 class="title-heading mt-3 mb-4">Workout challenges</h2>
       <div class="container workout-challenges">
         <div class="row">
           <div class="col-xl-3 col-md-6 col-lg-3">
@@ -167,7 +167,7 @@
         </div>
       </div>
 
-      <h2 class="title-heading">Workouts by intensity</h2>
+      <h2 class="title-heading mt-3 mb-4">Workouts by intensity</h2>
       <div class="container workout-intensity">
         <div class="row">
           <div class="col-xl-4 col-md-6 col-lg-4">
@@ -177,7 +177,7 @@
                 <div class="item-title d-flex align-items-start flex-column">
                   <div class="p-1 workout-type">Beginner</div>
                   <div class="p-1 mt-5 workout-button">
-                    <a href="" class="btn">See More</a>
+                    <a href="{% url 'beginner_playlist' %}" class="btn">See More</a>
                   </div>
                 </div>
               </div>
@@ -215,8 +215,8 @@
       </div>
     </section>
     {% else %}
-    <section class="dashboard mt-5">
-      <h2 class="title-heading">Exercises for you</h2>
+    <section class="dashboard" style="margin-top:90px;">
+      <h2 class="title-heading ">Exercises for you</h2>
       <div class="container exercise-recommendations">
         <div class="row" id="carousel-row">
           <div class="col-12">
@@ -373,7 +373,7 @@
       </div>
 
 
-      <h2 class="title-heading">Workout challenges</h2>
+      <h2 class="title-heading mt-3 mb-4">Workout challenges</h2>
       <div class="container workout-challenges">
         <div class="row">
           <div class="col-xl-3 col-md-6 col-lg-3">
@@ -420,7 +420,7 @@
         </div>
       </div>
 
-      <h2 class="title-heading">Workouts by intensity</h2>
+      <h2 class="title-heading mt-3 mb-4">Workouts by intensity</h2>
       <div class="container workout-intensity">
         <div class="row">
           <div class="col-xl-4 col-md-6 col-lg-4">
@@ -430,7 +430,7 @@
                 <div class="item-title d-flex align-items-start flex-column">
                   <div class="p-1 workout-type">Beginner</div>
                   <div class="p-1 mt-5 workout-button">
-                    <a href="" class="btn">See More</a>
+                    <a href="{% url 'beginner_playlist' %}" class="btn">See More</a>
                   </div>
                 </div>
               </div>

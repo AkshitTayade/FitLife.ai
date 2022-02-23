@@ -1,0 +1,278 @@
+{% extends 'base-dashboard.html' %}
+{% block title%} Beginner {% endblock %}
+{% load static %}
+{% block content %}
+<section id="beginner-playlist" class="beginner-playlist">
+    <h2 class="title-heading">Workout for beginners</h2>
+    <p class="para">Get started with fitness! These guided workouts aim at helping you start exercising daily with very
+        simple and easy-to-do exercises.</p>
+    <div class="container">
+        <div class="row g-4 mt-2 mb-3">
+            <div class="col-xl-6 card-container">
+                <div class="card-flip">
+                    <div class="card front">
+                        <div class="row card-body">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="image-exercise">
+                                    <img src="{% static 'img/dashboard/beginner-1.png' %}" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-6">
+                                <div class="exercise-info">
+                                    <h4>Basic squats</h4>
+                                    <div class="d-flex info mt-2">
+                                        <h5>20 cals</h5>
+                                        <h5 class="ms-2">•</h5>
+                                        <h5 class="ms-2">12 mins</h5>
+                                    </div>
+                                    <div class="exercise-type-1 mt-2">
+                                        <h5>Lower Body</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card back">
+                        <div class="card-body">
+                            <div class="exercise-info mt-0">
+                                <h4>Basic squats</h4>
+                                <p>It is an extremely effective lower body move that strengthens all leg muscles
+                                    including glutes, quads, hamstrings and calves.</p>
+                                <a href="{% url 'which_exercise' exercise_name='squat' %}"
+                                    class="btn get-started">Start</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 card-container">
+                <div class="card-flip">
+                    <div class="card front">
+                        <div class="row card-body">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="image-exercise">
+                                    <img src="{% static 'img/dashboard/beginner-2.png' %}" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-6">
+                                <div class="exercise-info">
+                                    <h4>Backward lunges</h4>
+                                    <div class="d-flex info mt-2">
+                                        <h5>20 cals</h5>
+                                        <h5 class="ms-2">•</h5>
+                                        <h5 class="ms-2">10 mins</h5>
+                                    </div>
+                                    <div class="exercise-type-1 mt-2">
+                                        <h5>Lower Body</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card back">
+                        <div class="card-body">
+                            <div class="exercise-info mt-0">
+                                <h4>Backward lunges</h4>
+                                <p>It is an extremely effective lower body move that strengthens all leg muscles
+                                    including glutes, quads, hamstrings and calves.</p>
+                                <a href="{% url 'which_exercise' exercise_name='backward lunges' %}"
+                                    class="btn get-started">Start</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 card-container">
+                <div class="card-flip">
+                    <div class="card front">
+                        <div class="row card-body">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="image-exercise">
+                                    <img src="{% static 'img/dashboard/beginner-3.png' %}" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-6">
+                                <div class="exercise-info">
+                                    <h4>Jumping jacks</h4>
+                                    <div class="d-flex info mt-2">
+                                        <h5>20 cals</h5>
+                                        <h5 class="ms-2">•</h5>
+                                        <h5 class="ms-2">12 mins</h5>
+                                    </div>
+                                    <div class="exercise-type-1 mt-2">
+                                        <h5>Lower Body</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card back">
+                        <div class="card-body">
+                            <div class="exercise-info mt-0">
+                                <h4>Jumping jacks</h4>
+                                <p>It is an extremely effective lower body move that strengthens all leg muscles
+                                    including glutes, quads, hamstrings and calves.</p>
+                                <a href="{% url 'which_exercise' exercise_name='jumping jack' %}"
+                                    class="btn get-started">Start</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 card-container">
+                <div class="card-flip">
+                    <div class="card front">
+                        <div class="row card-body">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="image-exercise">
+                                    <img src="{% static 'img/dashboard/beginner-4.png' %}" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-6">
+                                <div class="exercise-info">
+                                    <h4>Cobra Stretch</h4>
+                                    <div class="d-flex info mt-2">
+                                        <h5>20 cals</h5>
+                                        <h5 class="ms-2">•</h5>
+                                        <h5 class="ms-2">12 mins</h5>
+                                    </div>
+                                    <div class="exercise-type-1 mt-2"
+                                        style="width: 19%;background: rgba(143, 55, 255, 0.2);">
+                                        <h5>Core</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card back">
+                        <div class="card-body">
+                            <div class="exercise-info mt-0">
+                                <h4>Cobra Stretch</h4>
+                                <p>It is an extremely effective lower body move that strengthens all leg muscles
+                                    including glutes, quads, hamstrings and calves.</p>
+                                <a href="{% url 'which_exercise' exercise_name='cobra stretch' %}"
+                                    class="btn get-started">Start</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 card-container">
+                <div class="card-flip">
+                    <div class="card front">
+                        <div class="row card-body">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="image-exercise">
+                                    <img src="{% static 'img/dashboard/beginner-5.png' %}" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-6">
+                                <div class="exercise-info">
+                                    <h4>Abdominal Crunches</h4>
+                                    <div class="d-flex info mt-2">
+                                        <h5>20 cals</h5>
+                                        <h5 class="ms-2">•</h5>
+                                        <h5 class="ms-2">10 mins</h5>
+                                    </div>
+                                    <div class="exercise-type-1 mt-2"
+                                        style="width: 19%;background: rgba(143, 55, 255, 0.2);">
+                                        <h5>Core</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card back">
+                        <div class="card-body">
+                            <div class="exercise-info mt-0">
+                                <h4>Abdominal Crunches</h4>
+                                <p>It is an extremely effective lower body move that strengthens all leg muscles
+                                    including glutes, quads, hamstrings and calves.</p>
+                                <a href="{% url 'which_exercise' exercise_name='adbominal crunches' %}"
+                                    class="btn get-started">Start</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 card-container">
+                <div class="card-flip">
+                    <div class="card front">
+                        <div class="row card-body">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="image-exercise">
+                                    <img src="{% static 'img/dashboard/beginner-6.png' %}" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-6">
+                                <div class="exercise-info">
+                                    <h4>Knee pushups</h4>
+                                    <div class="d-flex info mt-2">
+                                        <h5>20 cals</h5>
+                                        <h5 class="ms-2">•</h5>
+                                        <h5 class="ms-2">12 mins</h5>
+                                    </div>
+                                    <div class="exercise-type-1 mt-2"
+                                        style="width: 19%;background: rgba(143, 55, 255, 0.2);">
+                                        <h5>Core</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card back">
+                        <div class="card-body">
+                            <div class="exercise-info mt-0">
+                                <h4>Knee pushups</h4>
+                                <p>It is an extremely effective lower body move that strengthens all leg muscles
+                                    including glutes, quads, hamstrings and calves.</p>
+                                <a href="{% url 'which_exercise' exercise_name='knee pushup' %}"
+                                    class="btn get-started">Start</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 card-container">
+                <div class="card-flip">
+                    <div class="card front">
+                        <div class="row card-body">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="image-exercise">
+                                    <img src="{% static 'img/dashboard/beginner-7.png' %}" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-6">
+                                <div class="exercise-info">
+                                    <h4>Side arm raise</h4>
+                                    <div class="d-flex info mt-2">
+                                        <h5>20 cals</h5>
+                                        <h5 class="ms-2">•</h5>
+                                        <h5 class="ms-2">12 mins</h5>
+                                    </div>
+                                    <div class="exercise-type-1 mt-2" style="background: rgba(255, 36, 168, 0.2);">
+                                        <h5>Upper Body</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card back">
+                        <div class="card-body">
+                            <div class="exercise-info mt-0">
+                                <h4>Side arm raise</h4>
+                                <p>It is an extremely effective lower body move that strengthens all leg muscles
+                                    including glutes, quads, hamstrings and calves.</p>
+                                <a href="{% url 'which_exercise' exercise_name='side arm raises' %}"
+                                    class="btn get-started">Start</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+{% endblock %}
