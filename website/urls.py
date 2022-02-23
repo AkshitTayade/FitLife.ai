@@ -21,5 +21,6 @@ urlpatterns = [
     path('video_feed/<str:exercise_name>', views.video_feed, name='video_feed'),
     path('start_exercise/<str:exercise_name>', views.start_exercise, name='start_exercise'),
     path('end_workout/<str:exercise_name>', views.end_workout, name='end_workout'),
+    path('profile', views.profile, name='profile'),
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -15,7 +15,6 @@ html, body {width: auto!important; overflow-x: hidden!important}
 body {
   height: 100%;
   letter-spacing: 1.5px;
-  /* background-color: #151419; */
   scroll-behavior: smooth;
 }
 

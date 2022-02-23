@@ -1,0 +1,49 @@
+{% extends 'base-dashboard.html' %}
+{% block title%} Profile {% endblock %} 
+{% block profileactive %} active {% endblock profileactive %}
+{% load static %}
+{% block content %}
+<section class="dashboard">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="title-heading text-center">Body Mass Index Calculator</h2>
+                <form action="{% url 'profile' %}" method="POST" class="mt-5">
+                    {% csrf_token %}
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-6">
+                            <label for="weight" class="form-label">What’s your weight?</label>
+                            <input type="number" class="form-control" id="weight" name="weight" placeholder="Enter your weight"
+                               required>
+                        </div>
+                        <div class="col-6">
+                            <label for="height" class="form-label">What’s your height?</label>
+                            <div class="d-flex justify-content-center">
+                               <input type="number" class="form-control" id="height" name="height" required max="10" min="1">
+                               <h4>ft.</h4>
+                               <input type="number" class="form-control ms-2" id="height" name="height1" required required max="11" min="0">
+                               <h4>in.</h4>
+                            </div>
+                         </div>
+                         <div class="col-6">
+                            <label for="age" class="form-label">What’s your age?</label>
+                            <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age"
+                               required>
+                        </div>
+                         <div class="text-center">
+                            <button type="submit" class="btn btn-primary continue">Continue</button>
+                         </div>
+                    </div>
+                </form>
+                {% if request.method == 'POST' %}
+                <h4 class="text-justify mt-4">Your Body Mass Index is <span style="color: #0d23e7;">{{ bmi }}</span></h4>
+                <h4 class="text-justify mt-2">The Weight Status of a user according to BMI is : <span style="color: #0d23e7;">{{ bmi_condition }}</span></h4>
+                <h4 class="text-justify mt-2">Minimum Weight of user is  :  <span style="color: #0d23e7;">{{ users_min_weight }}</span> kg</h4>
+                <h4 class="text-justify mt-2">Maximum Weight of user is  : <span style="color: #0d23e7;">{{ users_max_weight }}</span> kg</h4>               
+                {% endif %}
+               
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

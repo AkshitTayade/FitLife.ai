@@ -11,7 +11,7 @@ $("#carousel").owlCarousel({
 	*/
 	responsiveClass: true,
 	autoHeight: true,
-	autoplayTimeout:100000,
+	autoplayTimeout:4000,
 	smartSpeed: 500,
 	nav: true,
 	responsive: {

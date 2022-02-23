@@ -122,7 +122,6 @@ def login_next(request):
         
     return render(request,'login-next.html')
 
-
 def logout_user(request):
     
     request.session['user_mail_id'] = False
@@ -146,8 +145,7 @@ def dashboard(request):
         user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
         
         return render(request,'dashboard.html',{'user_data': user_data, 'playlist': user_playlist})
-
-            
+          
 def gender(request):
     if request.method == 'POST':
         gender = request.POST['gender']
@@ -490,3 +488,41 @@ def end_workout(request, exercise_name):
                                                         "cal_burned": calories,
                                                         "len_next_ex": len(ex_left),
                                                         "next_exercise": ex_left})
+
+def profile(request):
+    user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+
+    if request.method == 'POST':
+
+        user_height_ft = int(request.POST['height'])
+        user_height_in = int(request.POST['height1'])
+        user_height = round(( (int(user_height_in)/12) + int(user_height_ft) ) * 30.48)
+        user_weight = int(request.POST['weight'])
+
+        bmi = round((user_weight/(user_height**2))*10000,2)
+
+        if bmi <= 18.5 :
+            bmi_condition = 'Underweight'
+        
+        elif bmi >= 18.5 and bmi <= 24.9:
+            bmi_condition = 'Healthy Weight'
+        
+        elif bmi >= 25 and bmi <= 29.9:
+            bmi_condition ='Overweight'
+
+        else:
+            bmi_condition = 'Obesity'
+
+        print(bmi_condition)
+
+        users_min_weight = round((18.5 * (user_height**2))/10000,2)
+        users_max_weight = round((24.9 * (user_height**2))/10000,2)
+
+
+        return render(request,'profile.html',{'bmi':bmi,
+                                              'bmi_condition':bmi_condition,
+                                              'users_min_weight':users_min_weight,
+                                              'users_max_weight':users_max_weight,
+                                              'user_data': user_data})
+
+    return render(request,'profile.html',{'user_data': user_data})
