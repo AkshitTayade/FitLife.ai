@@ -23,5 +23,6 @@ urlpatterns = [
     path('end_workout/<str:exercise_name>', views.end_workout, name='end_workout'),
     path('beginner_playlist', views.beginner_playlist, name='beginner_playlist'),
     path('profile', views.profile, name='profile'),
+    path('profile_change/<str:editable>', views.profile_change, name='profile_change'),
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

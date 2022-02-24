@@ -8,6 +8,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 from django.urls import reverse
+from numpy import round_
 from .models import User_Info,User_Exercise_Info,Playlist_Check
 from django.contrib.auth import authenticate, login, logout
 import pyotp
@@ -234,7 +235,7 @@ def body_details(request):
     if request.method == 'POST':
         user_height_ft = int(request.POST['height'])
         user_height_in = int(request.POST['height1'])
-        user_height = str(((user_height_in/12) + user_height_ft)*30.48)
+        user_height = str(round(((user_height_in/12) + user_height_ft)*30.48, 2))
         user_current_weight = request.POST['current-weight']
         user_targeted_weight = request.POST['targeted-weight']
     
@@ -503,41 +504,46 @@ def beginner_playlist(request):
     return render(request,'beginner.html', {'user_data': user_data})
 
 def profile(request):
+    
+    user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+
+    return render(request,'profile.html',{'user_data': user_data, 'editable': 'False'})
+
+def profile_change(request, editable):
+
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 
     if request.method == 'POST':
 
-        user_height_ft = int(request.POST['height'])
-        user_height_in = int(request.POST['height1'])
-        user_height = round(( (int(user_height_in)/12) + int(user_height_ft) ) * 30.48)
-        user_weight = int(request.POST['weight'])
-
-        bmi = round((user_weight/(user_height**2))*10000,2)
-
-        if bmi <= 18.5 :
-            bmi_condition = 'Underweight'
-        
-        elif bmi >= 18.5 and bmi <= 24.9:
-            bmi_condition = 'Healthy Weight'
-        
-        elif bmi >= 25 and bmi <= 29.9:
-            bmi_condition ='Overweight'
+        if editable == 'True':
+            return render(request,'profile.html',{'user_data': user_data, 'editable': 'True'})
 
         else:
-            bmi_condition = 'Obesity'
+            user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 
-        print(bmi_condition)
+            if request.POST['age'] == '':
+                u_age = user_data.user_age
+            else:
+                u_age = request.POST['age']
+                
+            if request.POST['weight'] == '':
+                u_weight = user_data.user_weight
+            else:
+                u_weight = request.POST['weight']
 
-        users_min_weight = round((18.5 * (user_height**2))/10000,2)
-        users_max_weight = round((24.9 * (user_height**2))/10000,2)
+            if request.POST['height'] == '':
+                u_height = user_data.user_height
+            else:
+                u_height = request.POST['height']
+         
+            user_data.user_age = u_age
+            user_data.user_weight = u_weight
+            user_data.user_height = u_height
+            user_data.save()
 
+            user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 
-        return render(request,'profile.html',{'bmi':bmi,
-                                              'bmi_condition':bmi_condition,
-                                              'users_min_weight':users_min_weight,
-                                              'users_max_weight':users_max_weight,
-                                              'user_data': user_data})
+            return render(request,'profile.html',{'user_data': user_data, 'editable': 'False'})
 
     return render(request,'profile.html',{'user_data': user_data})
-
 
