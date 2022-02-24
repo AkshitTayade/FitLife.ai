@@ -19,7 +19,7 @@
 <body>
     <main id="main-exercise">
         <div class="top-bar d-flex fixed-top">
-            <a href="{% url 'dashboard' %}"><i class="fa-solid fa-arrow-left"></i></a>
+            <a href="{{ request.META.HTTP_REFERER }}"><i class="fa-solid fa-arrow-left"></i></a>
             <h2>Workout Details</h2>
         </div>
         {% block content %}

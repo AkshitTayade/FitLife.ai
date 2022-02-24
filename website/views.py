@@ -96,7 +96,7 @@ def login_next(request):
 
             # for refreshing the playlist model daily
             try:
-                today_date = date.today()
+                today_date = datetime.date.today()
 
                 playlist = Playlist_Check.objects.get(user_email =  request.session['user_mail_id'])
 
@@ -109,6 +109,7 @@ def login_next(request):
                     playlist.exercise_squats=0
                     playlist.exercise_bl=0
                     playlist.exercise_cs=0
+                    playlist.save()
             
             except:
                 pass
@@ -339,8 +340,16 @@ def main_goal(request):
     return render(request,'main-goal.html')
 
 def which_exercise(request, exercise_name):
+    
+    file = open('website/exercise_timing.json', 'r+')
+    data = json.load(file)
+    file.close()
 
-    if exercise_name == 'squat':
+    file = open('website/exercise_timing.json', 'w+')
+    json.dump({}, file)
+    file.close()
+
+    if exercise_name == 'squat': 
         return render(request,'exercises/exercise_squats.html', {"ex_name": exercise_name})
 
     elif exercise_name == 'jumping jack':
@@ -411,7 +420,7 @@ def update_Playlist(user_mail, exercise_name):
         playlist.save()
     
     elif exercise_name == 'side arm raises':
-        playlist.exercise_squats=1
+        playlist.exercise_sar=1
         playlist.current_date = datetime.date.today()
         playlist.save()
 
@@ -429,7 +438,10 @@ def update_Playlist(user_mail, exercise_name):
 
 def end_workout(request, exercise_name):
 
+    print(exercise_name)
+
     ex_left = []
+
     file = open('website/exercise_timing.json', 'r+')
 
     playlist = update_Playlist(request.session['user_mail_id'], exercise_name)
@@ -464,8 +476,6 @@ def end_workout(request, exercise_name):
 
     calories, weight_loss = CalorieBurned(data['Total_seconds'], exercise_name, user_data.user_weight).calculate()
 
-    
-
     make_exercise_entry = User_Exercise_Info(user_name = user_data.user_name,
                                             exercise_name = exercise_name,
                                             exercise_count = data['Total_Reps'],
@@ -477,9 +487,6 @@ def end_workout(request, exercise_name):
     
     make_exercise_entry.save()
 
-    data.update({})
-    file.seek(0)
-    json.dump(data, file)
     file.close()
 
     return render(request,'exercises/end-workout.html',{"ex_name": exercise_name, 
@@ -532,3 +539,5 @@ def profile(request):
                                               'user_data': user_data})
 
     return render(request,'profile.html',{'user_data': user_data})
+
+

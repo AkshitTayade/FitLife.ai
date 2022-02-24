@@ -207,7 +207,7 @@ class poseDetector():
                 self.i += 1
         
         if self.i == 2:
-            if int(self.count_jj/4) == 2:
+            if int(self.count_jj/4) == 10:
                
                 now = datetime.datetime.now()
                     
@@ -498,7 +498,7 @@ class poseDetector():
                 self.i += 1
         
         if self.i == 2:
-            if int(self.count_sar) == 2:
+            if int(self.count_sar) == 15:
                
                 now = datetime.datetime.now()
                     
@@ -516,11 +516,10 @@ class poseDetector():
 
                 self.i += 1
 
-        if int(self.count_sar) <= 15:
-            cv2.putText(frame, f"Count = {int(self.count_sar)}/15", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 2)
-        else:
+        if int(self.count_sar) >= 15:
             cv2.putText(frame, f"Completed", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 2)
-
+        else:
+            cv2.putText(frame, f"Count = {int(self.count_sar)}/15", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 2)
         return(frame)
 
     def Backward_Lunges(self, frame):
@@ -652,20 +651,20 @@ class poseDetector():
                         cv2.putText(frame,"Completed",(500,200), font, 1,(0,255,0),2,cv2.LINE_AA)
                         #print("Completed")
                 
-                    time_left = 10 - self.mins
+                    self.time_left = 10 - self.mins
 
-                    if len(str(time_left)) == 2:
-                        pass
+                    if len(str(self.time_left)) == 2:
+                        time_left_str = self.time_left
                     
                     else:
-                        time_left = "0" + str(time_left)
+                        time_left_str = "0" + str(self.time_left)
 
                     if self.i == 1:
-                        if time_left == 0:
+                        if self.time_left == 1:
                             data = json.load(self.file)
-                            data.update({"Total_seconds": 10, 
+                            data.update({"Total_seconds": 20, 
                                         "Timestamp": "00:00:10",
-                                        "Total_Reps": "30 sec"})
+                                        "Total_Reps": "20 sec"})
                             self.file.seek(0)
                             json.dump(data, self.file)
                             self.file.close()
@@ -676,7 +675,7 @@ class poseDetector():
 
                     #print(period)
                     cv2.circle(frame, (30,680), 100, (255, 0, 0), 3)
-                    cv2.putText(frame,str(time_left),(10,680), font, 2,(0,0,255),3,cv2.LINE_AA)
+                    cv2.putText(frame,str(time_left_str),(10,680), font, 2,(0,0,255),3,cv2.LINE_AA)
                 
                 else:
                     x, y = positions[25][1:]
