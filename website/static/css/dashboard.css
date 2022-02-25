@@ -952,6 +952,35 @@ border-radius: 16px;
 .user-profile  input:focus{
   box-shadow: none !important;
 }
+.user-profile .status-card .card{
+  background: #0F0E14;
+  box-shadow: 0px 4px 20px rgba(171, 165, 193, 0.2);
+  border-radius: 8px;
+  border: 0;
+}
+.user-profile .status-card .card-body h2{
+  color: #FFFFFF;
+  font-family: 'Rubik', sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+}
+.user-profile .status-card .card-body p{
+  color: #6F6C7B;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin: 28px 0px;
+  font-size: 17px;
+  text-align: justify;
+  line-height: 20px;
+}
+.user-profile .status-card .card-body h3{
+  color: #C7C5CC;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/

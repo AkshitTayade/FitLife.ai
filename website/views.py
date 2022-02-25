@@ -242,7 +242,9 @@ def body_details(request):
         # updating the onboarding json file
         onboard_file = open('website/onboarding_stat.json', 'r+')
         onboard_data = json.load(onboard_file)
-        onboard_data.update({   "user_height": user_height,
+        onboard_data.update({   "user_height_ft" :user_height_ft,
+                                "user_height_in" :user_height_in,
+                                "user_height": user_height,
                                 "user_current_weight": user_current_weight,
                                 "user_targeted_weight": user_targeted_weight})
         onboard_file.seek(0)
@@ -320,6 +322,8 @@ def main_goal(request):
                                         user_email = onboard_data['user_email'],
                                         user_age = onboard_data['user_age'],
                                         user_blood_group = onboard_data['user_blood_group'],
+                                        user_height_ft = onboard_data['user_height_ft'],
+                                        user_height_in = onboard_data['user_height_in'],
                                         user_height  = onboard_data['user_height'],
                                         user_weight = onboard_data['user_current_weight'],
                                         user_activity_level = onboard_data['active_status'])
@@ -531,14 +535,21 @@ def profile_change(request, editable):
             else:
                 u_weight = request.POST['weight']
 
-            if request.POST['height'] == '':
-                u_height = user_data.user_height
+            if request.POST['height_ft'] == '':
+                u_height_ft = user_data.user_height_ft
             else:
-                u_height = request.POST['height']
-         
+                u_height_ft = request.POST['height_ft']
+
+            if request.POST['height_in'] == '':
+                u_height_in = user_data.user_height_in
+            else:
+                u_height_in = request.POST['height_in']
+
             user_data.user_age = u_age
             user_data.user_weight = u_weight
-            user_data.user_height = u_height
+            user_data.user_height_ft = u_height_ft
+            user_data.user_height_in = u_height_in
+            user_data.user_height = round(((int(u_height_in)/12) + int(u_height_ft))*30.48, 2)
             user_data.save()
 
             user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()

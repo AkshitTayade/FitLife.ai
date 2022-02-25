@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="age" class="form-label">Age</label>
-                                    <input type="text" class="form-control"
+                                    <input type="number" class="form-control"
                                         placeholder="{{ user_data.user_age }} years" disabled>
                                 </div>
                                 <div class="col-6">
@@ -47,13 +47,13 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="weight" class="form-label">Current Weight</label>
-                                    <input type="text" class="form-control"
+                                    <input type="number" class="form-control"
                                         placeholder="{{ user_data.user_weight }} kgs" disabled>
                                 </div>
                                 <div class="col-6">
                                     <label for="height" class="form-label">Current Height</label>
-                                    <input type="text" class="form-control" 
-                                        placeholder="{{ user_data.user_height }} cm" disabled>
+                                    <input type="number¯" class="form-control" 
+                                        placeholder="{{ user_data.user_height_ft }}'{{ user_data.user_height_in }} or {{ user_data.user_height }} cm" disabled>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                                 <div class="col-6">
                                     <label for="age" class="form-label">Age</label>
                                     <div class="d-flex">
-                                        <input type="text" class="form-control" id="age" name="age"
+                                        <input type="number" class="form-control" id="age" name="age"
                                         placeholder="{{ user_data.user_age }}">
                                         <h4>years</h4>
                                     </div>
@@ -103,7 +103,7 @@
                                 <div class="col-6">
                                     <label for="weight" class="form-label">Current Weight</label>
                                     <div class="d-flex">
-                                        <input type="text" class="form-control" id="weight" name="weight"
+                                        <input type="number" class="form-control" id="weight" name="weight"
                                         placeholder="{{ user_data.user_weight }}">
                                         <h4> kgs</h4>
                                     </div>
@@ -111,12 +111,22 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="height" class="form-label">Current Height</label>
-                                    <div class="d-flex">
-                                        <input type="text" class="form-control" id="height" name="height"
-                                        placeholder="{{ user_data.user_height }}">
-                                        <h4>cm</h4>
-                                    </div>
-                                    
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="d-flex">
+                                                <input type="number" class="form-control" id="height" name="height_ft"
+                                                placeholder="{{ user_data.user_height_ft }}">
+                                                <h4>ft</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="d-flex">
+                                                <input type="number" class="form-control" id="height" name="height_in"
+                                                placeholder="{{ user_data.user_height_in }}">
+                                                <h4>in</h4>
+                                            </div>
+                                        </div>
+                                    </div>        
                                 </div>
                             </div>
 
@@ -125,10 +135,29 @@
                 </form>
                 {% endif %}
             </div>
-            <div class="col-xl-5">
+            <div class="col-xl-5 status-card">
                 <div class="card">
-                    <div class="card-body"></div>
+                    <div class="card-body mt-3">
+                        <h2>Keep in shape & maintain your health</h2>
+                        <p>BMI and BMR are guidelines that allow nutrition and medical professionals to make educated determinations about your body and help you stay healthy.</p>
+                        <h3>What is BMI ?</h3>
+                        <p class="mt-3">BMI, or body mass index, is a number used to assess your body composition. </p>
+                        <h3>What is BMR ?</h3>
+                        <p class="mt-3">Your BMR, or basal metabolic rate, is the number of calories you burn when your body is at rest.</p>
+                        <div class="text-center mt-5 mb-3">
+                            <a  href="" class="btn get-started">Calculate BMI & BMR</a>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="card mt-3">
+                    <div class="card-body mt-3">
+                        <h2>Keep in shape & maintain your health</h2>
+                        
+                    </div>
+                </div>
+
+            
             </div>
 
         </div>
