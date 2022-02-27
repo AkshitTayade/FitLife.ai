@@ -52,8 +52,9 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="height" class="form-label">Current Height</label>
-                                    <input type="number¯" class="form-control" 
-                                        placeholder="{{ user_data.user_height_ft }}'{{ user_data.user_height_in }} or {{ user_data.user_height }} cm" disabled>
+                                    <input type="number¯" class="form-control"
+                                        placeholder="{{ user_data.user_height_ft }}'{{ user_data.user_height_in }} or {{ user_data.user_height }} cm"
+                                        disabled>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +92,7 @@
                                     <label for="age" class="form-label">Age</label>
                                     <div class="d-flex">
                                         <input type="number" class="form-control" id="age" name="age"
-                                        placeholder="{{ user_data.user_age }}">
+                                            placeholder="{{ user_data.user_age }}">
                                         <h4>years</h4>
                                     </div>
                                 </div>
@@ -104,10 +105,10 @@
                                     <label for="weight" class="form-label">Current Weight</label>
                                     <div class="d-flex">
                                         <input type="number" class="form-control" id="weight" name="weight"
-                                        placeholder="{{ user_data.user_weight }}">
+                                            placeholder="{{ user_data.user_weight }}">
                                         <h4> kgs</h4>
                                     </div>
-                                   
+
                                 </div>
                                 <div class="col-6">
                                     <label for="height" class="form-label">Current Height</label>
@@ -115,18 +116,18 @@
                                         <div class="col-lg-6">
                                             <div class="d-flex">
                                                 <input type="number" class="form-control" id="height" name="height_ft"
-                                                placeholder="{{ user_data.user_height_ft }}">
+                                                    placeholder="{{ user_data.user_height_ft }}">
                                                 <h4>ft</h4>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="d-flex">
                                                 <input type="number" class="form-control" id="height" name="height_in"
-                                                placeholder="{{ user_data.user_height_in }}">
+                                                    placeholder="{{ user_data.user_height_in }}">
                                                 <h4>in</h4>
                                             </div>
                                         </div>
-                                    </div>        
+                                    </div>
                                 </div>
                             </div>
 
@@ -139,13 +140,15 @@
                 <div class="card">
                     <div class="card-body mt-3">
                         <h2>Keep in shape & maintain your health</h2>
-                        <p>BMI and BMR are guidelines that allow nutrition and medical professionals to make educated determinations about your body and help you stay healthy.</p>
+                        <p>BMI and BMR are guidelines that allow nutrition and medical professionals to make educated
+                            determinations about your body and help you stay healthy.</p>
                         <h3>What is BMI ?</h3>
                         <p class="mt-3">BMI, or body mass index, is a number used to assess your body composition. </p>
                         <h3>What is BMR ?</h3>
-                        <p class="mt-3">Your BMR, or basal metabolic rate, is the number of calories you burn when your body is at rest.</p>
+                        <p class="mt-3">Your BMR, or basal metabolic rate, is the number of calories you burn when your
+                            body is at rest.</p>
                         <div class="text-center mt-5 mb-3">
-                            <a  href="" class="btn get-started">Calculate BMI & BMR</a>
+                            <a href="" class="btn get-started">Calculate BMI & BMR</a>
                         </div>
                     </div>
                 </div>
@@ -153,57 +156,47 @@
                 <div class="card mt-3">
                     <div class="card-body mt-3">
                         <h2>Keep in shape & maintain your health</h2>
-                        
+                        <ul class="nav nav-pills mt-4" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-bmi" type="button" role="tab" aria-controls="pills-bmi"
+                                    aria-selected="true">BMI</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-bmr-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-bmr" type="button" role="tab" aria-controls="pills-bmr"
+                                    aria-selected="false">BMR</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-bmi" role="tabpanel"
+                                aria-labelledby="pills-bmi-tab">
+                                <div class="output-display">
+                                    <h2>Your BMI</h2>
+                                    <div class="value">20.6</div>
+                                </div>
+                                <div class="output-display">
+                                    <h2>Your proper weight range</h2>
+                                    <div class="value">49.6 - 60.5 <sub>kg</sub></div>
+                                </div>
+                               <h3>💪 &nbsp;You have great potential to get healthier!</h3>
+                               <h3>🥳 &nbsp;You’ve got a great figure. Keep it up!</h3>
+                               <h3>🏃 &nbsp;You need to exercise a bit more to see a fitter you!</h3>
+                               <h3>🏋🏻  &nbsp;You need to workout rigourously to be healthier!</h3>
+                            </div>
+                            <div class="tab-pane fade" id="pills-bmr" role="tabpanel" aria-labelledby="pills-bmr-tab">
+                                ...</div>
+                        </div>
+
                     </div>
                 </div>
 
-            
+
             </div>
 
         </div>
     </div>
 </section>
-<!-- <section class="dashboard">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="title-heading text-center">Body Mass Index Calculator</h2>
-                <form action="{% url 'profile' %}" method="POST" class="mt-5">
-                    {% csrf_token %}
-                    <div class="row g-4 justify-content-center">
-                        <div class="col-6">
-                            <label for="weight" class="form-label">What’s your weight?</label>
-                            <input type="number" class="form-control" id="weight" name="weight" placeholder="Enter your weight"
-                               required>
-                        </div>
-                        <div class="col-6">
-                            <label for="height" class="form-label">What’s your height?</label>
-                            <div class="d-flex justify-content-center">
-                               <input type="number" class="form-control" id="height" name="height" required max="10" min="1">
-                               <h4>ft.</h4>
-                               <input type="number" class="form-control ms-2" id="height" name="height1" required required max="11" min="0">
-                               <h4>in.</h4>
-                            </div>
-                         </div>
-                         <div class="col-6">
-                            <label for="age" class="form-label">What’s your age?</label>
-                            <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age"
-                               required>
-                        </div>
-                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary continue">Continue</button>
-                         </div>
-                    </div>
-                </form>
-                {% if request.method == 'POST' %}
-                <h4 class="text-justify mt-4">Your Body Mass Index is <span style="color: #0d23e7;">{{ bmi }}</span></h4>
-                <h4 class="text-justify mt-2">The Weight Status of a user according to BMI is : <span style="color: #0d23e7;">{{ bmi_condition }}</span></h4>
-                <h4 class="text-justify mt-2">Minimum Weight of user is  :  <span style="color: #0d23e7;">{{ users_min_weight }}</span> kg</h4>
-                <h4 class="text-justify mt-2">Maximum Weight of user is  : <span style="color: #0d23e7;">{{ users_max_weight }}</span> kg</h4>               
-                {% endif %}
-               
-            </div>
-        </div>
-    </div>
-</section> -->
+
+
 {% endblock %}

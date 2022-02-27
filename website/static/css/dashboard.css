@@ -981,6 +981,59 @@ border-radius: 16px;
   line-height: 20px;
   letter-spacing: 0.5px;
 }
+
+.user-profile .status-card .nav-link.active {
+  border-bottom: 8px solid #C7C5CC  !important; 
+}
+.user-profile .status-card .nav-item{
+  width: 50%;
+}
+
+.user-profile .status-card .nav-link {
+  color: #C7C5CC;
+  font-size: 18px;
+  line-height: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  width: 80%;
+  padding-bottom: 16px;
+}
+
+.user-profile .status-card .nav-pills .nav-link.active {
+  color: #C7C5CC;
+  background-color: transparent;
+  border-radius:0;
+}
+
+.user-profile .status-card .tab-content .output-display{
+  margin-top: 44px;
+}
+.user-profile .status-card .tab-content .output-display h2{
+  font-size: 17px;
+  line-height: 20px;
+  color: #E6E4E4;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+.user-profile .status-card .tab-content .output-display .value{
+  border: 2px solid #0057FF;
+  border-radius: 8px;
+  margin-top: 16px;
+  padding: 5px 12px;
+  color: #0057FF;
+  font-size: 32px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+.user-profile .status-card .tab-content h3{
+  font-size: 16px;
+  margin-top: 32px;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  line-height: 20px;
+  color: #E6E4E4;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -1108,3 +1161,4 @@ border-radius: 16px;
     margin-left: 200px;
   }
 }
+
