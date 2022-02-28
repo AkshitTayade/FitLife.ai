@@ -98,11 +98,8 @@
     selector: '.glightbox'
   });
 
-  
+
 
 })();
-
-
-
 
 

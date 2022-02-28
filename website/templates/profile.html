@@ -25,32 +25,32 @@
                             <hr>
                             <div class="row g-5 mb-5">
                                 <!---- Name ----->
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <label for="name" class="form-label">Name </label>
                                     <input type="text" class="form-control" id="name" name="name"
                                         placeholder="{{ user_data.user_name }}" disabled>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <label for="gender" class="form-label">Gender</label>
                                     <input type="text" class="form-control" id="gender" name="gender"
                                         placeholder="{{ user_data.user_gender }}" disabled>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <label for="age" class="form-label">Age</label>
                                     <input type="number" class="form-control"
                                         placeholder="{{ user_data.user_age }} years" disabled>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <label for="bloodgroup" class="form-label">Blood Group</label>
                                     <input type="text" class="form-control" id="bloodgroup" name="bloodgroup"
                                         placeholder="{{ user_data.user_blood_group }}" disabled>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <label for="weight" class="form-label">Current Weight</label>
                                     <input type="number" class="form-control"
                                         placeholder="{{ user_data.user_weight }} kgs" disabled>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <label for="height" class="form-label">Current Height</label>
                                     <input type="number¯" class="form-control"
                                         placeholder="{{ user_data.user_height_ft }}'{{ user_data.user_height_in }} or {{ user_data.user_height }} cm"
@@ -78,17 +78,17 @@
                             </div>
                             <hr>
                             <div class="row g-5 mb-5">
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <label for="name" class="form-label">Name </label>
                                     <input type="text" class="form-control" id="name" name="name"
                                         placeholder="{{ user_data.user_name }}" disabled>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <label for="gender" class="form-label">Gender</label>
                                     <input type="text" class="form-control" id="gender" name="gender"
                                         placeholder="{{ user_data.user_gender }}" disabled>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <label for="age" class="form-label">Age</label>
                                     <div class="d-flex">
                                         <input type="number" class="form-control" id="age" name="age"
@@ -96,12 +96,12 @@
                                         <h4>years</h4>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <label for="bloodgroup" class="form-label">Blood Group</label>
                                     <input type="text" class="form-control" id="bloodgroup" name="bloodgroup"
                                         placeholder="{{ user_data.user_blood_group }}" disabled>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <label for="weight" class="form-label">Current Weight</label>
                                     <div class="d-flex">
                                         <input type="number" class="form-control" id="weight" name="weight"
@@ -110,7 +110,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <label for="height" class="form-label">Current Height</label>
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -152,9 +152,8 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card mt-3">
-                    <div class="card-body mt-3">
+                    <div class="card-body">
                         <h2>Keep in shape & maintain your health</h2>
                         <ul class="nav nav-pills mt-4" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
@@ -169,8 +168,36 @@
                             </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-bmi" role="tabpanel"
-                                aria-labelledby="pills-bmi-tab">
+                            <div class="tab-pane fade show active" id="pills-bmi" role="tabpanel" aria-labelledby="pills-bmi-tab">
+                                <div id="range-sliders" class="range-sliders mt-5">
+                                    <form action="">
+                                        <div>
+                                            <label>Your height (cm)</label>
+                                            <div class="range-slider-group">
+                                                <input type="range" min="0" max="250"
+                                                    value="{{ user_data.user_height }}" data-color="#0057FF"
+                                                    class="range-slider" id="range-slider"
+                                                    onInput="$('#rangeval-h').html($(this).val())">
+                                                <span class="input-slider"
+                                                    id="rangeval-h">{{ user_data.user_height }}</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="mt-4">
+                                            <label>Your weight (kg)</label>
+                                            <div class="range-slider-group">
+                                                <input type="range" min="0" max="150"
+                                                    value="{{ user_data.user_weight }}" data-color="#0057FF"
+                                                    class="range-slider" id="range-slider-1"
+                                                    onInput="$('#rangeval-w').html($(this).val())">
+                                                <span class="input-slider"
+                                                    id="rangeval-w">{{ user_data.user_weight }}</span>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+                                </div>
                                 <div class="output-display">
                                     <h2>Your BMI</h2>
                                     <div class="value">20.6</div>
@@ -179,22 +206,96 @@
                                     <h2>Your proper weight range</h2>
                                     <div class="value">49.6 - 60.5 <sub>kg</sub></div>
                                 </div>
-                               <h3>💪 &nbsp;You have great potential to get healthier!</h3>
-                               <h3>🥳 &nbsp;You’ve got a great figure. Keep it up!</h3>
-                               <h3>🏃 &nbsp;You need to exercise a bit more to see a fitter you!</h3>
-                               <h3>🏋🏻  &nbsp;You need to workout rigourously to be healthier!</h3>
+                                <h3>💪 &nbsp;You have great potential to get healthier!</h3>
+                                <h3>🥳 &nbsp;You’ve got a great figure. Keep it up!</h3>
+                                <h3>🏃 &nbsp;You need to exercise a bit more to see a fitter you!</h3>
+                                <h3>🏋🏻 &nbsp;You need to workout rigourously to be healthier!</h3>
                             </div>
-                            <div class="tab-pane fade" id="pills-bmr" role="tabpanel" aria-labelledby="pills-bmr-tab">
-                                ...</div>
-                        </div>
+                            <div class="tab-pane" id="pills-bmr" role="tabpanel"
+                                aria-labelledby="pills-bmr-tab">
+                                <div id="range-sliders" class="range-sliders mt-5">
+                                    <form action="" class="bmr-form mt-5 mb-4">
+                                        <div class="row g-5">
+                                            <div class="col-lg-6">
+                                                <label>Your height (cm)</label>
+                                                <div class="range-slider-group">
+                                                    <input type="range" min="0" max="250"
+                                                        value="{{ user_data.user_height }}" data-color="#0057FF"
+                                                        class="range-slider" id="range-slider-2"
+                                                        onInput="$('#rangeval-h1').html($(this).val())" style="width: calc(100% - 80px);">
+                                                    <span class="input-slider"
+                                                        id="rangeval-h1">{{ user_data.user_height }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label>Your age (years)</label>
+                                                <div class="range-slider-group">
+                                                    <input type="range" min="0" max="100"
+                                                        value="{{ user_data.user_age }}" data-color="#0057FF"
+                                                        class="range-slider" id="range-slider-3"
+                                                        onInput="$('#rangeval-a').html($(this).val())" style="width: calc(100% - 80px);">
+                                                    <span class="input-slider"
+                                                        id="rangeval-a">{{ user_data.user_age }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label>Your weight (kg)</label>
+                                                <div class="range-slider-group">
+                                                    <input type="range" min="0" max="150"
+                                                        value="{{ user_data.user_weight }}" data-color="#0057FF"
+                                                        class="range-slider" id="range-slider-4"
+                                                        onInput="$('#rangeval-w1').html($(this).val())" style="width: calc(100% - 80px);">
+                                                    <span class="input-slider"
+                                                        id="rangeval-w1">{{ user_data.user_weight }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label for="gender" class="form-label">Gender</label>
+                                                <select class="form-select" aria-label="Default select example" id="gender"
+                                                    name="gender" required>
+                                                    <option selected>Select Gender</option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <label for="activity-level" class="form-label">Activity Level</label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    id="activity-level" name="activity-level" required>
+                                                    <option selected>Select Activity Level</option>
+                                                    <option value="Sedentary">Sedentary: little or no exercise</option>
+                                                    <option value="light">Light: exercise 1-3 times/week</option>
+                                                    <option value="Moderate">Moderate: exercise 4-5 times/week</option>
+                                                    <option value="active">Active: daily exercise or intense exercise 3-4
+                                                        times/week</option>
+                                                    <option value="veryactive">Very Active: intense exercise 6-7 times/week
+                                                    </option>
+                                                    <option value="extraactive">Extra Active: very intense exercise daily,
+                                                        or physical job</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-lg-6 output-display">
+                                        <h2>Your BMI</h2>
+                                        <div class="value">1467 <sub>cal/day</sub></div>
+                                    </div>
+                                    <div class="col-lg-6 output-display">
+                                        <h2>Your proper weight range</h2>
+                                        <div class="value">2290 <sub>cal</sub></div>
+                                    </div>
+                                </div>
+                            </div>
 
+                            
+                        </div>
                     </div>
                 </div>
-
-
             </div>
-
         </div>
+    </div>
     </div>
 </section>
 
