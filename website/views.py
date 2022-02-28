@@ -557,4 +557,3 @@ def profile_change(request, editable):
             return render(request,'profile.html',{'user_data': user_data, 'editable': 'False'})
 
     return render(request,'profile.html',{'user_data': user_data})
-
