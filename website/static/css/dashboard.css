@@ -958,6 +958,10 @@ border-radius: 16px;
   border-radius: 8px;
   border: 0;
 }
+.user-profile .status-card .card .card-body{
+  padding-left: 0px;
+  padding-right: 0px;
+}
 .user-profile .status-card .card-body h2{
   color: #FFFFFF;
   font-family: 'Rubik', sans-serif;

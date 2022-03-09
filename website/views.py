@@ -557,3 +557,21 @@ def profile_change(request, editable):
             return render(request,'profile.html',{'user_data': user_data, 'editable': 'False'})
 
     return render(request,'profile.html',{'user_data': user_data})
+
+def bmi_bmr_calculation(request):
+
+    user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+
+    if request.method == 'POST':
+        return render(request,'profile.html',{'user_data': user_data,'calculate_bmi':True})
+
+    # if request.method == 'POST':
+    #     user_weight = request.POST['weight']
+    #     user_height = request.POST['height']
+
+    #     bmi = round((user_weight/(user_height**2))*10000,2)
+
+    #     users_min_weight = round((18.5 * (user_height**2))/10000,2)
+    #     users_max_weight = round((24.9 * (user_height**2))/10000,2)
+
+    return render(request,'profile.html',{'user_data': user_data})

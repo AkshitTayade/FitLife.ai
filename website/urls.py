@@ -24,5 +24,6 @@ urlpatterns = [
     path('beginner_playlist', views.beginner_playlist, name='beginner_playlist'),
     path('profile', views.profile, name='profile'),
     path('profile_change/<str:editable>', views.profile_change, name='profile_change'),
+    path('bmi_bmr_calculation',views.bmi_bmr_calculation,name='bmi_bmr_calculation'),
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
