@@ -511,7 +511,7 @@ def profile(request):
     
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 
-    return render(request,'profile.html',{'user_data': user_data, 'editable': 'False'})
+    return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'False'})
 
 def profile_change(request, editable):
 
@@ -554,24 +554,34 @@ def profile_change(request, editable):
 
             user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 
-            return render(request,'profile.html',{'user_data': user_data, 'editable': 'False'})
+            return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'False'})
 
-    return render(request,'profile.html',{'user_data': user_data})
+    return render(request,'profile.html',{'user_data': user_data, 'clickable': 'False'})
 
-def bmi_bmr_calculation(request):
+def bmi_bmr_calculation(request, clickable):
 
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 
+    if clickable == 'True':
+        return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'True'})
+
+    return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'False'})
+
+def calculate_bmi(request):
+    
     if request.method == 'POST':
-        return render(request,'profile.html',{'user_data': user_data,'calculate_bmi':True})
+        user_weight = request.POST['weight']
+        user_height = request.POST['height']
 
-    # if request.method == 'POST':
-    #     user_weight = request.POST['weight']
-    #     user_height = request.POST['height']
+        bmi = round((user_weight/(user_height**2))*10000,2)
 
-    #     bmi = round((user_weight/(user_height**2))*10000,2)
+        users_min_weight = round((18.5 * (user_height**2))/10000,2)
+        users_max_weight = round((24.9 * (user_height**2))/10000,2)
 
-    #     users_min_weight = round((18.5 * (user_height**2))/10000,2)
-    #     users_max_weight = round((24.9 * (user_height**2))/10000,2)
+        print(bmi)
 
-    return render(request,'profile.html',{'user_data': user_data})
+        user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+
+        return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'True'})
+    
+    return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'False'})
