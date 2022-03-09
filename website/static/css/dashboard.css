@@ -957,16 +957,21 @@ border-radius: 16px;
   box-shadow: 0px 4px 20px rgba(171, 165, 193, 0.2);
   border-radius: 8px;
   border: 0;
+  padding: 16px;
 }
-.user-profile .status-card .card .card-body{
-  padding-left: 0px;
-  padding-right: 0px;
-}
+
 .user-profile .status-card .card-body h2{
   color: #FFFFFF;
   font-family: 'Rubik', sans-serif;
   font-size: 24px;
   line-height: 28px;
+}
+.user-profile .status-card .card-body h3{
+  color: #6F6C7B;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  margin: 12px 0px;
 }
 .user-profile .status-card .card-body p{
   color: #6F6C7B;
@@ -999,7 +1004,7 @@ border-radius: 16px;
   line-height: 20px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  width: 80%;
+  width: 100%;
   padding-bottom: 16px;
 }
 
@@ -1028,6 +1033,9 @@ border-radius: 16px;
   font-size: 32px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
+}
+.user-profile .status-card .tab-content .output-display .value small{ 
+  font-size: 22px;
 }
 .user-profile .status-card .tab-content h3{
   font-size: 16px;

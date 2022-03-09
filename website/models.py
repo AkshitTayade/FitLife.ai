@@ -20,7 +20,7 @@ class User_Info(models.Model):
     user_height_ft = models.IntegerField(default=0)
     user_height_in = models.IntegerField(default=0)
     user_height = models.FloatField(default=0)
-    user_weight = models.IntegerField(default=0)
+    user_weight = models.FloatField(default=0)
     user_activity_level = models.CharField(max_length=100,blank=False,null=False)
     user_bmi = models.FloatField(default=0)
     user_bmr = models.FloatField(default=0)

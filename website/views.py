@@ -545,11 +545,22 @@ def profile_change(request, editable):
             else:
                 u_height_in = request.POST['height_in']
 
+
             user_data.user_age = u_age
             user_data.user_weight = u_weight
             user_data.user_height_ft = u_height_ft
             user_data.user_height_in = u_height_in
             user_data.user_height = round(((int(u_height_in)/12) + int(u_height_ft))*30.48, 2)
+            user_data.user_bmi = round((float(u_weight)/(user_data.user_height**2))*10000,2)
+
+            print(type(user_data.user_height),type(u_age))
+
+            if user_data.user_gender == 'Male':
+                user_data.user_bmr = round((10 *  float(u_weight)) + (6.25 * user_data.user_height) - (5  * int(u_age)) + 5)
+            
+            else:
+                user_data.user_bmr = round((10 * float(u_weight)) + (6.25 * user_data.user_height) - (5  * int(u_age)) - 161)
+
             user_data.save()
 
             user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
@@ -563,25 +574,83 @@ def bmi_bmr_calculation(request, clickable):
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 
     if clickable == 'True':
-        return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'True'})
+        return render(request,'profile.html',{'user_data': user_data, 
+                                              'editable': 'False', 
+                                              'clickable': 'True',
+                                              'bmi':0,
+                                              'updated_height_bmi':0,
+                                              'updated_weight_bmi':0,
+                                              'updated_height_bmr':0,
+                                              'updated_weight_bmr':0,
+                                              'users_min_weight':0,
+                                              'users_max_weight':0,
+                                              'bmr':0,
+                                              'updated_age':0})
 
     return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'False'})
 
 def calculate_bmi(request):
-    
-    if request.method == 'POST':
-        user_weight = request.POST['weight']
-        user_height = request.POST['height']
+    if request.method == 'POST':    
+        user_weight = float(request.POST['weight'])
+        user_height = float(request.POST['height'])
 
         bmi = round((user_weight/(user_height**2))*10000,2)
 
         users_min_weight = round((18.5 * (user_height**2))/10000,2)
         users_max_weight = round((24.9 * (user_height**2))/10000,2)
+        
+        user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 
-        print(bmi)
+        return render(request,'profile.html',{'user_data': user_data,
+                                              'editable': 'False', 
+                                              'clickable': 'True',
+                                              'bmi':bmi,
+                                              'updated_height_bmi':user_height,
+                                              'updated_weight_bmi':user_weight,'users_min_weight':users_min_weight,'users_max_weight':users_max_weight})
+    
+    return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'False'})
+
+def calculate_bmr(request):
+    user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+
+    if request.method == 'POST':
+        user_height = float(request.POST['height'])
+        user_age =  int(request.POST['age'])
+        user_weight = float(request.POST['weight'])
+        user_gender = request.POST['gender']
+        user_activity_level = request.POST['activity-level']
+
+        if user_gender == 'male':
+            bmr = round((10 *  user_weight) + (6.25 * user_height) - (5  * user_age) + 5)
+            
+        else:
+            bmr = round((10 *  user_weight) + (6.25 * user_height) - (5  * user_age) - 161)
+
+        if  user_activity_level == 'Sedentary':
+            proper_weight_range = round(bmr * 1.2)
+        
+        elif user_activity_level == 'light':
+            proper_weight_range = round(bmr *  1.375)
+        
+        elif user_activity_level == 'Moderate':
+            proper_weight_range = round(bmr * 1.465)
+        
+        else:
+            proper_weight_range = round(bmr * 1.725)
 
         user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 
-        return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'True'})
+        # url for bmr = http://127.0.0.1:8000/bmr
+
+        return render(request,'profile.html',{'user_data': user_data,
+                                          'editable': 'False',
+                                          'clickable': 'True',
+                                          'bmr':bmr,
+                                          'updated_height_bmr':user_height,
+                                          'updated_weight_bmr':user_weight,
+                                          'updated_age':user_age,
+                                          'user_gender':user_gender,
+                                          'user_activity_level':user_activity_level,
+                                          'proper_weight_range':proper_weight_range})
     
     return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'False'})

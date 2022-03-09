@@ -26,5 +26,6 @@ urlpatterns = [
     path('profile_change/<str:editable>', views.profile_change, name='profile_change'),
     path('bmi_bmr_calculation/<str:clickable>',views.bmi_bmr_calculation,name='bmi_bmr_calculation'),
     path('bmi',views.calculate_bmi,name='calculate_bmi'),
+    path('bmr',views.calculate_bmr,name='calculate_bmr'),
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
