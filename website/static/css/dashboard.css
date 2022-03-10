@@ -68,7 +68,7 @@ a:hover {
   transition: all 0.4s;
 }
 .back-to-top i {
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
   line-height: 0;
 }
@@ -111,7 +111,7 @@ a:hover {
   padding: 0;
 }
 .header-nav .nav-icon {
-  font-size: 20px;
+  font-size: 18px;
   color: #0057FF;
 }
 .header-nav .nav-profile {
@@ -145,18 +145,19 @@ a:hover {
   padding: 20px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #aab7cf transparent;
+  scrollbar-color: #0F0E14 transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
   background-color: #0F0E14;
 }
 
 .sidebar::-webkit-scrollbar {
   width: 5px;
-  height: 8px;
-  background-color: #fff;
+  height:8px;
+  border-radius: 10px;
+  background-color: transparent;
 }
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: #aab7cf;
+  background-color: #0F0E14;
 }
 
 
@@ -182,7 +183,7 @@ a:hover {
 }
 .sidebar-nav .nav-item {
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   transition: 0.3;
   padding: 10px 15px;
@@ -192,19 +193,22 @@ a:hover {
 .sidebar-nav .nav-link{
   color: #CCCCCC;
 }
+.sidebar-nav .nav-link img{
+  height: 28px;
+  margin-bottom: 10px;
+}
 .sidebar-nav .nav-link i {
-  font-size: 20px;
+  font-size: 18px;
   margin-right: 10px;
   color: #CCCCCC;
   width: 100%;
 }
+
 .sidebar-nav .nav-item.active {
   color: #ffffff;
   background: rgba(229, 238, 255, 0.1);
 }
-.sidebar-nav .nav-item.active i {
-  color: #E5EEFF;
-}
+
 .sidebar-nav .nav-item:hover {
   color: #E5EEFF;
   background: rgba(229, 238, 255, 0.1);
@@ -242,7 +246,7 @@ a:hover {
 }
 
 .title-heading{
-  font-size: 28px;
+  font-size: 20px;
   line-height: 24px;
   color: #393939;
   font-weight: 500;
@@ -257,7 +261,7 @@ a:hover {
 }
 .exercise-recommendations .card .card-title{
   color: #393939;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Rubik', sans-serif;
 }
 .exercise-recommendations .card .card-body{
@@ -266,13 +270,13 @@ a:hover {
 .exercise-recommendations .card .card-body .info h5{
   color: #ABA5C1;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 20px;
   font-family: 'Inter', sans-serif;
 }
 .done {
   position: absolute;
-  left: 210px;
+  left: 190px;
   top: 10px;
   border-radius: 8px;
   padding:8px 12px;
@@ -280,12 +284,12 @@ a:hover {
   color: #fff;
 }
 .done i{
-  font-size: 18px;
+  font-size: 14px;
 }
 .done h5{
   margin-bottom: 0px;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   margin-left: 5px;
   font-family: 'Inter', sans-serif;
 }
@@ -348,12 +352,12 @@ a:hover {
 }
 .workout-item .item-title span{
   color: #FFFFFF;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 24px;
 }
 .workout-intensity .workout-type{
-  margin-bottom: 90px;
-  font-size: 20px;
+  margin-bottom: 70px;
+  font-size: 16px;
   line-height: 24px;
   color: #242831;
   font-family: 'Rubik', sans-serif;
@@ -533,7 +537,7 @@ a:hover {
 }
 .exercise-content h3{
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 19px;
   font-family: 'Inter', sans-serif;
   color: #FFFFFF;
@@ -550,13 +554,13 @@ a:hover {
   margin-top: 12px;
 }
 .exercise-content .exercise-type h4{
-  font-size: 20px;
+  font-size: 18px;
   margin: 10px 0px;
   font-family: 'Rubik', sans-serif;
   color: #fff;
 }
 .exercise-content .exercise-type h6{
-  font-size: 16px;
+  font-size: 14px;
   line-height: 19px;
   color: #FFFFFF;
   font-family: 'Inter', sans-serif;
@@ -570,7 +574,7 @@ a:hover {
   margin-bottom: 20px;
 }
 .exercise-content .exercise-levels h4{
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 15px;
   font-family: 'Inter', sans-serif;
   color: #fff;
@@ -585,7 +589,7 @@ border-radius: 16px;
 }
 
 .exercise-content .exercise-type h6{
-  font-size: 16px;
+  font-size: 14px;
   margin: 10px 0px;
   font-family: 'Inter', sans-serif;
   color: #fff;
@@ -675,7 +679,7 @@ border-radius: 16px;
 .onfocus .modal-body h6{
   font-weight: 400;
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   text-align: left;
   margin-left: 20px;
@@ -734,7 +738,7 @@ border-radius: 16px;
 }
 .end-workout .icon-box h4 {
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 20px;
   color: #fff;
   font-weight: 400;
@@ -750,7 +754,7 @@ border-radius: 16px;
 .btn-restart {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   display: inline-block;
   padding: 8px 50px 10px 50px;
   transition: 0.5s;
@@ -793,7 +797,7 @@ border-radius: 16px;
   color: #18181B;
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   margin-top: 10px;
 }
@@ -839,7 +843,7 @@ border-radius: 16px;
   margin-top: 20px;
 }
 .beginner-playlist .exercise-info h4{
-  font-size: 20px;
+  font-size: 18px;
   line-height: 24px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
@@ -849,7 +853,7 @@ border-radius: 16px;
   color: #6F6C7B;
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   margin-top: 10px;
 }
@@ -899,7 +903,7 @@ border-radius: 16px;
 .btn-edit {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   padding: 8px 16px;
   transition: 0.5s;
   color: #0057FF;
@@ -915,7 +919,7 @@ border-radius: 16px;
   color: #6F6C7B;
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 20px;
   margin-bottom: 14px;
 }
@@ -946,7 +950,7 @@ border-radius: 16px;
   color: #393939;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 20px;
 }
 .user-profile  input:focus{
@@ -963,13 +967,13 @@ border-radius: 16px;
 .user-profile .status-card .card-body h2{
   color: #FFFFFF;
   font-family: 'Rubik', sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 28px;
 }
 .user-profile .status-card .card-body h3{
   color: #6F6C7B;
   font-family: 'Inter', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 28px;
   margin: 12px 0px;
 }
@@ -978,7 +982,7 @@ border-radius: 16px;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   margin: 28px 0px;
-  font-size: 17px;
+  font-size: 16px;
   text-align: justify;
   line-height: 20px;
 }
@@ -1030,7 +1034,7 @@ border-radius: 16px;
   margin-top: 16px;
   padding: 5px 12px;
   color: #0057FF;
-  font-size: 32px;
+  font-size: 27px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
 }
@@ -1038,7 +1042,7 @@ border-radius: 16px;
   font-size: 22px;
 }
 .user-profile .status-card .tab-content h3{
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 20px;
   margin-bottom:0px;
   font-family: 'Inter', sans-serif;
@@ -1053,7 +1057,7 @@ border-radius: 16px;
 
 .range-sliders label{
   color: #E6E4E4;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   line-height: 20px;
@@ -1112,7 +1116,7 @@ border-radius: 16px;
 	border-radius: 4px;
 	padding:8px 4px;
 	color: #E6E4E4;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Inter', sans-serif;
 	line-height: 20px;
 	border: 0;
@@ -1142,7 +1146,7 @@ border-radius: 16px;
 }
 
 .user-profile .bmr-form label{
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   color: #E6E4E4;
   font-family: 'Inter', sans-serif;
@@ -1213,7 +1217,7 @@ border-radius: 16px;
     margin: 0px !important;
   }
   .exercise-content .info h5 {
-    font-size: 16px;
+    font-size: 14px;
   }
   .done {
     left: 200px;
@@ -1226,7 +1230,7 @@ border-radius: 16px;
     font-size: 18px;
   }
   .end-workout .icon-box h1 {
-    font-size: 20px;
+    font-size: 18px;
   }
   .up_next_exercise .exercise-info h2 {
     font-size: 18px;
@@ -1275,9 +1279,16 @@ border-radius: 16px;
   }
   .toggle-sidebar .sidebar {
     left: 0;
+    top: 80px;
   }
   .sidebar {
     left: -300px;
+  }
+  /* header{
+    margin-left:0px !important;
+  } */
+  .done{
+    left: 140px;
   }
 }
 @media (min-width: 1200px) {

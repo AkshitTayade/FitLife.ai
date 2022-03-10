@@ -6,9 +6,9 @@
 <section id="user-profile" class="user-profile">
    <h2 class="title-heading">Your Profile</h2>
    <div class="container">
-      <div class="row mt-5 mb-3 justify-content-center">
+      <div class="row mt-4 mb-3 justify-content-center">
          <!------------Profile Page Left Side--------------->
-         <div class="col-xl-7">
+         <div class="col-xl-7 mb-4">
             {% if editable == 'False' %}
             <form action="{% url 'profile_change' editable='True' %}" method="POST" class="edit-form">
                {% csrf_token %}
@@ -24,7 +24,7 @@
                               class="fa-solid fa-pen ms-1"></i></button>
                      </div>
                      <hr>
-                     <div class="row g-5 mb-5">
+                     <div class="row g-5 mb-4">
                         <!---- Name ----->
                         <div class="col-lg-6">
                            <label for="name" class="form-label">Name </label>
