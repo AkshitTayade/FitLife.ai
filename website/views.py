@@ -235,7 +235,7 @@ def body_details(request):
     if request.method == 'POST':
         user_height_ft = int(request.POST['height'])
         user_height_in = int(request.POST['height1'])
-        user_height = str(round(((user_height_in/12) + user_height_ft)*30.48, 2))
+        user_height = str(round(((user_height_in/12) + user_height_ft)*30.48))
         user_current_weight = request.POST['current-weight']
         user_targeted_weight = request.POST['targeted-weight']
     
@@ -550,7 +550,7 @@ def profile_change(request, editable):
             user_data.user_weight = u_weight
             user_data.user_height_ft = u_height_ft
             user_data.user_height_in = u_height_in
-            user_data.user_height = round(((int(u_height_in)/12) + int(u_height_ft))*30.48, 2)
+            user_data.user_height = round(((int(u_height_in)/12) + int(u_height_ft))*30.48)
             user_data.user_bmi = round((float(u_weight)/(user_data.user_height**2))*10000,2)
 
             print(type(user_data.user_height),type(u_age))
@@ -585,19 +585,20 @@ def bmi_bmr_calculation(request, clickable):
                                               'users_min_weight':0,
                                               'users_max_weight':0,
                                               'bmr':0,
-                                              'updated_age':0})
+                                              'updated_age':0,
+                                              'proper_weight_range':0})
 
     return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'False'})
 
 def calculate_bmi(request):
     if request.method == 'POST':    
-        user_weight = float(request.POST['weight'])
-        user_height = float(request.POST['height'])
+        user_weight_bmi = float(request.POST['weight'])
+        user_height_bmi = float(request.POST['height'])
 
-        bmi = round((user_weight/(user_height**2))*10000,2)
+        bmi = round((user_weight_bmi /(user_height_bmi **2))*10000,2)
 
-        users_min_weight = round((18.5 * (user_height**2))/10000,2)
-        users_max_weight = round((24.9 * (user_height**2))/10000,2)
+        users_min_weight = round((18.5 * (user_height_bmi **2))/10000,2)
+        users_max_weight = round((24.9 * (user_height_bmi **2))/10000,2)
         
         user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 
@@ -605,8 +606,9 @@ def calculate_bmi(request):
                                               'editable': 'False', 
                                               'clickable': 'True',
                                               'bmi':bmi,
-                                              'updated_height_bmi':user_height,
-                                              'updated_weight_bmi':user_weight,'users_min_weight':users_min_weight,'users_max_weight':users_max_weight})
+                                              'updated_height_bmi':user_height_bmi ,
+                                              'updated_weight_bmi':user_weight_bmi ,'users_min_weight':users_min_weight,'users_max_weight':users_max_weight,
+                                              })
     
     return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'False'})
 
@@ -614,19 +616,22 @@ def calculate_bmr(request):
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
 
     if request.method == 'POST':
-        user_height = float(request.POST['height'])
+        user_height_bmr  = float(request.POST['height'])
         user_age =  int(request.POST['age'])
-        user_weight = float(request.POST['weight'])
+        user_weight_bmr = float(request.POST['weight'])
         user_gender = request.POST['gender']
         user_activity_level = request.POST['activity-level']
 
         if user_gender == 'male':
-            bmr = round((10 *  user_weight) + (6.25 * user_height) - (5  * user_age) + 5)
+            bmr = round((10 *  user_weight_bmr) + (6.25 * user_height_bmr) - (5  * user_age) + 5)
             
         else:
-            bmr = round((10 *  user_weight) + (6.25 * user_height) - (5  * user_age) - 161)
+            bmr = round((10 *  user_weight_bmr) + (6.25 * user_height_bmr) - (5  * user_age) - 161)
 
-        if  user_activity_level == 'Sedentary':
+        if  user_activity_level == '':
+            proper_weight_range = 0
+
+        elif  user_activity_level == 'Sedentary':
             proper_weight_range = round(bmr * 1.2)
         
         elif user_activity_level == 'light':
@@ -646,11 +651,11 @@ def calculate_bmr(request):
                                           'editable': 'False',
                                           'clickable': 'True',
                                           'bmr':bmr,
-                                          'updated_height_bmr':user_height,
-                                          'updated_weight_bmr':user_weight,
+                                          'updated_height_bmr':user_height_bmr,
+                                          'updated_weight_bmr':user_weight_bmr,
                                           'updated_age':user_age,
                                           'user_gender':user_gender,
                                           'user_activity_level':user_activity_level,
                                           'proper_weight_range':proper_weight_range})
     
-    return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'False'})
+    return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'False',})
