@@ -592,8 +592,8 @@ def bmi_bmr_calculation(request, clickable):
 
 def calculate_bmi(request):
     if request.method == 'POST':    
-        user_weight_bmi = float(request.POST['weight'])
-        user_height_bmi = float(request.POST['height'])
+        user_weight_bmi = float(request.POST['weight-bmi'])
+        user_height_bmi = float(request.POST['height-bmi'])
 
         bmi = round((user_weight_bmi /(user_height_bmi **2))*10000,2)
 
@@ -605,6 +605,10 @@ def calculate_bmi(request):
         return render(request,'profile.html',{'user_data': user_data,
                                               'editable': 'False', 
                                               'clickable': 'True',
+                                              'updated_height_bmr':0,
+                                              'updated_weight_bmr':0,
+                                              'bmr': 0,
+                                              'proper_weight_range':0,
                                               'bmi':bmi,
                                               'updated_height_bmi':user_height_bmi ,
                                               'updated_weight_bmi':user_weight_bmi ,'users_min_weight':users_min_weight,'users_max_weight':users_max_weight,
@@ -650,6 +654,11 @@ def calculate_bmr(request):
         return render(request,'profile.html',{'user_data': user_data,
                                           'editable': 'False',
                                           'clickable': 'True',
+                                          'updated_height_bmi':0,
+                                          'updated_weight_bmi':0,
+                                          'bmi': 0,
+                                          'users_min_weight':0,
+                                          'users_max_weight':0,
                                           'bmr':bmr,
                                           'updated_height_bmr':user_height_bmr,
                                           'updated_weight_bmr':user_weight_bmr,

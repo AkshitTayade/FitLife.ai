@@ -164,7 +164,7 @@
                                  <label>Your height (cm)</label>
                                  <div class="range-slider-group">
                                     <input type="range" min="0" max="250" value="{{updated_height_bmi}}"
-                                       data-color="#0057FF" class="range-slider" id="range-slider" name="height"
+                                       data-color="#0057FF" class="range-slider" id="range-slider" name="height-bmi"
                                        onInput="$('#rangeval-h').html($(this).val())" >
                                     <span class="input-slider" id="rangeval-h">{{updated_height_bmi}}</span>
                                  </div>
@@ -173,7 +173,7 @@
                                  <label>Your weight (kg)</label>
                                  <div class="range-slider-group">
                                     <input type="range" min="0" max="150" value="{{updated_weight_bmi}}"
-                                       data-color="#0057FF" class="range-slider" id="range-slider-1" name="weight"
+                                       data-color="#0057FF" class="range-slider" id="range-slider-1" name="weight-bmi"
                                        onInput="$('#rangeval-w').html($(this).val())" step="0.1" >
                                     <span class="input-slider" id="rangeval-w">{{updated_weight_bmi}}</span>
                                  </div>
@@ -200,7 +200,6 @@
                         <h3>🏋🏻 &nbsp;You need to workout rigourously to be healthier!</h3>
                         {% endif %}
                      </div>
-
                      <!------------BMR--------------->
                      <div class="tab-pane" id="pills-bmr" role="tabpanel" aria-labelledby="pills-bmr-tab">
                         <div id="range-sliders" class="range-sliders mt-4">
