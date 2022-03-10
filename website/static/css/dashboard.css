@@ -1039,8 +1039,8 @@ border-radius: 16px;
 }
 .user-profile .status-card .tab-content h3{
   font-size: 16px;
-  margin-top: 32px;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom:0px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   line-height: 20px;
