@@ -20,7 +20,12 @@ class Playlist_Check_InfoAdmin(admin.ModelAdmin):
     list_display = ('user_email','current_date','exercise_jj' ,'exercise_ac','exercise_kp', 'exercise_sar', 'exercise_squats', 'exercise_bl', 'exercise_cs')
     list_per_page = 30
 
+class Diet_Menu_InfoAdmin(admin.ModelAdmin):
+    list_display = ('diet_choice','diet_food_choice')
+    search_fields = ('diet_choice' ,)
+    list_filter = ('diet_choice',)
 
 admin.site.register(models.User_Info,User_InfoAdmin)
 admin.site.register(models.User_Exercise_Info,User_Exercise_InfoAdmin)
 admin.site.register(models.Playlist_Check,Playlist_Check_InfoAdmin)
+admin.site.register(models.Diet_Menu,Diet_Menu_InfoAdmin)

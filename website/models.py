@@ -5,8 +5,8 @@
 
 from django.db import models
 from datetime import date
-
 from sqlalchemy import null
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 class User_Info(models.Model):
@@ -57,3 +57,30 @@ class Playlist_Check(models.Model):
     def __str__(self):
         return self.user_email
 
+class Diet_Menu(models.Model):
+    
+    diet_options = (
+    ('Choose' ,'Choose'),
+    ('Low Carb Diet' ,'Low Carb Diet'),
+    ('High Carb Diet','High Carb Diet'),
+    ('Keto Diet','Keto Diet'),
+    ('Balanced Diet','Balanced Diet'),
+    ('Zone Diet','Zone Diet'),
+    ('Depletion Diet','Depletion Diet')
+    )
+    
+    diet_food_options = (
+    ('Choose' ,'Choose'),
+    ('Vegetarian' ,'Vegetarian'),
+    ('Non Vegetarian' ,'Non Vegetarian')
+    )
+
+    diet_menu_id = models.AutoField
+    diet_choice =  models.CharField(max_length=50,choices = diet_options,default = diet_options[0][0],blank=False,null=False)
+    diet_food_choice  = models.CharField(max_length=50,choices = diet_food_options,default = diet_food_options[0][0],blank=False,null=False)
+    diet_breakfast =  RichTextField(blank=False,null=False)
+    diet_lunch = RichTextField(blank=False,null=False)
+    diet_dinner = RichTextField(blank=False,null=False)
+    diet_snacks = RichTextField(blank=False,null=False)
+
+    

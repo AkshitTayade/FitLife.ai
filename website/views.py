@@ -607,6 +607,7 @@ def calculate_bmi(request):
                                               'clickable': 'True',
                                               'updated_height_bmr':0,
                                               'updated_weight_bmr':0,
+                                              'updated_age' : 0,
                                               'bmr': 0,
                                               'proper_weight_range':0,
                                               'bmi':bmi,
