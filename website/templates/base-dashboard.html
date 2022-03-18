@@ -17,21 +17,32 @@
 </head>
 
 <body>
-
-<!-- ======= Header ======= -->
-<header id="header" class="header fixed-top d-flex align-items-center">
-    <div>
-        <i class="fas fa-bars toggle-sidebar-btn d-xl-none"></i>
-    </div>
-    <div class="pagetitle m-auto d-flex align-items-center">
-        <h1>Hey {{ user_data.user_name }} ! It’s time to #GETUPGO</h1>
-    </div>
-  </header><!-- End Header -->
+    <!-- ======= Header ======= -->
+    
+    {% if request.path == '/dashboard' %}
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <div>
+            <i class="fas fa-bars toggle-sidebar-btn d-xl-none"></i>
+        </div>
+        <div class="pagetitle m-auto d-flex align-items-center">
+            <h1>Hey {{ user_data.user_name }} ! It’s time to #GETUPGO</h1>
+        </div>
+    </header><!-- End Header -->
+    {% else %}
+    <header id="header" class="header d-block d-lg-none fixed-top d-flex align-items-center">
+        <div>
+            <i class="fas fa-bars toggle-sidebar-btn d-xl-none"></i>
+        </div>
+        <div class="pagetitle m-auto d-none d-xl-block d-flex align-items-center">
+            <h1>Hey {{ user_data.user_name }} ! It’s time to #GETUPGO</h1>
+        </div>
+    </header><!-- End Header -->
+    {% endif %}
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
 
         <ul class="sidebar-nav" id="sidebar-nav">
-            
+
             <li class="nav-item {% block homeactive %} {% endblock homeactive %}">
                 <a class="nav-link " href="{% url 'dashboard' %}">
                     <img src="{% static 'img/dashboard/home-icon.png'%}">
@@ -50,8 +61,8 @@
                     <span>Progress</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item {% block dietplanactive %} {% endblock dietplanactive %}">
+                <a class="nav-link" href="{% url 'diet_plan' %}">
                     <img src="{% static 'img/dashboard/diet-icon.png'%}"><br>
                     <span>Diet Plan</span>
                 </a>
@@ -100,6 +111,7 @@
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/slider.js' %}"></script>
     <script src="{% static 'js/owl-carousel.js' %}"></script>
+
 </body>
 
 </html>

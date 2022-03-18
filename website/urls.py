@@ -27,5 +27,7 @@ urlpatterns = [
     path('bmi_bmr_calculation/<str:clickable>',views.bmi_bmr_calculation,name='bmi_bmr_calculation'),
     path('bmi',views.calculate_bmi,name='calculate_bmi'),
     path('bmr',views.calculate_bmr,name='calculate_bmr'),
+    path('diet_plan',views.diet_plan,name='diet_plan'),
+    path('low_carb_diet',views.low_carb_diet,name='low_carb_diet'),
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

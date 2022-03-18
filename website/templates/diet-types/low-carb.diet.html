@@ -1,0 +1,227 @@
+{% extends 'base-dashboard.html' %}
+{% block title%} Low Carb Diet {% endblock %}
+{% block dietplanactive %} active {% endblock dietplanactive %}
+{% load static %}
+{% block content %}
+<section class="diet-plans">
+    <div class="diet-image"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-11">
+                <div class="card info-type">
+                    <div class="card-body">
+                        <h1>You are recommended: Low Carb Diet</h1>
+                        <p>A low-carb diet limits carbohydrates, primarily found in sugary foods, pasta, and bread.
+                            Instead of eating carbs, you focus on protein-rich whole foods and vegetables. Studies show
+                            that low-carb diets can result in weight loss and improved health markers. Best yet, there’s
+                            usually no need to count calories or use special products. All you need to do is eat whole
+                            foods that make for a complete, nutritious, and filling diet.</p>
+                    </div>
+                </div>
+                <div class="meal-plans">
+                    <div class="row gx-5">
+                        <!----Breakfast Card---->
+                        <div class="col-xl-6">
+                            <div class="card meal-plan-cards">
+                                <div class="row card-body">
+                                    <div class="col-lg-5 col-md-6">
+                                        <div class="meal-plan-image">
+                                            <img src="{% static 'img/diet-plan/low-carb/lc-breakfast.png' %}"
+                                                class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-6">
+                                        <div class="meal-plan-info">
+                                            <h4>Breakfast</h4>
+                                            <div class="d-flex mt-2">
+                                                <h5>20 cals</h5>
+                                                <h5 class="ms-2">•</h5>
+                                                <h5 class="ms-2">4 items</h5>
+                                            </div>
+                                        </div>
+                                        <div class="view-item mt-5">
+                                            <button type="button" class="btn view-items" data-bs-toggle="modal"
+                                                data-bs-target="#breakfast-veg">
+                                                View Items
+                                            </button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="breakfast-veg" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="meal-plan-image text-center">
+                                                                <img src="{% static 'img/diet-plan/low-carb/lc-breakfast.png' %}"
+                                                                    class="img-fluid">
+                                                                    <h6>Breakfast Options</h6>
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!----Lunch Card---->
+                        <div class="col-xl-6">
+                            <div class="card meal-plan-cards">
+                                <div class="row card-body">
+                                    <div class="col-lg-5 col-md-6">
+                                        <div class="meal-plan-image">
+                                            <img src="{% static 'img/diet-plan/low-carb/lc-lunch.png' %}"
+                                                class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-6">
+                                        <div class="meal-plan-info">
+                                            <h4>Lunch</h4>
+                                            <div class="d-flex mt-2">
+                                                <h5>20 cals</h5>
+                                                <h5 class="ms-2">•</h5>
+                                                <h5 class="ms-2">4 items</h5>
+                                            </div>
+                                        </div>
+                                        <div class="view-item mt-5">
+                                            <button type="button" class="btn view-items" data-bs-toggle="modal"
+                                                data-bs-target="#lunch-veg">
+                                                View Items
+                                            </button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="lunch-veg" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="meal-plan-image text-center">
+                                                                <img src="{% static 'img/diet-plan/low-carb/lc-lunch.png' %}"
+                                                                class="img-fluid">
+                                                                    <h6>Lunch Options</h6>
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!----Snacks Card---->
+                        <div class="col-xl-6">
+                            <div class="card meal-plan-cards">
+                                <div class="row card-body">
+                                    <div class="col-lg-5 col-md-6">
+                                        <div class="meal-plan-image">
+                                            <img src="{% static 'img/diet-plan/low-carb/lc-snacks.png' %}"
+                                                class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-6">
+                                        <div class="meal-plan-info">
+                                            <h4>Snacks</h4>
+                                            <div class="d-flex mt-2">
+                                                <h5>20 cals</h5>
+                                                <h5 class="ms-2">•</h5>
+                                                <h5 class="ms-2">4 items</h5>
+                                            </div>
+                                        </div>
+                                        <div class="view-item mt-5">
+                                            <button type="button" class="btn view-items" data-bs-toggle="modal"
+                                                data-bs-target="#snacks-veg">
+                                                View Items
+                                            </button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="snacks-veg" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="meal-plan-image text-center">
+                                                                <img src="{% static 'img/diet-plan/low-carb/lc-snacks.png' %}"
+                                                                    class="img-fluid">
+                                                                    <h6>Snacks Options</h6>
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!----Dinner Card---->
+                        <div class="col-xl-6">
+                            <div class="card meal-plan-cards">
+                                <div class="row card-body">
+                                    <div class="col-lg-5 col-md-6">
+                                        <div class="meal-plan-image">
+                                            <img src="{% static 'img/diet-plan/low-carb/lc-dinner.png' %}"
+                                                class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-6">
+                                        <div class="meal-plan-info">
+                                            <h4>Dinner</h4>
+                                            <div class="d-flex mt-2">
+                                                <h5>20 cals</h5>
+                                                <h5 class="ms-2">•</h5>
+                                                <h5 class="ms-2">4 items</h5>
+                                            </div>
+                                        </div>
+                                        <div class="view-item mt-5">
+                                            <button type="button" class="btn view-items" data-bs-toggle="modal"
+                                                data-bs-target="#dinner-veg">
+                                                View Items
+                                            </button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="dinner-veg" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="meal-plan-image text-center">
+                                                                <img src="{% static 'img/diet-plan/low-carb/lc-dinner.png' %}"
+                                                                    class="img-fluid">
+                                                                    <h6>Dinner Options</h6>
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

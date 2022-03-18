@@ -34,7 +34,7 @@ def login(request):
 
         existing_user_email_id = User_Info.objects.filter(user_email=user_email_id)
 
-        print(existing_user_email_id)
+        # print(existing_user_email_id)
 
         if len(existing_user_email_id) > 0:
             
@@ -113,7 +113,7 @@ def login_next(request):
                     playlist.save()
             
             except:
-                pass
+                print("Reset not possible")
             
             return redirect('dashboard')
 
@@ -669,3 +669,21 @@ def calculate_bmr(request):
                                           'proper_weight_range':proper_weight_range})
     
     return render(request,'profile.html',{'user_data': user_data, 'editable': 'False', 'clickable': 'False',})
+
+def diet_plan(request):
+
+    user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+    
+    if request.method == 'POST':
+        user_diet_type = request.POST['diet-type']
+        user_activity_level = request.POST['activity-level']
+        user_diet_goal = request.POST['diet-goal']
+        user_motivation = request.POST['motivation']
+        print(user_diet_type,user_diet_goal,user_activity_level,user_motivation)
+        
+        return render(request,'diet-plan.html',{'user_data': user_data})
+
+    return render(request,'diet-plan.html',{'user_data': user_data})
+
+def low_carb_diet(request):
+    return render(request,'diet-types/low-carb.diet.html')

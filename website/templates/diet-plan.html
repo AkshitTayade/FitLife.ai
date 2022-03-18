@@ -1,0 +1,109 @@
+{% extends 'base-dashboard.html' %}
+{% block title%} Diet Plan {% endblock %}
+{% block dietplanactive %} active {% endblock dietplanactive %}
+{% load static %}
+{% block content %}
+<section id="diet-plan" class="diet-plan">
+    <h2 class="title-heading">Put your diet on autopilot</h2>
+    <p class="para">Get personalized meal plans based on your food preferences and fitness. Create your meal plan right
+        here in seconds.</p>
+    <div class="container">
+        <div class="card mt-5 mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xl-5">
+                        <div class="diet-image">
+                            <img src="{% static 'img/diet-plan/diet-plans.png' %}" class="img-fluid" style="height: 680px;width: 100%;" >
+                        </div>
+                    </div>
+                    <div class="col-xl-7 px-5">
+                        <div class="diet-content">
+                            <h1>Ready to give it a shot? Tell us your diet.</h1>
+                            <div class="d-flex">
+                                <h4 class="user-info">Your BMI = {{ user_data.user_bmi}}</h4>
+                                <h4 class="user-info ms-4">Your BMR = {{ user_data.user_bmr}}</h4>
+                            </div>
+                            <form action="{% url 'diet_plan' %}" method="POST" class="diet-generation">
+                                {% csrf_token %}
+                                <div class="row gx-4">
+                                    <h4>What’s your food preference?</h4>
+                                    <div class="col-xl-6">
+                                        <div class="form-check">
+                                            <label class="form-check-label" for='veg'>
+                                                <input class="form-check-input" type="radio" id='veg' name="diet-type"
+                                                    value="veg">
+                                                <div class="card">
+                                                    <div class="card-body d-flex">
+                                                        <img src="{% static 'img/diet-plan/veg.png' %}"
+                                                            class="img-fluid">
+                                                        <h2>Vegetarian</h2>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-check">
+                                            <label class="form-check-label" for='non-veg'>
+                                                <input class="form-check-input" type="radio" id='non-veg'
+                                                    name="diet-type" value="non-veg">
+                                                <div class="card">
+                                                    <div class="card-body d-flex">
+                                                        <img src="{% static 'img/diet-plan/non-veg.png' %}"
+                                                            class="img-fluid">
+                                                        <h2>Non-Vegetarian</h2>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 mt-4">
+                                        <label for="activity-level" class="form-label">How physically active are
+                                            you?</label>
+                                        <select class="form-select" aria-label="Default select example"
+                                            id="activity-level" name="activity-level">
+                                            <option value='' selected>Select Activity Level</option>
+                                            <option value="Sedentary">Sedentary (I sit at my desk all day)</option>
+                                            <option value="light">Lightly active (I occasionally exercise or walk for 30
+                                                mins)</option>
+                                            <option value="Moderate">Moderately active (I spend an hour or more working
+                                                out)</option>
+                                            <option value="veryactive">Vigorously active (I love working out, want to
+                                                exercise more)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-12 mt-4">
+                                        <label for="diet-goal" class="form-label">What’s your diet goal?</label>
+                                        <select class="form-select" aria-label="Default select example"
+                                            id="diet-goal" name="diet-goal">
+                                            <option value='' selected>Select Diet Goal</option>
+                                            <option value="build-muscles">Build my muscles</option>
+                                            <option value="maintain-weight">Maintain my weight</option>
+                                            <option value="lose-weight">Lose my weight</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-12 mt-4">
+                                        <label for="motivation" class="form-label">How motivated are you on a scale of 1-4?</label>
+                                        <select class="form-select" aria-label="Default select example"
+                                            id="motivation" name="motivation">
+                                            <option value='' selected>Select motivation on a scale of 1-4?</option>
+                                            <option value="scale-1">I just want to give this a shot</option>
+                                            <option value="scale-2">I’ll try to follow the diet as much as possible</option>
+                                            <option value="scale-3">I’m fairly confident to follow the diet</option>
+                                            <option value="scale-4">I’m super pumped-up to get my diet started</option>
+                                        </select>
+                                    </div>
+                                    <div class="text-center mt-4 mb-4">
+                                        <button type="submit" class="btn get-started">Generate Diet Plan</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

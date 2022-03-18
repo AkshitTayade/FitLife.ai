@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&&family=Livvic:wght@500&family=Rubik:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&&family=Livvic:wght@500&family=Rubik:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 /*--------------------------------------------------------------
 # General
@@ -19,6 +19,9 @@ a:hover {
   color: none;
   text-decoration: none;
 }
+.btn:focus{
+  box-shadow: none !important;
+}
 
 /*--------------------------------------------------------------
 # Main
@@ -32,13 +35,12 @@ a:hover {
   transition: all 0.3s;
 }
 
+
 /*--------------------------------------------------------------
 # Page Title
 --------------------------------------------------------------*/
 .pagetitle {
   margin-top:8px;
-  /* margin-bottom: 36px; */
-  /* background: #F4F8FF; */
   border-radius: 0px 0px 8px 8px;
   padding: 10px 100px;
   text-align: center;
@@ -68,7 +70,7 @@ a:hover {
   transition: all 0.4s;
 }
 .back-to-top i {
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
   line-height: 0;
 }
@@ -77,8 +79,73 @@ a:hover {
   visibility: visible;
   opacity: 1;
 }
-
-
+/*--------------------------------------------------------------
+# Buttons
+--------------------------------------------------------------*/
+.get-started {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  display: inline-block;
+  padding: 8px 30px 10px 30px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #0057FF;
+  border-radius: 10px;
+  border-color: #0057FF;
+}
+.get-started:hover {
+  color: #fff;
+}
+.btn-restart {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  display: inline-block;
+  padding: 8px 50px 10px 50px;
+  transition: 0.5s;
+  color: #0057FF;
+  background: #f8f8f8;
+  border-radius: 10px;
+  border-color: #0057FF;
+  margin-top: 48px;
+}
+.btn-restart:hover {
+  color: #fff;
+  background: #0057FF;
+}
+.btn-edit {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 16px;
+  transition: 0.5s;
+  color: #0057FF;
+  background: #fff;
+  border-radius:8px;
+  border-color: #0057FF;
+}
+.btn-edit:hover {
+  color: #fff;
+  background: #0057FF;
+}
+.view-items {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  display: inline-block;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #0057FF;
+  background: transparent;
+  border-radius: 10px;
+  border-color: #0057FF;
+}
+.view-items:hover {
+  color: #fff;
+  background: #0057FF;
+}
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -121,7 +188,7 @@ a:hover {
   max-height: 36px;
 }
 .header-nav .nav-profile span {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -225,7 +292,7 @@ a:hover {
 .sidebar-nav .nav-content a {
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #0057FF;
   transition: 0.3;
@@ -244,16 +311,20 @@ a:hover {
 .sidebar-nav .nav-content a.active i {
   background-color: #4154f1;
 }
-
+/*--------------------------------------------------------------
+# Title Heading
+--------------------------------------------------------------*/
 .title-heading{
-  font-size: 20px;
+  font-size: 26px;
   line-height: 24px;
   color: #393939;
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'Inter', sans-serif;
-  margin-left: 16px;
+  margin-left: 20px;
 }
-
+/*--------------------------------------------------------------
+# Exercise Recommendation
+--------------------------------------------------------------*/
 .exercise-recommendations .card {
   border: 0px;
   margin: 16px 0px;
@@ -269,27 +340,27 @@ a:hover {
 }
 .exercise-recommendations .card .card-body .info h5{
   color: #ABA5C1;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
   line-height: 20px;
   font-family: 'Inter', sans-serif;
 }
 .done {
   position: absolute;
-  left: 190px;
-  top: 10px;
+  top: 20px;
+  right: 0;
   border-radius: 8px;
   padding:8px 12px;
   background: #0043C5;
   color: #fff;
 }
 .done i{
-  font-size: 14px;
+  font-size: 16px;
 }
 .done h5{
   margin-bottom: 0px;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
   margin-left: 5px;
   font-family: 'Inter', sans-serif;
 }
@@ -297,7 +368,6 @@ a:hover {
 .owl{
   margin-top: 10px;
 }
-
 
 .owl-nav button {
  position: absolute;
@@ -329,13 +399,14 @@ a:hover {
 .owl-dots {
  display: none;
 }
-
+/*--------------------------------------------------------------
+# Workout Items
+--------------------------------------------------------------*/
 .workout-item{
   position: relative;
   border-radius: 6px;
   margin-bottom: 30px;
 }
-
 
 .workout-item .item-img img{
   opacity: 0.97;
@@ -366,7 +437,7 @@ a:hover {
 }
 .workout-intensity .btn{
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   background: #242831;
   border-radius: 8px;
@@ -374,9 +445,8 @@ a:hover {
   padding: 8px 15px;
 }
 
-
 /*--------------------------------------------------------------
-# On Focus Section
+# Workout Pages
 --------------------------------------------------------------*/
 .top-bar{
   background: #18181B;
@@ -392,7 +462,7 @@ a:hover {
   font-size: 24px;
   color: #FFFFFF;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   margin: auto;
 }
 .onfocus {
@@ -489,7 +559,9 @@ a:hover {
   }
 }
 
-
+/*--------------------------------------------------------------
+# Exercise Content
+--------------------------------------------------------------*/
 .exercise-forms{
   margin-top: 50px;
 }
@@ -536,8 +608,8 @@ a:hover {
 
 }
 .exercise-content h3{
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
   line-height: 19px;
   font-family: 'Inter', sans-serif;
   color: #FFFFFF;
@@ -549,7 +621,7 @@ a:hover {
 .exercise-content figcaption{
   font-family: 'Inter', sans-serif;
   color: #FFFFFF;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   margin-top: 12px;
 }
@@ -560,7 +632,7 @@ a:hover {
   color: #fff;
 }
 .exercise-content .exercise-type h6{
-  font-size: 14px;
+  font-size: 16px;
   line-height: 19px;
   color: #FFFFFF;
   font-family: 'Inter', sans-serif;
@@ -589,27 +661,12 @@ border-radius: 16px;
 }
 
 .exercise-content .exercise-type h6{
-  font-size: 14px;
+  font-size: 16px;
   margin: 10px 0px;
   font-family: 'Inter', sans-serif;
   color: #fff;
 }
-.get-started {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  display: inline-block;
-  padding: 8px 30px 10px 30px;
-  border-radius: 4px;
-  transition: 0.5s;
-  color: #fff;
-  background: #0057FF;
-  border-radius: 10px;
-  border-color: #0057FF;
-}
-.get-started:hover {
-  color: #fff;
-}
+
 .instructions h2{
   font-size: 30px;
   line-height: 56px;
@@ -664,7 +721,7 @@ border-radius: 16px;
   padding: 0px 24px;
 }
 .onfocus .modal-body h5{
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'Inter', sans-serif;
   font-size: 24px;
   line-height: 28px;
@@ -679,7 +736,7 @@ border-radius: 16px;
 .onfocus .modal-body h6{
   font-weight: 400;
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   text-align: left;
   margin-left: 20px;
@@ -687,6 +744,9 @@ border-radius: 16px;
 .onfocus .modal-footer{
   border-top: none;
 }
+/*--------------------------------------------------------------
+# End Workout Page
+--------------------------------------------------------------*/
 .end-workout{
   margin-top: 120px;
 }
@@ -695,7 +755,7 @@ border-radius: 16px;
 }
 .end-workout .title h2{
   color: #393939;
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'Rubik', sans-serif;
   font-size: 30px;
   line-height: 28px;
@@ -704,7 +764,7 @@ border-radius: 16px;
 
 }
 .end-workout .headings p{
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'Inter', sans-serif;
   text-align: center;
   color: #393939;
@@ -748,26 +808,10 @@ border-radius: 16px;
   margin-bottom: 0px;
   font-size: 30px;
   color: #fff;
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'Inter', sans-serif;
 }
-.btn-restart {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  display: inline-block;
-  padding: 8px 50px 10px 50px;
-  transition: 0.5s;
-  color: #0057FF;
-  background: #f8f8f8;
-  border-radius: 10px;
-  border-color: #0057FF;
-  margin-top: 48px;
-}
-.btn-restart:hover {
-  color: #fff;
-  background: #0057FF;
-}
+
 .up_next_exercise .card{
   background: #E0EBFF;
   border-radius: 10px;
@@ -780,7 +824,7 @@ border-radius: 16px;
   line-height: 28px;
   color: #18181B;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
 }
 .up_next_exercise .exercise-info h4{
   font-size: 18px;
@@ -789,17 +833,21 @@ border-radius: 16px;
   font-family: 'Inter', sans-serif;
   font-weight: 300;
 }
+/*--------------------------------------------------------------
+# Beginner Playlist
+--------------------------------------------------------------*/
 .beginner-playlist{
   padding: 20px 30px;
-  margin-top: 90px;
+  margin-top:40px;
 }
 .beginner-playlist .para{
-  color: #18181B;
+  color: #717171;
   font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: 18px;
   line-height: 24px;
-  margin-top: 10px;
+  margin-top: 17px;
+  margin-left: 20px;
 }
 
 .card-flip {
@@ -846,20 +894,20 @@ border-radius: 16px;
   font-size: 18px;
   line-height: 24px;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   color: #393939;
 }
 .beginner-playlist .exercise-info  p{
   color: #6F6C7B;
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
   margin-top: 10px;
 }
 .beginner-playlist .info h5 {
   color: #ABA5C1;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   line-height: 20px;
   font-family: 'Inter', sans-serif;
@@ -873,14 +921,17 @@ border-radius: 16px;
 .beginner-playlist .exercise-type-1 h5{
   font-family: 'Inter', sans-serif;
   color: #6F6C7B;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
   line-height: 20px;
   margin-bottom: 0px;
 }
+/*--------------------------------------------------------------
+# Profile Page
+--------------------------------------------------------------*/
 .user-profile{
   padding: 20px 30px;
-  margin-top: 90px;
+  margin-top:40px;
 }
 .user-profile .card{
   background: #FFFFFF;
@@ -900,21 +951,7 @@ border-radius: 16px;
   height: 120px;
   margin-bottom: 8px;
 }
-.btn-edit {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  padding: 8px 16px;
-  transition: 0.5s;
-  color: #0057FF;
-  background: #fff;
-  border-radius:8px;
-  border-color: #0057FF;
-}
-.btn-edit:hover {
-  color: #fff;
-  background: #0057FF;
-}
+
 .user-profile .edit-form label{
   color: #6F6C7B;
   font-family: 'Inter', sans-serif;
@@ -949,7 +986,7 @@ border-radius: 16px;
 .user-profile .edit-form ::placeholder{
   color: #393939;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   line-height: 20px;
 }
@@ -989,7 +1026,7 @@ border-radius: 16px;
 .user-profile .status-card .card-body h3{
   color: #C7C5CC;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   line-height: 20px;
   letter-spacing: 0.5px;
@@ -1007,7 +1044,7 @@ border-radius: 16px;
   font-size: 18px;
   line-height: 20px;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   width: 100%;
   padding-bottom: 16px;
 }
@@ -1026,7 +1063,7 @@ border-radius: 16px;
   line-height: 20px;
   color: #E6E4E4;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
 }
 .user-profile .status-card .tab-content .output-display .value{
   border: 2px solid #0057FF;
@@ -1036,17 +1073,17 @@ border-radius: 16px;
   color: #0057FF;
   font-size: 27px;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
 }
 .user-profile .status-card .tab-content .output-display .value small{ 
   font-size: 22px;
 }
 .user-profile .status-card .tab-content h3{
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 20px;
   margin-bottom:0px;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 20px;
   color: #E6E4E4;
 }
@@ -1059,7 +1096,7 @@ border-radius: 16px;
   color: #E6E4E4;
   font-size: 16px;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 20px;
   margin-bottom: 16px;
 }
@@ -1085,7 +1122,6 @@ border-radius: 16px;
 	border-radius: 8px;
 }
 
-
 .range-sliders input[type=range]::-webkit-slider-thumb {
 	box-shadow: none;
 	height: 14px;
@@ -1104,7 +1140,6 @@ border-radius: 16px;
 	background-color: rgba(106, 175, 255, 0.1);
 }
 
-
 .range-sliders input[type=range].range-slider::-webkit-slider-thumb {
 	background: #3C4043;
 	border:3px solid #0057FF;
@@ -1116,7 +1151,7 @@ border-radius: 16px;
 	border-radius: 4px;
 	padding:8px 4px;
 	color: #E6E4E4;
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Inter', sans-serif;
 	line-height: 20px;
 	border: 0;
@@ -1136,7 +1171,6 @@ border-radius: 16px;
 	justify-content: space-between;
 }
 
-
 .range-sliders .range-slider-group .range-slider {
 	width: calc(100% - 100px);
 }
@@ -1146,17 +1180,17 @@ border-radius: 16px;
 }
 
 .user-profile .bmr-form label{
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   color: #E6E4E4;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
 }
 .user-profile .bmr-form .form-select{
   background: #0F0E14;
   border: 2px solid #3C4043;
   color: #E6E4E4;
-  font-size: 14px;
+  font-size: 16px;
   background-image: url('https://img.icons8.com/ios/50/ffffff/expand-arrow--v1.png');
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
@@ -1165,12 +1199,197 @@ border-radius: 16px;
 .user-profile .bmr-form .form-select:focus{
   box-shadow: none !important;
 }
+/*--------------------------------------------------------------
+# Diet Plans
+--------------------------------------------------------------*/
+.diet-plan{
+  padding: 20px 30px;
+  margin-top:40px;
+}
 
+.diet-plan .para{
+  color: #717171;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 17px;
+  margin-left: 20px;
+}
+.diet-plan .card{
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(171, 165, 193, 0.2);
+  border-radius: 20px;
+  border: none;
+}
+.diet-plan .card .card-body{
+  padding: 0px;
+}
+.diet-plan .diet-content{
+  margin-top: 36px;
+}
+.diet-plan .diet-content h1{
+  color: #393939;
+  font-family: 'Rubik', sans-serif;
+  font-size: 22px;
+  line-height: 28px;
+}
+.diet-plan .diet-content .user-info{
+  margin: 16px 0px;
+  background: #E5EEFF;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #393939;
+  line-height: 24px;
+  text-align: center;
+}
+.diet-plan .diet-generation h4{
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #393939;
+  margin-top: 14px;
+}
+.diet-plan .diet-content .diet-generation .card{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: none;
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.diet-plan .diet-content .diet-generation .card:hover{
+  cursor: pointer;
+}
+.diet-plan .diet-content .diet-generation .card-body{
+  padding: 16px 10px !important;
+}
+.diet-plan .diet-content .diet-generation .card-body img{
+  height: 28px;
+}
+.diet-plan .diet-content .diet-generation .card-body h2{
+  font-size: 16px;
+  line-height: 20px;
+  margin-left: 16px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  font-family: 'Inter', sans-serif;
+}
+
+.diet-plan .diet-content .diet-generation .form-check{
+  margin-left: 0px;
+  padding-left: 0px;
+}
+.diet-plan .diet-content .diet-generation .form-check-input{
+  display: none;
+}
+.diet-plan .diet-content .diet-generation .form-check label{
+  width: 100%;
+}
+.diet-plan .diet-content .diet-generation .form-check-input:checked + .card{
+  background: #0057FF !important;
+  color: white;
+}
+.diet-plan .diet-content .diet-generation .form-label{
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #393939;
+  padding-bottom: 10px;
+}
+
+.diet-plans .diet-image{
+  background-image: url('../img/diet-plan/low-carb/low-carb.png');
+  position: relative;
+  width: 100%;
+  padding: 96px 0px 200px 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.diet-plans .info-type{
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(171, 165, 193, 0.2);
+  border-radius: 20px;
+  border: 0;
+  margin-top: -100px;
+  padding: 24px;
+}
+.diet-plans .info-type h1{
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 40px;
+  color: #393939;
+  margin-bottom: 16px;
+}
+.diet-plans .info-type p{
+  color: #6F6C7B;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 10px;
+}
+.diet-plans .meal-plans{
+  margin-top: 42px;
+  margin-bottom: 24px;
+}
+.diet-plans .meal-plans .meal-plan-cards{
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(171, 165, 193, 0.2);
+  border-radius: 20px;
+  border: 0;
+  margin-bottom: 34px;
+}
+.diet-plans .meal-plans .meal-plan-cards .meal-plan-info{
+  margin-top: 20px;
+}
+.diet-plans .meal-plans .meal-plan-cards .meal-plan-info h4{
+  font-size: 18px;
+  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: #393939;
+}
+.diet-plans .meal-plans .meal-plan-cards .meal-plan-info h5{
+  color: #ABA5C1;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.diet-plans .meal-plans .meal-plan-cards .modal-content {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(171, 165, 193, 0.2);
+  border-radius: 20px;
+}
+.diet-plans .meal-plans .meal-plan-cards .modal-header {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+.diet-plans .meal-plans .meal-plan-cards .modal-body .meal-plan-image img{
+  height: 120px;
+}
+.diet-plans .meal-plans .meal-plan-cards .modal-body .meal-plan-image h6{
+  font-size: 20px;
+  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: #393939;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+.diet-plans .meal-plans .meal-plan-cards .modal-footer {
+  border-top: none;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  font-size: 14px;
+  font-size: 16px;
   transition: all 0.3s;
   background: #ffffff;
   box-shadow: 0 5px 20px rgb(0 0 0 / 5%);
@@ -1180,12 +1399,14 @@ border-radius: 16px;
   text-align: center;
   color: #393939;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   padding: 25px 15px;
   margin-bottom: 0px;
 }
-
+/*--------------------------------------------------------------
+# Responsive CSS
+--------------------------------------------------------------*/
 @media (max-width:768px){
   .header{
     margin-left:0px;
@@ -1217,10 +1438,7 @@ border-radius: 16px;
     margin: 0px !important;
   }
   .exercise-content .info h5 {
-    font-size: 14px;
-  }
-  .done {
-    left: 200px;
+    font-size: 16px;
   }
   .btn-restart{
     padding:8px !important;
@@ -1236,22 +1454,32 @@ border-radius: 16px;
     font-size: 18px;
   }
   .beginner-playlist {
-    padding: 20px 0px;
+    padding: 20px 10px;
+    margin-top: 70px;
 }
-.user-profile {
-  padding: 20px 0px;
-}
-.user-profile .card {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
-.user-profile .status-card .card {
-  margin-top: 30px;
-}
-#main {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
+  .user-profile {
+    padding: 20px 10px;
+    margin-top: 70px;
+  }
+  
+  .user-profile .card {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .user-profile .status-card .card {
+    margin-top: 30px;
+  }
+  #main {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .diet-plan{
+    padding: 20px 10px;
+    margin-top: 70px;
+  }
+  .diet-plan .diet-image img{
+    height: auto !important;
+  }
 
 }
 @media (max-width:991px) {
@@ -1283,12 +1511,6 @@ border-radius: 16px;
   }
   .sidebar {
     left: -300px;
-  }
-  /* header{
-    margin-left:0px !important;
-  } */
-  .done{
-    left: 140px;
   }
 }
 @media (min-width: 1200px) {
