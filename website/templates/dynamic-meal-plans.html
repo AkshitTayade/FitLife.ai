@@ -4,21 +4,88 @@
 {% load static %}
 {% block content %}
 <section class="diet-plans">
-    <div class="diet-image" style="background-image: url('../static/img/diet-plan/low-carb/low-carb.png');" ></div>
+    <!----------Low Carb Diet--------------->
+    {% if diet_prediction == 0 %}
+    <div class="diet-image" style="background-image: url('../static/img/diet-plan/low-carb/low-carb.png');"></div>
+    <!----------Balanced Diet--------------->
+    {% elif diet_prediction == 1 %}
+    <div class="diet-image" style="background-image: url('../static/img/diet-plan/balanced/balanced-diet.png');"></div>
+    <!----------Zone Diet--------------->
+    {% elif diet_prediction == 2 %}
+    <div class="diet-image" style="background-image: url('../static/img/diet-plan/zone/zone.png');"></div>
+    <!----------Keto Diet--------------->
+    {% elif diet_prediction == 3 %}
+    <div class="diet-image" style="background-image: url('../static/img/diet-plan/keto/keto.png');"></div>
+    <!----------Depletion Diet--------------->
+    {% elif diet_prediction == 4 %}
+    <div class="diet-image" style="background-image: url('../static/img/diet-plan/depletion/depletion.png');"></div>
+    <!----------High Carb Diet--------------->
+    {% else %}
+    <div class="diet-image" style="background-image: url('../static/img/diet-plan/high-carb/high-carb.png');"></div>
+    {% endif %}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-11">
                 <div class="card info-type">
                     <div class="card-body">
+                        <!----------Low Carb Diet--------------->
+                        {% if diet_prediction == 0 %}
                         <h1>You are recommended: Low Carb Diet</h1>
                         <p>A low-carb diet limits carbohydrates, primarily found in sugary foods, pasta, and bread.
                             Instead of eating carbs, you focus on protein-rich whole foods and vegetables. Studies show
                             that low-carb diets can result in weight loss and improved health markers. Best yet, there’s
                             usually no need to count calories or use special products. All you need to do is eat whole
                             foods that make for a complete, nutritious, and filling diet.</p>
+                        <!----------Balanced Diet--------------->
+                        {% elif diet_prediction == 1 %}
+                        <h1>You are recommended: Balanced Diet</h1>
+                        <p>A balanced diet is a diet that contains differing kinds of foods in certain quantities so
+                            that the requirement for calories, proteins, minerals, vitamins and alternative nutrients is
+                            adequate. A balanced diet should offer around 60-70% of total calories from carbohydrates,
+                            10-12% from proteins and 20-25% of total calories from fat. Healthy eating increases energy,
+                            improves the way your body functions, strengthens your immune system and prevents weight
+                            gain. </p>
+                        <!----------Zone Diet--------------->
+                        {% elif diet_prediction == 2 %}
+                        <h1>You are recommended: Zone Diet</h1>
+                        <p>The Zone Diet suggests eating a specific ratio of 40% carbs, 30% protein and 30% fat. It aims
+                            to reduce inflammation and encourage healthy insulin levels. It may help people balance
+                            their intake of protein and carbohydrate. It includes eating a meal or snack within 1 hour
+                            of waking up in the morning. Eat small, frequent meals during the day, every 4–6 hours after
+                            a meal or 2–2.5 hours after a snack, whether hungry or not. Drink at least eight 8-ounce
+                            glasses of water.</p>
+                        <!----------Keto Diet--------------->
+                        {% elif diet_prediction == 3 %}
+                        <h1>You are recommended: Keto Diet</h1>
+                        <p>The ketogenic diet is a very low-carb, high-fat diet. To achieve positive results, this diet
+                            has to be very low in carbohydrates, high in dietary fat and include a moderate amount of
+                            proteins. This reduction in carbs puts your body into a metabolic state called ketosis. When
+                            this happens, your body becomes incredibly efficient at burning fat for energy. Ketogenic
+                            diet can cause massive reductions in blood sugar, insulin levels and help with weight loss.
+                        </p>
+                        <!----------Depletion Diet--------------->
+                        {% elif diet_prediction == 4 %}
+                        <h1>You are recommended: Depletion Diet</h1>
+                        <p>Carb depletion diets are diets that restrict either all dietary carbohydrates or certain
+                            types of carbohydrates. Diets that restrict carbohydrates to an absolute minimum deplete the
+                            body’s stores of glucose, the building blocks of carbohydrates, within 12 to 14 hours. After
+                            the body’s stores of glucose have been depleted, the body starts to burn fat. When this
+                            happens, your body becomes incredibly efficient at burning fat for energy.
+                        </p>
+                        <!----------High Carb Diet--------------->
+                        {% else %}
+                        <h1>You are recommended: High Carb Diet</h1>
+                        <p>Healthy high-carb diets can have carbohydrate content that ranges from around 64 percent of
+                            your daily diet to 85 percent of your diet. These diets have been shown to promote weight
+                            loss, reverse liver disease and reduce health problems when consumed long term. They
+                            typically focus on the consumption of low-fat, high-carb foods like complex carbohydrates
+                            and fiber-rich vegetables and fruits.</p>
+                        {% endif %}
+
                     </div>
                 </div>
                 <div class="meal-plans">
+
                     <div class="row gx-5">
                         <!----Breakfast Card---->
                         <div class="col-xl-6">
@@ -26,8 +93,31 @@
                                 <div class="row card-body">
                                     <div class="col-lg-5 col-md-6">
                                         <div class="meal-plan-image">
+                                            <!----------Low Carb Diet--------------->
+                                            {% if diet_prediction == 0 %}
                                             <img src="{% static 'img/diet-plan/low-carb/lc-breakfast.png' %}"
                                                 class="img-fluid">
+                                            <!----------Balanced Diet--------------->
+                                            {% elif diet_prediction == 1 %}
+                                            <img src="{% static 'img/diet-plan/balanced/b-breakfast.png' %}"
+                                                class="img-fluid">
+                                            <!----------Zone Diet--------------->
+                                            {% elif diet_prediction == 2 %}
+                                            <img src="{% static 'img/diet-plan/zone/z-breakfast.png' %}"
+                                                class="img-fluid">
+                                            <!----------Keto Diet--------------->
+                                            {% elif diet_prediction == 3 %}
+                                            <img src="{% static 'img/diet-plan/keto/k-breakfast.png' %}"
+                                                class="img-fluid">
+                                            <!----------Depletion Diet--------------->
+                                            {% elif diet_prediction == 4 %}
+                                            <img src="{% static 'img/diet-plan/depletion/d-breakfast.png' %}"
+                                                class="img-fluid">
+                                            <!----------High Carb Diet--------------->
+                                            {% else %}
+                                            <img src="{% static 'img/diet-plan/high-carb/hc-breakfast.png' %}"
+                                                class="img-fluid">
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <div class="col-lg-7 col-md-6">
@@ -47,7 +137,8 @@
                                             <!-- Modal -->
                                             <div class="modal fade" id="breakfast-veg" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;">
+                                                <div class="modal-dialog modal-dialog-centered"
+                                                    style="max-width: 600px;">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="btn-close"
@@ -55,12 +146,35 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="meal-plan-image text-center">
+                                                                <!----------Low Carb Diet--------------->
+                                                                {% if diet_prediction == 0 %}
                                                                 <img src="{% static 'img/diet-plan/low-carb/lc-breakfast.png' %}"
                                                                     class="img-fluid">
+                                                                <!----------Balanced Diet--------------->
+                                                                {% elif diet_prediction == 1 %}
+                                                                <img src="{% static 'img/diet-plan/balanced/b-breakfast.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------Zone Diet--------------->
+                                                                {% elif diet_prediction == 2 %}
+                                                                <img src="{% static 'img/diet-plan/zone/z-breakfast.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------Keto Diet--------------->
+                                                                {% elif diet_prediction == 3 %}
+                                                                <img src="{% static 'img/diet-plan/keto/k-breakfast.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------Depletion Diet--------------->
+                                                                {% elif diet_prediction == 4 %}
+                                                                <img src="{% static 'img/diet-plan/depletion/d-breakfast.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------High Carb Diet--------------->
+                                                                {% else %}
+                                                                <img src="{% static 'img/diet-plan/high-carb/hc-breakfast.png' %}"
+                                                                    class="img-fluid">
+                                                                {% endif %}
                                                                 <h6>Breakfast Options</h6>
                                                             </div>
                                                             <div class="meal-plan-content">
-                                                                {% for i in low_carb_diet %}
+                                                                {% for i in diet_plans %}
                                                                 {{i.diet_breakfast|safe}}
                                                                 {% endfor %}
                                                             </div>
@@ -80,8 +194,29 @@
                                 <div class="row card-body">
                                     <div class="col-lg-5 col-md-6">
                                         <div class="meal-plan-image">
+                                            <!----------Low Carb Diet--------------->
+                                            {% if diet_prediction == 0 %}
                                             <img src="{% static 'img/diet-plan/low-carb/lc-lunch.png' %}"
                                                 class="img-fluid">
+                                            <!----------Balanced Diet--------------->
+                                            {% elif diet_prediction == 1 %}
+                                            <img src="{% static 'img/diet-plan/balanced/b-lunch.png' %}"
+                                                class="img-fluid">
+                                            <!----------Zone Diet--------------->
+                                            {% elif diet_prediction == 2 %}
+                                            <img src="{% static 'img/diet-plan/zone/z-lunch.png' %}" class="img-fluid">
+                                            <!----------Keto Diet--------------->
+                                            {% elif diet_prediction == 3 %}
+                                            <img src="{% static 'img/diet-plan/keto/k-lunch.png' %}" class="img-fluid">
+                                            <!----------Depletion Diet--------------->
+                                            {% elif diet_prediction == 4 %}
+                                            <img src="{% static 'img/diet-plan/depletion/d-lunch.png' %}"
+                                                class="img-fluid">
+                                            <!----------High Carb Diet--------------->
+                                            {% else %}
+                                            <img src="{% static 'img/diet-plan/high-carb/hc-lunch.png' %}"
+                                                class="img-fluid">
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <div class="col-lg-7 col-md-6">
@@ -109,12 +244,35 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="meal-plan-image text-center">
+                                                                <!----------Low Carb Diet--------------->
+                                                                {% if diet_prediction == 0 %}
                                                                 <img src="{% static 'img/diet-plan/low-carb/lc-lunch.png' %}"
                                                                     class="img-fluid">
+                                                                <!----------Balanced Diet--------------->
+                                                                {% elif diet_prediction == 1 %}
+                                                                <img src="{% static 'img/diet-plan/balanced/b-lunch.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------Zone Diet--------------->
+                                                                {% elif diet_prediction == 2 %}
+                                                                <img src="{% static 'img/diet-plan/zone/z-lunch.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------Keto Diet--------------->
+                                                                {% elif diet_prediction == 3 %}
+                                                                <img src="{% static 'img/diet-plan/keto/k-lunch.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------Depletion Diet--------------->
+                                                                {% elif diet_prediction == 4 %}
+                                                                <img src="{% static 'img/diet-plan/depletion/d-lunch.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------High Carb Diet--------------->
+                                                                {% else %}
+                                                                <img src="{% static 'img/diet-plan/high-carb/hc-lunch.png' %}"
+                                                                    class="img-fluid">
+                                                                {% endif %}
                                                                 <h6>Lunch Options</h6>
                                                             </div>
                                                             <div class="meal-plan-content">
-                                                                {% for i in low_carb_diet %}
+                                                                {% for i in diet_plans %}
                                                                 {{i.diet_lunch|safe}}
                                                                 {% endfor %}
                                                             </div>
@@ -134,8 +292,29 @@
                                 <div class="row card-body">
                                     <div class="col-lg-5 col-md-6">
                                         <div class="meal-plan-image">
+                                            <!----------Low Carb Diet--------------->
+                                            {% if diet_prediction == 0 %}
                                             <img src="{% static 'img/diet-plan/low-carb/lc-snacks.png' %}"
                                                 class="img-fluid">
+                                            <!----------Balanced Diet--------------->
+                                            {% elif diet_prediction == 1 %}
+                                            <img src="{% static 'img/diet-plan/balanced/b-snacks.png' %}"
+                                                class="img-fluid">
+                                            <!----------Zone Diet--------------->
+                                            {% elif diet_prediction == 2 %}
+                                            <img src="{% static 'img/diet-plan/zone/z-snacks.png' %}" class="img-fluid">
+                                            <!----------Keto Diet--------------->
+                                            {% elif diet_prediction == 3 %}
+                                            <img src="{% static 'img/diet-plan/keto/k-snacks.png' %}" class="img-fluid">
+                                            <!----------Depletion Diet--------------->
+                                            {% elif diet_prediction == 4 %}
+                                            <img src="{% static 'img/diet-plan/depletion/d-snacks.png' %}"
+                                                class="img-fluid">
+                                            <!----------High Carb Diet--------------->
+                                            {% else %}
+                                            <img src="{% static 'img/diet-plan/high-carb/hc-snacks.png' %}"
+                                                class="img-fluid">
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <div class="col-lg-7 col-md-6">
@@ -163,12 +342,35 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="meal-plan-image text-center">
+                                                                <!----------Low Carb Diet--------------->
+                                                                {% if diet_prediction == 0 %}
                                                                 <img src="{% static 'img/diet-plan/low-carb/lc-snacks.png' %}"
                                                                     class="img-fluid">
+                                                                <!----------Balanced Diet--------------->
+                                                                {% elif diet_prediction == 1 %}
+                                                                <img src="{% static 'img/diet-plan/balanced/b-snacks.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------Zone Diet--------------->
+                                                                {% elif diet_prediction == 2 %}
+                                                                <img src="{% static 'img/diet-plan/zone/z-snacks.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------Keto Diet--------------->
+                                                                {% elif diet_prediction == 3 %}
+                                                                <img src="{% static 'img/diet-plan/keto/k-snacks.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------Depletion Diet--------------->
+                                                                {% elif diet_prediction == 4 %}
+                                                                <img src="{% static 'img/diet-plan/depletion/d-snacks.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------High Carb Diet--------------->
+                                                                {% else %}
+                                                                <img src="{% static 'img/diet-plan/high-carb/hc-snacks.png' %}"
+                                                                    class="img-fluid">
+                                                                {% endif %}
                                                                 <h6>Snacks Options</h6>
                                                             </div>
                                                             <div class="meal-plan-content">
-                                                                {% for i in low_carb_diet %}
+                                                                {% for i in diet_plans %}
                                                                 {{i.diet_snacks|safe}}
                                                                 {% endfor %}
                                                             </div>
@@ -188,8 +390,29 @@
                                 <div class="row card-body">
                                     <div class="col-lg-5 col-md-6">
                                         <div class="meal-plan-image">
+                                            <!----------Low Carb Diet--------------->
+                                            {% if diet_prediction == 0 %}
                                             <img src="{% static 'img/diet-plan/low-carb/lc-dinner.png' %}"
                                                 class="img-fluid">
+                                            <!----------Balanced Diet--------------->
+                                            {% elif diet_prediction == 1 %}
+                                            <img src="{% static 'img/diet-plan/balanced/b-dinner.png' %}"
+                                                class="img-fluid">
+                                            <!----------Zone Diet--------------->
+                                            {% elif diet_prediction == 2 %}
+                                            <img src="{% static 'img/diet-plan/zone/z-dinner.png' %}" class="img-fluid">
+                                            <!----------Keto Diet--------------->
+                                            {% elif diet_prediction == 3 %}
+                                            <img src="{% static 'img/diet-plan/keto/k-dinner.png' %}" class="img-fluid">
+                                            <!----------Depletion Diet--------------->
+                                            {% elif diet_prediction == 4 %}
+                                            <img src="{% static 'img/diet-plan/depletion/d-dinner.png' %}"
+                                                class="img-fluid">
+                                            <!----------High Carb Diet--------------->
+                                            {% else %}
+                                            <img src="{% static 'img/diet-plan/high-carb/hc-dinner.png' %}"
+                                                class="img-fluid">
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <div class="col-lg-7 col-md-6">
@@ -217,12 +440,35 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="meal-plan-image text-center">
+                                                                <!----------Low Carb Diet--------------->
+                                                                {% if diet_prediction == 0 %}
                                                                 <img src="{% static 'img/diet-plan/low-carb/lc-dinner.png' %}"
                                                                     class="img-fluid">
+                                                                <!----------Balanced Diet--------------->
+                                                                {% elif diet_prediction == 1 %}
+                                                                <img src="{% static 'img/diet-plan/balanced/b-dinner.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------Zone Diet--------------->
+                                                                {% elif diet_prediction == 2 %}
+                                                                <img src="{% static 'img/diet-plan/zone/z-dinner.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------Keto Diet--------------->
+                                                                {% elif diet_prediction == 3 %}
+                                                                <img src="{% static 'img/diet-plan/keto/k-dinner.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------Depletion Diet--------------->
+                                                                {% elif diet_prediction == 4 %}
+                                                                <img src="{% static 'img/diet-plan/depletion/d-dinner.png' %}"
+                                                                    class="img-fluid">
+                                                                <!----------High Carb Diet--------------->
+                                                                {% else %}
+                                                                <img src="{% static 'img/diet-plan/high-carb/hc-dinner.png' %}"
+                                                                    class="img-fluid">
+                                                                {% endif %}
                                                                 <h6>Dinner Options</h6>
                                                             </div>
                                                             <div class="meal-plan-content">
-                                                                {% for i in low_carb_diet %}
+                                                                {% for i in diet_plans %}
                                                                 {{i.diet_dinner|safe}}
                                                                 {% endfor %}
                                                             </div>

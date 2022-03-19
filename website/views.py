@@ -317,7 +317,7 @@ def main_goal(request):
 
         if main_goal == 'EatHealthier' or 'LoseWeight' or 'GainStrength' or 'GetToned' or 'BuildStamina':
 
-            user_bmi = round((float(onboard_data['user_current_weight'])/(onboard_data['user_height']**2))*10000,2)
+            user_bmi = round((float(onboard_data['user_current_weight'])/float((onboard_data['user_height'])**2))*10000,2)
 
             print(type(onboard_data['user_height']),type(onboard_data['user_age']))
 
@@ -702,16 +702,70 @@ def diet_plan(request):
 
         if diet_prediction == 0:
             print("low carb")
+            
+            if user_veg_or_nonveg == 'veg':
+                diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Low Carb Diet') & Q(diet_food_choice__startswith= 'Vegetarian'))
+
+            else:
+                diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Low Carb Diet') & Q(diet_food_choice__startswith= 'Non Vegetarian'))
+
+            return render(request,'dynamic-meal-plans.html',{'diet_prediction':diet_prediction,'diet_plans':diet_plans})
+
         elif diet_prediction == 1:
             print('balance')
+
+            if user_veg_or_nonveg == 'veg':
+                diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Balanced Diet') & Q(diet_food_choice__startswith= 'Vegetarian'))
+
+            else:
+                diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Balanced Diet') & Q(diet_food_choice__startswith= 'Non Vegetarian'))
+
+            return render(request,'dynamic-meal-plans.html',{'diet_prediction':diet_prediction,'diet_plans':diet_plans})
+
+
         elif diet_prediction == 2:
             print("zone")
+
+            if user_veg_or_nonveg == 'veg':
+                diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Zone Diet') & Q(diet_food_choice__startswith= 'Vegetarian'))
+
+            else:
+                diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Zone Diet') & Q(diet_food_choice__startswith= 'Non Vegetarian'))
+
+            return render(request,'dynamic-meal-plans.html',{'diet_prediction':diet_prediction,'diet_plans':diet_plans})
+            
         elif diet_prediction == 3:
             print("keto")
+
+            if user_veg_or_nonveg == 'veg':
+                diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Keto Diet') & Q(diet_food_choice__startswith= 'Vegetarian'))
+
+            else:
+                diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Keto Diet') & Q(diet_food_choice__startswith= 'Non Vegetarian'))
+
+            return render(request,'dynamic-meal-plans.html',{'diet_prediction':diet_prediction,'diet_plans':diet_plans})
+
         elif diet_prediction == 4:
             print("depletion")
+
+            if user_veg_or_nonveg == 'veg':
+                diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Depletion Diet') & Q(diet_food_choice__startswith= 'Vegetarian'))
+
+            else:
+                diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Depletion Diet') & Q(diet_food_choice__startswith= 'Non Vegetarian'))
+
+            return render(request,'dynamic-meal-plans.html',{'diet_prediction':diet_prediction,'diet_plans':diet_plans})
+
         else:
             print("high carb")
+
+            if user_veg_or_nonveg == 'veg':
+                diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='High Carb Diet') & Q(diet_food_choice__startswith= 'Vegetarian'))
+
+            else:
+                diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='High Carb Diet') & Q(diet_food_choice__startswith= 'Non Vegetarian'))
+
+            return render(request,'dynamic-meal-plans.html',{'diet_prediction':diet_prediction,'diet_plans':diet_plans})
 
         return render(request,'diet-plan.html',{'user_data': user_data})
 
@@ -719,8 +773,6 @@ def diet_plan(request):
 
 def dynamic_meal_plans(request):
 
-    low_carb_diet = Diet_Menu.objects.filter(Q(diet_choice__icontains='Low Carb Diet') & Q(diet_food_choice__icontains= 'Vegetarian'))
-    print(low_carb_diet)
-    
+    diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Low Carb Diet') & Q(diet_food_choice__startswith= 'Vegetarian'))
 
-    return render(request,'dynamic-meal-plans.html',{'low_carb_diet':low_carb_diet})
+    return render(request,'dynamic-meal-plans.html',{'diet_plans':diet_plans})
