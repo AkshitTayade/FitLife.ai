@@ -20,6 +20,7 @@ from django.http.response import StreamingHttpResponse
 import time
 from .camera import VideoCamera
 from .cal_calories_burned import CalorieBurned
+from .diet_recommender import Diet_Recommender
 
 hotp = pyotp.HOTP('base32secret3232', digits=4)
 
@@ -107,7 +108,7 @@ def login_next(request):
                     playlist.exercise_jj = 0
                     playlist.exercise_ac=0
                     playlist.exercise_kp=0
-                    playlist.exercise_squats=0
+                    playlist.exercise_sar=0
                     playlist.exercise_bl=0
                     playlist.exercise_cs=0
                     playlist.save()
@@ -314,7 +315,17 @@ def main_goal(request):
         onboard_file.close()
 
         if main_goal == 'EatHealthier' or 'LoseWeight' or 'GainStrength' or 'GetToned' or 'BuildStamina':
+
+            user_bmi = round((float(onboard_data['user_current_weight'])/(onboard_data['user_height']**2))*10000,2)
+
+            print(type(onboard_data['user_height']),type(onboard_data['user_age']))
+
+            if onboard_data['gender'] == 'Male':
+                user_bmr = round((10 *  float(onboard_data['user_current_weight'])) + (6.25 * onboard_data['user_height']) - (5  * int(onboard_data['user_age'])) + 5)
             
+            else:
+                user_bmr = round((10 * float(onboard_data['user_current_weight'])) + (6.25 * onboard_data['user_height']) - (5  * int(onboard_data['user_age'])) - 161)
+
             # adding the details to the database
             new_user_entry = User_Info(user_gender = onboard_data['gender'],
                                         user_focus_area = onboard_data['focus_area'],
@@ -326,7 +337,9 @@ def main_goal(request):
                                         user_height_in = onboard_data['user_height_in'],
                                         user_height  = onboard_data['user_height'],
                                         user_weight = onboard_data['user_current_weight'],
-                                        user_activity_level = onboard_data['active_status'])
+                                        user_activity_level = onboard_data['active_status'],
+                                        user_bmi = user_bmi,
+                                        user_bmr = user_bmr)
 
             new_user_entry.save()
 
@@ -473,8 +486,7 @@ def end_workout(request, exercise_name):
         ex_left.append('cobra stretch')
 
     print(ex_left)
-
-    
+ 
     data = json.load(file)
 
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
@@ -675,12 +687,31 @@ def diet_plan(request):
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
     
     if request.method == 'POST':
-        user_diet_type = request.POST['diet-type']
+        user_veg_or_nonveg = request.POST['diet-type']
         user_activity_level = request.POST['activity-level']
         user_diet_goal = request.POST['diet-goal']
         user_motivation = request.POST['motivation']
-        print(user_diet_type,user_diet_goal,user_activity_level,user_motivation)
+        #print(user_veg_or_nonveg, user_diet_goal, user_activity_level, user_motivation)
         
+        diet_plan = Diet_Recommender(user_data, user_diet_goal, user_activity_level, user_motivation)
+        diet_plan.map_variables()
+        diet_prediction = diet_plan.predict()
+
+        print(diet_prediction)
+
+        if diet_prediction == 0:
+            print("low carb")
+        elif diet_prediction == 1:
+            print('balance')
+        elif diet_prediction == 2:
+            print("zone")
+        elif diet_prediction == 3:
+            print("keto")
+        elif diet_prediction == 4:
+            print("depletion")
+        else:
+            print("high carb")
+
         return render(request,'diet-plan.html',{'user_data': user_data})
 
     return render(request,'diet-plan.html',{'user_data': user_data})
