@@ -20,7 +20,7 @@ class Diet_Recommender:
             self.lifestyle = '3. Vigorously active (Agricultural worker (non mechanized) or person swimming two hours daily)'
                 
         # this value in unknown
-        self.daily_calories_intake = 4000
+        self.daily_calories_intake = 2100
         self.target = target
 
         if motivation == 'scale-1':
@@ -70,7 +70,7 @@ class Diet_Recommender:
         elif self.exercise == 'Vigorously active':
             self.daily_calories_needed = round(self.bmr * 1.725)
         
-        self.tdee = 1800
+        self.tdee = 2200
         self.calorie_diff = round((self.daily_calories_intake - self.tdee)/self.tdee, 6)
 
     def print_all(self):

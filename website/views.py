@@ -317,15 +317,15 @@ def main_goal(request):
 
         if main_goal == 'EatHealthier' or 'LoseWeight' or 'GainStrength' or 'GetToned' or 'BuildStamina':
 
-            user_bmi = round((float(onboard_data['user_current_weight'])/float((onboard_data['user_height'])**2))*10000,2)
+            user_bmi = round((float(onboard_data['user_current_weight'])/(float(onboard_data['user_height'])**2))*10000,2)
 
             print(type(onboard_data['user_height']),type(onboard_data['user_age']))
 
             if onboard_data['gender'] == 'Male':
-                user_bmr = round((10 *  float(onboard_data['user_current_weight'])) + (6.25 * onboard_data['user_height']) - (5  * int(onboard_data['user_age'])) + 5)
+                user_bmr = round((10 *  float(onboard_data['user_current_weight'])) + (6.25 * float(onboard_data['user_height'])) - (5  * int(onboard_data['user_age'])) + 5)
             
             else:
-                user_bmr = round((10 * float(onboard_data['user_current_weight'])) + (6.25 * onboard_data['user_height']) - (5  * int(onboard_data['user_age'])) - 161)
+                user_bmr = round((10 * float(onboard_data['user_current_weight'])) + (6.25 * float(onboard_data['user_height'])) - (5  * int(onboard_data['user_age'])) - 161)
 
             # adding the details to the database
             new_user_entry = User_Info(user_gender = onboard_data['gender'],
