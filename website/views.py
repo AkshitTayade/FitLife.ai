@@ -728,6 +728,7 @@ def diet_plan(request):
 
             if user_veg_or_nonveg == 'veg':
                 diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Zone Diet') & Q(diet_food_choice__startswith= 'Vegetarian'))
+                
 
             else:
                 diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Zone Diet') & Q(diet_food_choice__startswith= 'Non Vegetarian'))
@@ -774,5 +775,4 @@ def diet_plan(request):
 def dynamic_meal_plans(request):
 
     diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Low Carb Diet') & Q(diet_food_choice__startswith= 'Vegetarian'))
-
     return render(request,'dynamic-meal-plans.html',{'diet_plans':diet_plans})

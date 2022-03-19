@@ -126,7 +126,11 @@
                                             <div class="d-flex mt-2">
                                                 <h5>20 cals</h5>
                                                 <h5 class="ms-2">•</h5>
-                                                <h5 class="ms-2">4 items</h5>
+                                                <h5 class="ms-2">
+                                                    {% for item in diet_plans %}
+                                                    {{ item.diet_breakfast|length }}
+                                                    {% endfor %}
+                                                </h5>
                                             </div>
                                         </div>
                                         <div class="view-item mt-5">

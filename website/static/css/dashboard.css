@@ -1314,7 +1314,7 @@ border-radius: 16px;
   border-radius: 20px;
   border: 0;
   margin-top: -100px;
-  padding: 24px;
+  padding: 16px;
 }
 .diet-plans .info-type h1{
   font-family: 'Inter', sans-serif;
@@ -1331,6 +1331,7 @@ border-radius: 16px;
   font-size: 16px;
   line-height: 24px;
   margin-top: 10px;
+  text-align: justify;
 }
 .diet-plans .meal-plans{
   margin-top: 42px;
@@ -1370,7 +1371,7 @@ border-radius: 16px;
   padding-bottom: 0px;
 }
 .diet-plans .meal-plans .meal-plan-cards .modal-body .meal-plan-image img{
-  height: 120px;
+  height: 200px;
 }
 .diet-plans .meal-plans .meal-plan-cards .modal-body .meal-plan-image h6{
   font-size: 20px;
@@ -1390,6 +1391,7 @@ border-radius: 16px;
   background: white;
   color: #717171;
   margin: 16px 0px;
+  text-align: justify;
 }
 .diet-plans .meal-plans .meal-plan-cards .modal-footer {
   border-top: none;
