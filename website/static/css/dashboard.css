@@ -1301,7 +1301,6 @@ border-radius: 16px;
 }
 
 .diet-plans .diet-image{
-  background-image: url('../img/diet-plan/low-carb/low-carb.png');
   position: relative;
   width: 100%;
   padding: 96px 0px 200px 0px;
@@ -1381,6 +1380,16 @@ border-radius: 16px;
   color: #393939;
   margin-top: 16px;
   margin-bottom: 24px;
+}
+
+.diet-plans .meal-plans .meal-plan-cards .modal-body .meal-plan-content ol li{
+  font-size: 17px;
+  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  background: white;
+  color: #717171;
+  margin: 16px 0px;
 }
 .diet-plans .meal-plans .meal-plan-cards .modal-footer {
   border-top: none;

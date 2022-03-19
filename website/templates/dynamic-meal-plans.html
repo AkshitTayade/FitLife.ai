@@ -1,10 +1,10 @@
 {% extends 'base-dashboard.html' %}
-{% block title%} Low Carb Diet {% endblock %}
+{% block title%} Meal Plans {% endblock %}
 {% block dietplanactive %} active {% endblock dietplanactive %}
 {% load static %}
 {% block content %}
 <section class="diet-plans">
-    <div class="diet-image"></div>
+    <div class="diet-image" style="background-image: url('../static/img/diet-plan/low-carb/low-carb.png');" ></div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-11">
@@ -47,7 +47,7 @@
                                             <!-- Modal -->
                                             <div class="modal fade" id="breakfast-veg" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="btn-close"
@@ -57,8 +57,13 @@
                                                             <div class="meal-plan-image text-center">
                                                                 <img src="{% static 'img/diet-plan/low-carb/lc-breakfast.png' %}"
                                                                     class="img-fluid">
-                                                                    <h6>Breakfast Options</h6>
-                                                            </div> 
+                                                                <h6>Breakfast Options</h6>
+                                                            </div>
+                                                            <div class="meal-plan-content">
+                                                                {% for i in low_carb_diet %}
+                                                                {{i.diet_breakfast|safe}}
+                                                                {% endfor %}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -105,9 +110,14 @@
                                                         <div class="modal-body">
                                                             <div class="meal-plan-image text-center">
                                                                 <img src="{% static 'img/diet-plan/low-carb/lc-lunch.png' %}"
-                                                                class="img-fluid">
-                                                                    <h6>Lunch Options</h6>
-                                                            </div> 
+                                                                    class="img-fluid">
+                                                                <h6>Lunch Options</h6>
+                                                            </div>
+                                                            <div class="meal-plan-content">
+                                                                {% for i in low_carb_diet %}
+                                                                {{i.diet_lunch|safe}}
+                                                                {% endfor %}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -155,8 +165,13 @@
                                                             <div class="meal-plan-image text-center">
                                                                 <img src="{% static 'img/diet-plan/low-carb/lc-snacks.png' %}"
                                                                     class="img-fluid">
-                                                                    <h6>Snacks Options</h6>
-                                                            </div> 
+                                                                <h6>Snacks Options</h6>
+                                                            </div>
+                                                            <div class="meal-plan-content">
+                                                                {% for i in low_carb_diet %}
+                                                                {{i.diet_snacks|safe}}
+                                                                {% endfor %}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -204,8 +219,13 @@
                                                             <div class="meal-plan-image text-center">
                                                                 <img src="{% static 'img/diet-plan/low-carb/lc-dinner.png' %}"
                                                                     class="img-fluid">
-                                                                    <h6>Dinner Options</h6>
-                                                            </div> 
+                                                                <h6>Dinner Options</h6>
+                                                            </div>
+                                                            <div class="meal-plan-content">
+                                                                {% for i in low_carb_diet %}
+                                                                {{i.diet_dinner|safe}}
+                                                                {% endfor %}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -215,7 +235,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>            
+                        </div>
                     </div>
                 </div>
             </div>

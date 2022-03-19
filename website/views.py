@@ -9,7 +9,8 @@ from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 from django.urls import reverse
 from numpy import round_
-from .models import User_Info,User_Exercise_Info,Playlist_Check
+from .models import User_Info,User_Exercise_Info,Playlist_Check,Diet_Menu
+from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout
 import pyotp
 import random
@@ -716,5 +717,10 @@ def diet_plan(request):
 
     return render(request,'diet-plan.html',{'user_data': user_data})
 
-def low_carb_diet(request):
-    return render(request,'diet-types/low-carb.diet.html')
+def dynamic_meal_plans(request):
+
+    low_carb_diet = Diet_Menu.objects.filter(Q(diet_choice__icontains='Low Carb Diet') & Q(diet_food_choice__icontains= 'Vegetarian'))
+    print(low_carb_diet)
+    
+
+    return render(request,'dynamic-meal-plans.html',{'low_carb_diet':low_carb_diet})
