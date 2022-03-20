@@ -2,6 +2,7 @@
 {% block title%} Meal Plans {% endblock %}
 {% block dietplanactive %} active {% endblock dietplanactive %}
 {% load static %}
+{% load custom_tags %}
 {% block content %}
 <section class="diet-plans">
     <!----------Low Carb Diet--------------->
@@ -127,9 +128,7 @@
                                                 <h5>20 cals</h5>
                                                 <h5 class="ms-2">•</h5>
                                                 <h5 class="ms-2">
-                                                    {% for item in diet_plans %}
-                                                    {{ item.diet_breakfast|length }}
-                                                    {% endfor %}
+                                                   3 items
                                                 </h5>
                                             </div>
                                         </div>

@@ -722,7 +722,6 @@ def diet_plan(request):
 
             return render(request,'dynamic-meal-plans.html',{'diet_prediction':diet_prediction,'diet_plans':diet_plans})
 
-
         elif diet_prediction == 2:
             print("zone")
 
