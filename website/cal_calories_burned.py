@@ -12,7 +12,7 @@ class CalorieBurned():
                             "backward lunges": 3.8,
                             "cobra stretch": 2.3  }
 
-        self.total_seconds = total_seconds
+        self.total_time_in_min = total_seconds/60
         self.exercise_name = exercise_name
         self.user_weight = user_weight
 
@@ -23,10 +23,10 @@ class CalorieBurned():
     def calculate(self):
         
         MET = self.getMET()
-        calories = (self.total_seconds * MET * 3.5 * self.user_weight)  / (200 * 60)
+        calories = (self.total_time_in_min * MET * 3.5 * self.user_weight)  / 200
         weight_loss = calories/7700
         
-        # print(f"Energy burned: {calories} kcal")
+        # print(f"Energy burned: {calories} cal")
         # print(weight_loss, round(weight_loss,5))
         
         return(round(calories, 4), round(weight_loss,5))
