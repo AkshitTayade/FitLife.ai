@@ -20,7 +20,7 @@ class VideoCamera(object):
         try:
             frame,_ = posedetector.findPose(frame, False) 
            
-            if self.exercise_name == 'squats':
+            if self.exercise_name == 'squat':
                 frame = posedetector.Squat_Exercise(frame)
 
             elif self.exercise_name == 'jumping jack':

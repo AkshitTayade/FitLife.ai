@@ -161,11 +161,37 @@ class poseDetector():
                 self.count += 0.5
                 self.dir = 0
 
-        if self.count <=3:
-            cv2.putText(frame, f"Count = {int(self.count)}/3", (900, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
-        else:
-            cv2.putText(frame, "Completed", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
+        if self.i == 1:
+            if self.count <= 0.5:
+                self.earlier = datetime.datetime.now()
+                #earlier_lt.append(earlier)
+                print("Start = ",self.earlier)
+                self.i += 1
+        
+        if self.i == 2:
+            if int(self.count) == 12:
+               
+                now = datetime.datetime.now()
+                    
+                diff = now - self.earlier
 
+                print("Diff = ", diff.total_seconds())
+
+                data = json.load(self.file)
+                data.update({"Total_seconds": diff.total_seconds(), 
+                            "Timestamp": time.strftime('%H:%M:%S', time.gmtime(int(diff.total_seconds()))),
+                            "Total_Reps": 12})
+                self.file.seek(0)
+                json.dump(data, self.file)
+                self.file.close()
+
+                self.i += 1
+
+        if self.count >= 12:
+            cv2.putText(frame, "Completed", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
+        else:
+            cv2.putText(frame, f"Count = {int(self.count)}/12", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+            
         return(frame)
 
     def Jumping_Jack(self, frame):
