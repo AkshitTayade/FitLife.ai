@@ -372,7 +372,7 @@ class poseDetector():
             cv2.circle(frame, (x3, y3), 5, (0, 255, 0), cv2.FILLED)
             cv2.circle(frame, (x3, y3), 15, (0, 255, 0), 2)
 
-            if elbow < 100:
+            if elbow < 120:
                 x2, y2 = positions[13][1:]
             
                 cv2.circle(frame, (x2, y2), 5, (0, 255, 0), cv2.FILLED)
