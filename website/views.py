@@ -305,7 +305,8 @@ def active_status_male(request):
 
 def main_goal(request):
     if request.method == 'POST':
-        main_goal = request.POST['main_goal']
+        main_goal = request.POST.getlist['main_goal']
+        print(main_goal)
 
         # updating the onboarding json file
         onboard_file = open('website/onboarding_stat.json', 'r+')
@@ -315,7 +316,7 @@ def main_goal(request):
         json.dump(onboard_data, onboard_file)
         onboard_file.close()
 
-        if main_goal == 'EatHealthier' or 'LoseWeight' or 'GainStrength' or 'GetToned' or 'BuildStamina':
+        if main_goal is not None:
 
             user_bmi = round((float(onboard_data['user_current_weight'])/(float(onboard_data['user_height'])**2))*10000,2)
 

@@ -32,14 +32,14 @@
                <h1>What brings you to FitLife.ai?</h1>
                <p>Choose your main goal</p>
                <!---- Main Goal Form ----->
-               <form action="" class="focus-area-form mt-3" method="POST">
+               <form action="{% url 'main_goal' %}" class="focus-area-form mt-3" method="POST">
                   {% csrf_token %}
                   <div class="row justify-content-center">
                      <div class="col-lg-8 mt-3">
                          <!---- Option 1 ----->
                         <div class="form-check">
                            <label class="form-check-label" for="healthy">
-                              <input class="form-check-input" type="radio" id="healthy" name="main_goal"
+                              <input class="form-check-input" type="checkbox" id="healthy" name="main_goal"
                                  value="EatHealthier" required>
                               <div class="card">
                                  <div class="card-body">
@@ -51,7 +51,7 @@
                         <!---- Option 2 ----->
                         <div class="form-check">
                            <label class="form-check-label" for="loseweight">
-                              <input class="form-check-input" type="radio" id="loseweight" name="main_goal"
+                              <input class="form-check-input" type="checkbox" id="loseweight" name="main_goal"
                                  value="LoseWeight" required>
                               <div class="card">
                                  <div class="card-body"> <img src="{% static 'img/onboarding-images/main-goal/option2.png'%}" height="37">
@@ -63,7 +63,7 @@
                         <!---- Option 3 ----->
                         <div class="form-check">
                            <label class="form-check-label" for="strength">
-                              <input class="form-check-input" type="radio" id="strength" name="main_goal"
+                              <input class="form-check-input" type="checkbox" id="strength" name="main_goal"
                                  value="GainStrength" required>
                               <div class="card">
                                  <div class="card-body"> <img src="{% static 'img/onboarding-images/main-goal/option3.png'%}" height="37">
@@ -75,7 +75,7 @@
                         <!---- Option 4 ----->
                         <div class="form-check">
                            <label class="form-check-label" for="toned">
-                              <input class="form-check-input" type="radio" id="toned" name="main_goal"
+                              <input class="form-check-input" type="checkbox" id="toned" name="main_goal"
                                  value=" GetToned" required>
                               <div class="card">
                                  <div class="card-body"><img src="{% static 'img/onboarding-images/main-goal/option4.png'%}" height="37">
@@ -87,7 +87,7 @@
                         <!---- Option 5 ----->
                         <div class="form-check">
                            <label class="form-check-label" for="stamina">
-                              <input class="form-check-input" type="radio" id="stamina" name="main_goal"
+                              <input class="form-check-input" type="checkbox" id="stamina" name="main_goal"
                                  value="BuildStamina" required>
                               <div class="card">
                                  <div class="card-body"> <img src="{% static 'img/onboarding-images/main-goal/option5.png'%}" height="37">
