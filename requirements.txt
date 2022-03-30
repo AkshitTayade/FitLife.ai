@@ -1,6 +1,4 @@
-opencv-contrib-python==4.5.3.56
 opencv-python==3.4.11.45
-opencv-python-headless==4.4.0.46
 scikit-image==0.17.2
 scikit-learn==0.24.2
 Django==3.2
@@ -11,3 +9,4 @@ Pillow==2.2.2
 whitenoise==5.2.0
 dj-database-url==0.5.0
 psycopg2==2.8.6
+numpy==1.19.5
