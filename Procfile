@@ -1,0 +1,1 @@
+web: gunicorn fitapp.wsgi --log-file -

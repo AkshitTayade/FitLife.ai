@@ -305,10 +305,10 @@ def active_status_male(request):
 
 def main_goal(request):
     if request.method == 'POST':
-        main_goal = request.POST.getlist['main_goal']
-        print(main_goal)
+        main_goal = request.POST.getlist('main_goal')
+        #print(main_goal)
 
-        # updating the onboarding json file
+        #updating the onboarding json file
         onboard_file = open('website/onboarding_stat.json', 'r+')
         onboard_data = json.load(onboard_file)
         onboard_data.update({"main_goal": main_goal})
@@ -349,8 +349,6 @@ def main_goal(request):
             json.dump({}, onboard_file)
             onboard_file.close()
             
-            # user main goal not there in database
-            # user targeted weight not there in database
             messages.info(request, "You have successfully registered ! Now enter your email id and login to the dashboard. ")
             return redirect('login')
         
