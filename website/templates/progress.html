@@ -1,0 +1,120 @@
+{% extends 'base-dashboard.html' %}
+{% block title%} Progress {% endblock %}
+{% block progressactive %} active {% endblock progressactive %}
+{% load static %}
+{% block content %}
+<section id="progress-page" class="progress-page">
+    <h2 class="title-heading">Your Progress</h2>
+    <div class="container mt-5 mb-4">
+        <div class="row gy-5">
+            <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Line Chart</h5>
+      
+                    <!-- Line Chart -->
+                    <canvas id="lineChart" style="max-height: 400px;"></canvas>
+                    <script>
+                      document.addEventListener("DOMContentLoaded", () => {
+                        new Chart(document.querySelector('#lineChart'), {
+                          type: 'line',
+                          data: {
+                            labels: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+                            datasets: [{
+                              label: 'Monthly Weight Loss',
+                              data: [1.2903,3.9973,2.8804,2.4738,1.2903,3.9973,2.8804],
+                              fill: true,
+                              borderColor: 'rgb(0, 87,255 )',
+                              backgroundColor: 'rgba(0, 87, 255, 0.2)',
+                              pointStyle: 'circle',
+                              pointRadius: 10,
+                              pointHoverRadius: 15,
+                              tension: 0.1
+                            }]
+                          },
+                          options: {
+                            scales: {
+                              x: {
+                                title: {
+                                  display: true,
+                                  text: 'Weekdays'
+                                },
+                                ticks: {
+                                  font: {
+                                    size: 16,
+                                  }
+                                }
+                              },
+                              y: {
+                                beginAtZero: true,
+                                title: {
+                                  display: true,
+                                  text: 'Weight in Kg'
+                                },
+                                ticks: {
+                                  font: {
+                                    size: 16,
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        });
+                      });
+                    </script>
+                    <!-- End Line CHart -->
+      
+                  </div>
+                </div>
+              </div>
+      
+              
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Doughnut Chart</h5>
+      
+                    <!-- Doughnut Chart -->
+                    <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
+                    <script>
+                      document.addEventListener("DOMContentLoaded", () => {
+                        new Chart(document.querySelector('#doughnutChart'), {
+                          type: 'doughnut',
+                          data: {
+                            labels: [
+                              'Exercise1',
+                              'Exercise2',
+                              'Exercise3',
+                              'Exercise4',
+                              'Exercise5',
+                              'Exercise6',
+                              'Exercise7'
+                            ],
+                            datasets: [{
+                              label: 'My First Dataset',
+                              data: [1,1,1,1,1,1,1],
+                              backgroundColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(54, 162, 235)',
+                                'rgb(255, 205, 86)',
+                                'rgb(75, 192, 192)',
+                                'rgb(255,20,147)',
+                                'rgb(153, 102, 255)',
+                                'rgb(105,105,105)'
+      
+                              ],
+                              hoverOffset: 4
+                            }]
+                          }
+                        });
+                      });
+                    </script>
+                    <!-- End Doughnut CHart -->
+      
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

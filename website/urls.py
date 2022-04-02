@@ -28,6 +28,6 @@ urlpatterns = [
     path('bmi',views.calculate_bmi,name='calculate_bmi'),
     path('bmr',views.calculate_bmr,name='calculate_bmr'),
     path('diet_plan',views.diet_plan,name='diet_plan'),
-    path('dynamic_meal_plans',views.dynamic_meal_plans,name='dynamic_meal_plans'),
+    path('progress',views.progress,name='progress'),
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

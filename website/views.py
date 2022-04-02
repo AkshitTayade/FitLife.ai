@@ -770,7 +770,7 @@ def diet_plan(request):
 
     return render(request,'diet-plan.html',{'user_data': user_data})
 
-def dynamic_meal_plans(request):
 
-    diet_plans = Diet_Menu.objects.filter(Q(diet_choice__startswith='Low Carb Diet') & Q(diet_food_choice__startswith= 'Vegetarian'))
-    return render(request,'dynamic-meal-plans.html',{'diet_plans':diet_plans})
+def progress(request):
+    
+    return render(request,'progress.html')

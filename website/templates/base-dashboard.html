@@ -55,8 +55,8 @@
                     <span>Profile</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item {% block progressactive %} {% endblock progressactive %}">
+                <a class="nav-link" href="{% url 'progress' %}">
                     <img src="{% static 'img/dashboard/progress-icon.png'%}">
                     <span>Progress</span>
                 </a>
@@ -110,6 +110,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js'></script>
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/slider.js' %}"></script>
+    <script src="{% static 'js/chart.min.js' %}"></script>
     <script src="{% static 'js/owl-carousel.js' %}"></script>
 
 </body>
