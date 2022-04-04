@@ -22,6 +22,7 @@ import time
 from .camera import VideoCamera
 from .cal_calories_burned import CalorieBurned
 from .diet_recommender import Diet_Recommender
+import pandas as pd
 
 hotp = pyotp.HOTP('base32secret3232', digits=4)
 
@@ -772,5 +773,14 @@ def diet_plan(request):
 
 
 def progress(request):
-    
-    return render(request,'progress.html')
+
+    user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+    user_data_exercise = User_Exercise_Info.objects.filter(user_name=user_data.user_name)
+
+
+    df=pd.DataFrame(user_data_exercise.values())
+    #print(df.head())
+    x_axis=df.id.tolist()
+    y_axis=df['exercise_calorie_burnt'].tolist()
+
+    return render(request,'progress.html',{'user_data': user_data ,'user_data_exercise':user_data_exercise,'x_axis':x_axis,'y_axis':y_axis})
