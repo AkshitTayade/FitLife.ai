@@ -785,4 +785,8 @@ def progress(request):
     x_axis=df.index.tolist()
     y_axis=df['exercise_calorie_burnt'].tolist()
 
-    return render(request,'progress.html',{'user_data': user_data ,'user_data_exercise':user_data_exercise,'x_axis':x_axis,'y_axis':y_axis})
+    playlist = Playlist_Check.objects.get(user_email = request.session['user_mail_id'])
+    for i in playlist:
+        print(i)
+
+    return render(request,'progress.html',{'user_data': user_data ,'user_data_exercise':user_data_exercise,'x_axis':x_axis,'y_axis':y_axis,'playlist': playlist})
