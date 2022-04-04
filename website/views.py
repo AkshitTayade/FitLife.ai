@@ -775,6 +775,7 @@ def progress(request):
 
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
     user_data_exercise = User_Exercise_Info.objects.filter(user_name=user_data.user_name)
+    playlist_status = Playlist_Check.objects.filter(user_email = request.session['user_mail_id'])
 
     df = pd.DataFrame(None)
     df=pd.DataFrame(user_data_exercise.values())
@@ -785,8 +786,6 @@ def progress(request):
     x_axis=df.index.tolist()
     y_axis=df['exercise_calorie_burnt'].tolist()
 
-    playlist = Playlist_Check.objects.get(user_email = request.session['user_mail_id'])
-    for i in playlist:
-        print(i)
+    playlist_lt = [list(i.values()) for i in playlist_status.values()]
 
-    return render(request,'progress.html',{'user_data': user_data ,'user_data_exercise':user_data_exercise,'x_axis':x_axis,'y_axis':y_axis,'playlist': playlist})
+    return render(request,'progress.html',{'user_data': user_data ,'user_data_exercise':user_data_exercise,'x_axis':x_axis,'y_axis':y_axis, 'playlist_lt':playlist_lt[0][2:9]})
