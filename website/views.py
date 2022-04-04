@@ -771,16 +771,18 @@ def diet_plan(request):
 
     return render(request,'diet-plan.html',{'user_data': user_data})
 
-
 def progress(request):
 
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
     user_data_exercise = User_Exercise_Info.objects.filter(user_name=user_data.user_name)
 
-
+    df = pd.DataFrame(None)
     df=pd.DataFrame(user_data_exercise.values())
+    df["current_time"] = pd.to_datetime(df["current_time"]).dt.date
+    df = df.groupby(['current_time']).sum()
     #print(df.head())
-    x_axis=df.id.tolist()
+
+    x_axis=df.index.tolist()
     y_axis=df['exercise_calorie_burnt'].tolist()
 
     return render(request,'progress.html',{'user_data': user_data ,'user_data_exercise':user_data_exercise,'x_axis':x_axis,'y_axis':y_axis})
