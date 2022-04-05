@@ -67,12 +67,12 @@
                     <span>Diet Plan</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="#">
                     <img src="{% static 'img/dashboard/schedule-icon.png'%}">
                     <span>Schedule</span>
                 </a>
-            </li>
+            </li> -->
             {% if request.session.user_mail_id != False %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout_user' %}">

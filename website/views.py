@@ -781,11 +781,12 @@ def progress(request):
     df=pd.DataFrame(user_data_exercise.values())
     df["current_time"] = pd.to_datetime(df["current_time"]).dt.date
     df = df.groupby(['current_time']).sum()
-    #print(df.head())
 
     x_axis=df.index.tolist()
     y_axis=df['exercise_calorie_burnt'].tolist()
 
+    y1_axis=df['exercise_weight_loss'].multiply(10000).tolist()
+    
     playlist_lt = [list(i.values()) for i in playlist_status.values()]
 
-    return render(request,'progress.html',{'user_data': user_data ,'user_data_exercise':user_data_exercise,'x_axis':x_axis,'y_axis':y_axis, 'playlist_lt':playlist_lt[0][2:9]})
+    return render(request,'progress.html',{'user_data': user_data ,'user_data_exercise':user_data_exercise,'x_axis':x_axis,'y_axis':y_axis,'y1_axis':y1_axis, 'playlist_lt':playlist_lt[0][2:9]})

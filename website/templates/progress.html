@@ -19,45 +19,46 @@
                   type: 'line',
                   data: {
                     labels: [{% for item in x_axis %}"{{ item }}", {% endfor %}],
-                    datasets: [{
-                      label: 'Daily Calories Burned',
-                      data: [{% for item in y_axis %}{{ item }}, {% endfor %}],
-                      fill: true,
-                      borderColor: 'rgb(0, 87,255 )',
-                      backgroundColor: 'rgba(0, 87, 255, 0.2)',
-                      pointStyle: 'circle',
-                      pointRadius: 10,
-                      pointHoverRadius: 15,
-                      tension: 0.1
+                datasets: [{
+                  label: 'Daily Calories Burned',
+                  data: [{% for item in y_axis %}{{ item }}, {% endfor %}],
+                fill: true,
+                borderColor: 'rgb(0, 87,255 )',
+                backgroundColor: 'rgba(0, 87, 255, 0.2)',
+                pointStyle: 'circle',
+                pointRadius: 10,
+                pointHoverRadius: 15,
+                tension: 0.1
                     }]
                   },
-                  options: {
-                    scales: {
-                      x: {
-                        title: {
-                          display: true,
-                          text: 'Date'
-                        },
-                        ticks: {
-                          font: {
-                            size: 16,
-                          }
-                        }
-                      },
-                      y: {
-                        beginAtZero: true,
-                        title: {
-                          display: true,
-                          text: 'Calories Burned (cal)'
-                        },
-                        ticks: {
-                          font: {
-                            size: 16,
-                          }
-                        }
+                options: {
+                responsive: true,
+                scales: {
+                  x: {
+                    title: {
+                      display: true,
+                      text: 'Date'
+                    },
+                    ticks: {
+                      font: {
+                        size: 14,
+                      }
+                    }
+                  },
+                  y: {
+                    beginAtZero: true,
+                    title: {
+                      display: true,
+                      text: 'Calories'
+                    },
+                    ticks: {
+                      font: {
+                        size: 14,
                       }
                     }
                   }
+                }
+              }
                 });
               });
             </script>
@@ -65,11 +66,63 @@
         </div>
       </div>
 
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Weight Loss vs Days</h5>
+            <canvas id="lineChart1" style="max-height: 400px;"></canvas>
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new Chart(document.querySelector('#lineChart1'), {
+                  type: 'line',
+                  data: {
+                    labels: [{% for item in x_axis %}"{{ item }}", {% endfor %}],
+                    datasets: [{
+                  label: 'Line Chart',
+                  data: [{% for item in y1_axis %}{{ item }}, {% endfor %}],
+                borderColor: 'rgb(0, 87,255 )',
+                tension: 0.1
+                    }]
+                  },
+                  options: {
+                responsive: true,
+                scales: {
+                  x: {
+                    title: {
+                      display: true,
+                      text: 'Date'
+                    },
+                    ticks: {
+                      font: {
+                        size: 14,
+                      }
+                    }
+                  },
+                  y: {
+                    beginAtZero: true,
+                    title: {
+                      display: true,
+                      text: 'Weight in grams'
+                    },
+                    ticks: {
+                      font: {
+                        size: 14,
+                      }
+                    }
+                  }
+                }
+              }
+                });
+              });
+            </script>
+          </div>
+        </div>
+      </div>
 
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Doughnut Chart</h5>
+            <h5 class="card-title">Daily Exercise Completed</h5>
             <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
             <script>
               document.addEventListener("DOMContentLoaded", () => {
@@ -87,18 +140,18 @@
                     ],
                     datasets: [{
                       label: 'My First Dataset',
-                      data:  [{% for item in playlist_lt %}{{ item }}, {% endfor %}],
-                      backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 86)',
-                        'rgb(75, 192, 192)',
-                        'rgb(255,20,147)',
-                        'rgb(153, 102, 255)',
-                        'rgb(105,105,105)'
+                      data: [{% for item in playlist_lt %}{{ item }}, {% endfor %}],
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgb(75, 192, 192)',
+                'rgb(255,20,147)',
+                'rgb(153, 102, 255)',
+                'rgb(105,105,105)'
 
-                      ],
-                      hoverOffset: 4
+              ],
+                hoverOffset: 4
                     }]
                   }
                 });
@@ -109,6 +162,7 @@
       </div>
     </div>
   </div>
+
 </section>
 {% endblock scripts %}
 {% endblock %}
