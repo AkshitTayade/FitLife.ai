@@ -786,7 +786,18 @@ def progress(request):
     y_axis=df['exercise_calorie_burnt'].tolist()
 
     y1_axis=df['exercise_weight_loss'].multiply(10000).tolist()
+
+    exercise_duration = df['exercise_duration'].sum().tolist()
+
+    calories_burnt = df['exercise_calorie_burnt'].sum().tolist()
     
     playlist_lt = [list(i.values()) for i in playlist_status.values()]
 
-    return render(request,'progress.html',{'user_data': user_data ,'user_data_exercise':user_data_exercise,'x_axis':x_axis,'y_axis':y_axis,'y1_axis':y1_axis, 'playlist_lt':playlist_lt[0][2:9]})
+    return render(request,'progress.html',{'user_data': user_data ,
+                                            'user_data_exercise':user_data_exercise,
+                                            'x_axis':x_axis,
+                                            'y_axis':y_axis,
+                                            'y1_axis':y1_axis,
+                                            'exercise_duration':round(exercise_duration/60,2),
+                                            'calories_burnt':round(calories_burnt,2),
+                                            'playlist_lt':playlist_lt[0][2:9]})

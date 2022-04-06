@@ -1409,6 +1409,17 @@ border-radius: 16px;
   background: #FFFFFF;
   border-radius: 10px;
 }
+.counter-icon{
+  background: linear-gradient(to bottom right, #0057FF 0%,rgba(0, 87, 255, 0.6) 100%) !important;
+  border-radius: 50% !important;
+  margin-bottom: 1rem;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 0 5px 10px #c4cdeb;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -1498,6 +1509,10 @@ border-radius: 16px;
     padding-right: 0px !important;
   }
   .diet-plan{
+    padding: 20px 10px;
+    margin-top: 70px;
+  }
+  .progress-page{
     padding: 20px 10px;
     margin-top: 70px;
   }

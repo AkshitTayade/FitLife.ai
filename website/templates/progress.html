@@ -7,6 +7,45 @@
 <section id="progress-page" class="progress-page">
   <h2 class="title-heading">Your Progress</h2>
   <div class="container mt-5 mb-4">
+    <div class="row">
+      <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card p-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col col-auto">
+                <div class="counter-icon ms-auto"> 
+                  <i class="fa-solid fa-fire text-center text-white"></i>
+                </div>
+              </div>
+              <div class="col ms-auto">
+                <h6>Calories Burn</h6>
+                <h3>{{calories_burnt}} cals</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card p-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col col-auto">
+                <div class="counter-icon ms-auto"> 
+                  <i class="fa-solid fa-clock text-center text-white"></i>
+                </div>
+              </div>
+              <div class="col ms-auto">
+                <h6>Time Taken</h6>
+                <h3>{{exercise_duration}} mins</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="container mt-1 mb-4">
     <div class="row gy-5">
       <div class="col-lg-12">
         <div class="card">
@@ -77,14 +116,14 @@
                   type: 'line',
                   data: {
                     labels: [{% for item in x_axis %}"{{ item }}", {% endfor %}],
-                    datasets: [{
-                  label: 'Line Chart',
+                datasets: [{
+                  label: 'Weight Loss',
                   data: [{% for item in y1_axis %}{{ item }}, {% endfor %}],
                 borderColor: 'rgb(0, 87,255 )',
                 tension: 0.1
                     }]
                   },
-                  options: {
+                options: {
                 responsive: true,
                 scales: {
                   x: {
@@ -142,13 +181,13 @@
                       label: 'My First Dataset',
                       data: [{% for item in playlist_lt %}{{ item }}, {% endfor %}],
                 backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)',
-                'rgb(75, 192, 192)',
-                'rgb(255,20,147)',
-                'rgb(153, 102, 255)',
-                'rgb(105,105,105)'
+                'rgb(221, 255, 108)',
+                'rgb(255, 193, 108)',
+                'rgb(255, 118, 112)',
+                'rgb(223, 109, 255)',
+                'rgb(139, 109, 255)',
+                'rgb(110, 170, 255)',
+                'rgb(117, 254, 254)'
 
               ],
                 hoverOffset: 4
