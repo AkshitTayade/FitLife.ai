@@ -188,9 +188,9 @@ class poseDetector():
                 self.i += 1
 
         if self.count >= 12:
-            cv2.putText(frame, "Completed", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
+            cv2.putText(frame, "Completed", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
         else:
-            cv2.putText(frame, f"Count = {int(self.count)}/12", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+            cv2.putText(frame, f"Count = {int(self.count)}/12", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
             
         return(frame)
 
@@ -252,9 +252,9 @@ class poseDetector():
                 self.i += 1
                 
         if int(self.count_jj/4) >= 10:
-            cv2.putText(frame, f"Completed", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+            cv2.putText(frame, f"Completed", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
         else:
-            cv2.putText(frame, f"Count = {int(self.count_jj/4)}/10", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+            cv2.putText(frame, f"Count = {int(self.count_jj/4)}/10", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
 
         cv2.line(frame, (x_left_1, y_left_1), (x_right_2, y_right_2), (0, 255, 0), 3)
         cv2.line(frame, (x_left_3, y_left_3), (x_right_4, y_right_4), (0, 255, 0), 3)
@@ -266,6 +266,8 @@ class poseDetector():
         return(frame)
 
     def Adbominal_crunches(self, frame):
+
+        h, w, c = frame.shape
         
         positions = self.findPosition(frame)
         #print(positions)
@@ -293,10 +295,12 @@ class poseDetector():
                 cv2.circle(frame, (x2, y2), 15, (0, 255, 0), 2)
     
                 #print("Perfect posture")
+                cv2.putText(frame, "Perfect posture", (50, h-50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
 
         if (left_knee_angle>90):
             
             #print("Keep your legs close to your thighs")
+            cv2.putText(frame, "Keep your legs close to your thighs", (50, h-50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
 
             x3, y3 = positions[25][1:]
             cv2.circle(frame, (x3, y3), 5, (0, 0, 255), cv2.FILLED)
@@ -305,6 +309,7 @@ class poseDetector():
         if (hip_angle >= 130):
         
             #print("Try to lift up your body")
+            cv2.putText(frame, "Try to lift up your body", (50, h-50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
         
             x2, y2 = positions[23][1:]
             cv2.circle(frame, (x2, y2), 5, (0, 0, 255), cv2.FILLED)
@@ -350,13 +355,15 @@ class poseDetector():
                 self.i += 1
 
         if int(self.count_ac) <=8:
-            cv2.putText(frame, f"Count = {int(self.count_ac)}/8", (900, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+            cv2.putText(frame, f"Count = {int(self.count_ac)}/8", (900, 100), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
         else:
-            cv2.putText(frame, "Completed", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
+            cv2.putText(frame, "Completed", (900, 100), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
         
         return(frame)
 
     def Knee_pushup(self, frame):
+
+        h, w, c = frame.shape
         
         positions = self.findPosition(frame)
 
@@ -378,7 +385,8 @@ class poseDetector():
                 cv2.circle(frame, (x2, y2), 5, (0, 255, 0), cv2.FILLED)
                 cv2.circle(frame, (x2, y2), 15, (0, 255, 0), 2)
 
-                    #print("Perfect posture")
+                #print("Perfect posture")
+                cv2.putText(frame, "Perfect posture", (50, h-50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
 
         if knee > 100:
             x3, y3 = positions[26][1:]
@@ -387,6 +395,7 @@ class poseDetector():
             cv2.circle(frame, (x3, y3), 15, (0, 0, 255), 2)
 
             #print("Keep your knee close to your butt")
+            cv2.putText(frame, "Keep your knee close to your butt", (50, h-50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
 
         if elbow >= 100:
             x2, y2 = positions[13][1:]
@@ -395,6 +404,7 @@ class poseDetector():
             cv2.circle(frame, (x2, y2), 15, (0, 0, 255), 2)
 
             #print("Bend down")
+            cv2.putText(frame, "Bend down", (50, h-50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
 
         per = np.interp(elbow, (90, 160), (0, 100))
     
@@ -436,13 +446,15 @@ class poseDetector():
                 self.i += 1
 
         if int(self.count_kp) <= 12:
-            cv2.putText(frame, f"Count = {int(self.count_kp)}/12", (500, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+            cv2.putText(frame, f"Count = {int(self.count_kp)}/12", (500, 100), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
         else:
-            cv2.putText(frame, f"Completed", (500, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+            cv2.putText(frame, f"Completed", (500, 100), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
         
         return(frame)
 
     def Side_arm_raises(self, frame):
+
+        h, w, c = frame.shape
     
         positions = self.findPosition(frame)
 
@@ -475,6 +487,7 @@ class poseDetector():
             cv2.circle(frame, (x, y), 15, (0, 0, 255), 2)
             
             #print("Try to keep your hand parallel to the ground")
+            cv2.putText(frame, "Try to keep your hand parallel to the ground", (50, h-50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
 
         if right_shoulder > 100:
             x, y = positions[12][1:]
@@ -486,6 +499,7 @@ class poseDetector():
             cv2.circle(frame, (x, y), 15, (0, 0, 255), 2)
             
             #print("Try to keep your hand parallel to the ground")
+            cv2.putText(frame, "Try to keep your hand parallel to the ground", (50, h-50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
         
         if euclidian_dist_bottom < euclidian_dist_shoudler:
 
@@ -494,6 +508,7 @@ class poseDetector():
             #cv2.line(frame, (x_left_3, y_left_3), (x_right_4, y_right_4), (0, 0, 255), 2)
 
             #print("Increase the distance between your ankles")
+            cv2.putText(frame, "Increase the distance between your ankles", (50, h-50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
 
 
         left_per = np.interp(left_shoulder, (20, 90), (0, 100))
@@ -543,12 +558,14 @@ class poseDetector():
                 self.i += 1
 
         if int(self.count_sar) >= 15:
-            cv2.putText(frame, f"Completed", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 2)
+            cv2.putText(frame, f"Completed", (900, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 87, 255), 2)
         else:
-            cv2.putText(frame, f"Count = {int(self.count_sar)}/15", (800, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 2)
+            cv2.putText(frame, f"Count = {int(self.count_sar)}/15", (900, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 87, 255), 2)
         return(frame)
 
     def Backward_Lunges(self, frame):
+
+        h, w, c = frame.shape
         
         positions = self.findPosition(frame)
 
@@ -562,8 +579,9 @@ class poseDetector():
         if left_knee < 75:
             x, y = positions[25][1:]
             
-            #cv2.putText(frame, f"You are leaning way too back, Keep your Left Knee at 90 degree", (200, 700), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 2)
-            print("You are leaning way too back, Keep your Left Knee at 90 degree")
+            cv2.putText(frame, "You are leaning way too back,", (50, h-80), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
+            cv2.putText(frame, "Keep your Left Knee at 90 degree", (50, h-50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
+            #print("You are leaning way too back, Keep your Left Knee at 90 degree")
             
             cv2.circle(frame, (x, y), 5, (0, 0, 255), cv2.FILLED)
             cv2.circle(frame, (x, y), 15, (0, 0, 255), 2)
@@ -571,7 +589,8 @@ class poseDetector():
         if right_knee < 75:
             x, y = positions[26][1:]
             
-            #cv2.putText(frame, f"You are leaning way too back, Keep your Right Knee at 90 degree", (200, 700), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 2)
+            cv2.putText(frame, "You are leaning way too back,", (50, h-80), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
+            cv2.putText(frame, "Keep your Right Knee at 90 degree", (50, h-50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
             print("You are leaning way too back, Keep your Right Knee at 90 degree by streching your leg")
             
             cv2.circle(frame, (x, y), 5, (0, 0, 255), cv2.FILLED)
@@ -631,15 +650,17 @@ class poseDetector():
         
 
         if int(int(int(self.l_count_bl/2) + int(self.r_count_bl/2))/2) <= 14:
-            cv2.putText(frame, f"Total Reps = {int(int(int(self.l_count_bl/2) + int(self.r_count_bl/2))/2)}/14", (900, 100), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
-            cv2.putText(frame, f"Left = {int(self.l_count_bl/2)}", (900, 140), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
-            cv2.putText(frame, f"Right = {int(self.r_count_bl/2)}", (900, 180), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
+            cv2.putText(frame, f"Total Reps = {int(int(int(self.l_count_bl/2) + int(self.r_count_bl/2))/2)}/14", (900, 100), cv2.FONT_HERSHEY_PLAIN, 2, (255, 87, 0), 2)
+            cv2.putText(frame, f"Left = {int(self.l_count_bl/2)}", (900, 140), cv2.FONT_HERSHEY_PLAIN, 2, (255, 87, 0), 2)
+            cv2.putText(frame, f"Right = {int(self.r_count_bl/2)}", (900, 180), cv2.FONT_HERSHEY_PLAIN, 2, (255, 87, 0), 2)
         else:
-            cv2.putText(frame, f"Completed", (900, 100), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
+            cv2.putText(frame, f"Completed", (900, 100), cv2.FONT_HERSHEY_PLAIN, 2, (255, 87, 0), 2)
        
         return(frame)
 
     def Cobra_Stretch(self, frame):
+
+        h, w, c = frame.shape
         
         positions = self.findPosition(frame)
 
@@ -701,7 +722,7 @@ class poseDetector():
 
                     #print(period)
                     cv2.circle(frame, (30,680), 100, (255, 0, 0), 3)
-                    cv2.putText(frame,str(time_left_str),(10,680), font, 2,(0,0,255),3,cv2.LINE_AA)
+                    cv2.putText(frame,str(time_left_str),(10,680), font, 2,(255, 87, 0),3,cv2.LINE_AA)
                 
                 else:
                     x, y = positions[25][1:]
@@ -710,6 +731,7 @@ class poseDetector():
                     cv2.circle(frame, (x, y), 15, (0, 0, 255), 2)
 
                     #print("Keep your legs straight")
+                    cv2.putText(frame, "Keep your legs straight", (50, h-80), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
 
             else:
                 x, y = positions[0][1:]
@@ -718,6 +740,7 @@ class poseDetector():
                 cv2.circle(frame, (x, y), 15, (0, 0, 255), 2)
 
                 #print("Look Straight, instead looking down")
+                cv2.putText(frame, "Look Straight, instead looking down", (50, h-80), cv2.FONT_HERSHEY_PLAIN, 3, (255, 87, 0), 3)
 
         return(frame)
 
