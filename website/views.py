@@ -520,6 +520,18 @@ def beginner_playlist(request):
     
     return render(request,'beginner.html', {'user_data': user_data})
 
+def intermediate_playlist(request):
+    
+    user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+    
+    return render(request,'intermediate.html', {'user_data': user_data})
+
+def advance_playlist(request):
+    
+    user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()
+    
+    return render(request,'advance.html', {'user_data': user_data})
+
 def profile(request):
     
     user_data = User_Info.objects.filter(user_email=request.session['user_mail_id']).first()

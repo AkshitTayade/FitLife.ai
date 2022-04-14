@@ -247,11 +247,12 @@ nav.scrolled  .active{
 # About Us
 --------------------------------------------------------------*/
 #about-us{
-  padding: 40px 0px 120px;
+  padding: 120px 0px 70px;
   background-color: #151419;
 }
 #about-us .icon-box {
   margin-top: 10px;
+  margin-bottom: 30px;
 }
 #about-us .icon-box .icon {
   float: left;
@@ -281,6 +282,7 @@ nav.scrolled  .active{
 .about-image{
 	position: relative;
 	z-index: 1;
+  margin-top: -30px;
 }
 .about-image .card.card-1{
   position: absolute;
