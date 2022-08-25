@@ -10,3 +10,5 @@
 7. JSON
 8. Github (Version Control)
 9. Visual Studio Code (Code Editor)
+
+Video Link - https://youtu.be/4w8zIXG8bek
