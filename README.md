@@ -1,4 +1,6 @@
-# Smart Fitness Assistant : FitLife.ai
+# FitLife.ai - Smart Fitness Assistant
+
+# Problem Statement
 
 # Tech Stack
 1. Figma (UI Designing)
