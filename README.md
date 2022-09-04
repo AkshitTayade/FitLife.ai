@@ -1,11 +1,12 @@
 # FitLife.ai - Smart Fitness Assistant
 
 ## Problem Statement
-hysical activity, particularly structured exercises, not only improves physical function but has also been 
+Physical activity, particularly structured exercises, not only improves physical function but has also been 
 linked to improved social and mental wellbeing. However, for some people, regular training, particularly 
 at a gym or outside, may be inconvenient or impossible. Currently, the only way to achieve this is through 
 interaction with a trainer or other gym-goers. Personal trainers are expensive, and many people who wish 
 to exercise cannot afford one. 
+
 44% of gym users are too embarrassed to seek help from a gym employee” (pure gym, 2019). During the 
 COVID-19 epidemic, the majority of people have looked into some type of at-home exercise. "40% OF 
 CONSUMERS ANTICIPATING TO EXERCISE MORE AS A RESULT OF THE ONGOING 
@@ -13,7 +14,8 @@ PANDEMIC" (LSN GLOBAL, 2020). Additionally, fast-food consumption is frightening
 which has resulted in the consumption of unhealthy foods. As a result, it has become critical for people to 
 have a well-balanced nutritionally sound diet in addition to engaging in physical activity. However, in this 
 fast-paced world, not everyone has the time or money to spend on a personal dietitian and nutritionist who 
-will monitor and care for their health by counseling them on a balanced food plan. 
+will monitor and care for their health by counseling them on a balanced food plan
+. 
 In this study, we looked at how technology can help with home training, how it can persuade people to start 
 and maintain an active lifestyle, and how it may be helpful in attaining better strength and balance. We 
 reviewed individual personal information in this study and attempted to propose a diet type and meal plans 
@@ -44,6 +46,18 @@ Another example where these AI-based apps may cause errors is in Martial arts wh
 (d) **Horizontal position:** 
 A human pose estimation model may also have difficulty estimating push-ups. A large number of errors are returned by the model when detecting 2D key points of arms and legs of this athlete doing push-ups in the video. However, rotating the video vertically to examine the athlete's movements worked wonderfully. This problem proved that visual data in such open datasets was not sufficient. 
 </p>
+
+## Model Architecture
+## 1. Exercise Correction
+**Pre-processing of Images to get Multi-Pose Landmarks**
+**Angle Calculation using Landmarks**
+**Posture Correction**
+**Calories Burned Estimation**
+
+## 2. Diet Recommendation
+**Dataset Collection**
+**EDA**
+**Machine Learning Algorithms**
 
 ## Tech Stack
 1. Figma (UI Designing)
