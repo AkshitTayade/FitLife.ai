@@ -35,20 +35,20 @@ according to their particular preferences and building a healthy lifestyle behav
 
 ## Challenges of AI in fitness
 <p align='justify'>
-(a) Specifics of Physiology: 
+(a) **Specifics of Physiology**: 
 Humans do not have ideal body proportions. There are disproportions in everyone, whether it be 
 the length of their arms, the legs, or the back. We need to understand that only those images of 
 people used for training will be used to analyse the user's body for pose estimation. This means, the 
 model’s perception of the body of the user depends on people’s bodies from the training images. It 
 is not assured that the training dataset consists of images of the same body structure. 
 
-(b) Detection of start of the exercises 
+(b) **Detection of start of the exercises:** 
 In order to estimate the exercise duration period, the system is expected to detect the exercise start 
 and end. For example, while squatting with a barrel, the system can analyse the user's hand and 
 shoulder positions through arbitrary hard-coded thresholds. Errors might occur if the arm angles 
 briefly exceed this threshold. 
 
-(c) Quick Movements of the Lower Body Part: 
+(c) **Quick Movements of the Lower Body Part:** 
 Another example where these AI-based apps may cause errors is in Martial arts while using legs 
 for kicking. In the case of a quick kick, the deep learning model might be unable to record this 
 action. This is because the fast leg-transition could lead to the blurring of key points of the leg. 
@@ -56,7 +56,7 @@ Additionally, the 2D key point dataset may not include images of such limb actio
 detections which act as an input for 3D pose prediction were detected wrongly. As a result, 3D 
 predictions for the lower-body will not reflect real actions. 
 
-(d) Horizontal position: 
+(d) **Horizontal position:** 
 A human pose estimation model may also have difficulty estimating push-ups. A large number of 
 errors are returned by the model when detecting 2D key points of arms and legs of this athlete doing 
 push-ups in the video. However, rotating the video vertically to examine the athlete's movements 
