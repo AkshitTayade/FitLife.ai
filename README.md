@@ -35,7 +35,7 @@ according to their particular preferences and building a healthy lifestyle behav
 
 ## Challenges of AI in fitness
 <p align='justify'>
-(a) **Specifics of Physiology**: 
+(a) **Specifics of Physiology:** 
 Humans do not have ideal body proportions. There are disproportions in everyone, whether it be 
 the length of their arms, the legs, or the back. We need to understand that only those images of 
 people used for training will be used to analyse the user's body for pose estimation. This means, the 
