@@ -1,5 +1,24 @@
 # FitLife.ai - Smart Fitness Assistant
 
+## Problem Statement
+hysical activity, particularly structured exercises, not only improves physical function but has also been 
+linked to improved social and mental wellbeing. However, for some people, regular training, particularly 
+at a gym or outside, may be inconvenient or impossible. Currently, the only way to achieve this is through 
+interaction with a trainer or other gym-goers. Personal trainers are expensive, and many people who wish 
+to exercise cannot afford one. 
+44% of gym users are too embarrassed to seek help from a gym employee” (pure gym, 2019). During the 
+COVID-19 epidemic, the majority of people have looked into some type of at-home exercise. "40% OF 
+CONSUMERS ANTICIPATING TO EXERCISE MORE AS A RESULT OF THE ONGOING 
+PANDEMIC" (LSN GLOBAL, 2020). Additionally, fast-food consumption is frighteningly increasing, 
+which has resulted in the consumption of unhealthy foods. As a result, it has become critical for people to 
+have a well-balanced nutritionally sound diet in addition to engaging in physical activity. However, in this 
+fast-paced world, not everyone has the time or money to spend on a personal dietitian and nutritionist who 
+will monitor and care for their health by counseling them on a balanced food plan. 
+In this study, we looked at how technology can help with home training, how it can persuade people to start 
+and maintain an active lifestyle, and how it may be helpful in attaining better strength and balance. We 
+reviewed individual personal information in this study and attempted to propose a diet type and meal plans 
+for a healthy lifestyle
+
 ## Description
 <p align="justify">
 We present a system that analyzes the user's body posture during a workout and provides posture corrections to help fix this problem and offer visual feedback while conducting an exercise. Fitness AI, the smart fitness assistant, is what we call it. 
