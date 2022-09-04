@@ -48,16 +48,16 @@ A human pose estimation model may also have difficulty estimating push-ups. A la
 </p>
 
 ## Model Architecture
-## 1. Exercise Correction
-**Pre-processing of Images to get Multi-Pose Landmarks**<br>
-**Angle Calculation using Landmarks**<br>
-**Posture Correction**<br>
-**Calories Burned Estimation**<br>
+### 1. Exercise Correction
+- **Pre-processing of Images to get Multi-Pose Landmarks**<br>
+- **Angle Calculation using Landmarks**<br>
+- **Posture Correction**<br>
+- **Calories Burned Estimation**<br>
 
-## 2. Diet Recommendation
-**Dataset Collection**<br>
-**EDA**<br>
-**Machine Learning Algorithms**<br>
+### 2. Diet Recommendation
+- **Dataset Collection**<br>
+- **EDA**<br>
+- **Machine Learning Algorithms**<br>
 
 > For detailed explaination refer [here](https://github.com/Vidhi-Sejpal/FitLife.ai/blob/master/LY%20Project%20Report.pdf) Page 16
 
@@ -72,4 +72,4 @@ A human pose estimation model may also have difficulty estimating push-ups. A la
 8. Github (Version Control)
 9. Visual Studio Code (Code Editor)
 
-Video Link - https://youtu.be/4w8zIXG8bek
+**Video Link** - https://youtu.be/4w8zIXG8bek
