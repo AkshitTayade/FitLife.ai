@@ -49,15 +49,15 @@ A human pose estimation model may also have difficulty estimating push-ups. A la
 
 ## Model Architecture
 ## 1. Exercise Correction
-**Pre-processing of Images to get Multi-Pose Landmarks**
-**Angle Calculation using Landmarks**
-**Posture Correction**
-**Calories Burned Estimation**
+**Pre-processing of Images to get Multi-Pose Landmarks**<br>
+**Angle Calculation using Landmarks**<br>
+**Posture Correction**<br>
+**Calories Burned Estimation**<br>
 
 ## 2. Diet Recommendation
-**Dataset Collection**
-**EDA**
-**Machine Learning Algorithms**
+**Dataset Collection**<br>
+**EDA**<br>
+**Machine Learning Algorithms**<br>
 
 ## Tech Stack
 1. Figma (UI Designing)
