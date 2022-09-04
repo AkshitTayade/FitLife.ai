@@ -59,6 +59,8 @@ A human pose estimation model may also have difficulty estimating push-ups. A la
 **EDA**<br>
 **Machine Learning Algorithms**<br>
 
+> For detailed explaination refer [here](https://github.com/Vidhi-Sejpal/FitLife.ai/blob/master/LY%20Project%20Report.pdf) Page 16
+
 ## Tech Stack
 1. Figma (UI Designing)
 2. Bootstrap (Frontend)
