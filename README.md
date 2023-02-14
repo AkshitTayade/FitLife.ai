@@ -1,5 +1,9 @@
 # FitLife.ai - Smart Fitness Assistant
 
+<p align="justify">
+  <img src="https://github.com/AkshitTayade/FitLife.ai/blob/master/website/static/img/Fitlife.ai.jpg">
+</p>
+
 ## Problem Statement
 Physical activity, particularly structured exercises, not only improves physical function but has also been 
 linked to improved social and mental wellbeing. However, for some people, regular training, particularly 
